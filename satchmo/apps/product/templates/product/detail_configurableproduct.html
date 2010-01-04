@@ -53,10 +53,10 @@ $(function() {
 {% if options %}
 <p>{% trans "Please choose your options" %}:</p>
 {% endif %}
-
+<fieldset>
 {% for option_group in options %}
- {{ option_group.name }}
-    <select name="{{ option_group.id }}" id="{{option_group.id}}" class="priced">
+    <label for="{{ option_group.name|slugify }}">{{ option_group.name }}</label>
+    <select name="{{ option_group.name }}" id="{{option_group.id}}" class="priced">
     {% for choice in option_group.items %}
      <option value="{{ choice.value }}" {% if choice.selected %}selected="selected"{% endif %}>{{ choice.translated_name }}
         {% if choice.price_change %}
@@ -66,10 +66,12 @@ $(function() {
     {% endfor %}
       </select>
 {% endfor %}
-{% trans "Quantity" %} <input type="text", size="2", name="quantity" id="quantity" value="1" class="priced" />
+<label for="quantity">{% trans "Quantity" %}</label>
+<input type="text" size="2" name="quantity" id="quantity" value="1" class="priced" />
 <input type="hidden" name="productname" id="productname" value="{{product.slug}}" />
 <input id="addcart" type="submit" name="addcart" value="{% trans "Add to cart" %}" />
 {% plugin_point "product_add_buttons" %}
 {% plugin_point "product_form" %}
+</fieldset>
 </form>
 {% endblock %}

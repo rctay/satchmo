@@ -48,7 +48,9 @@ Modifying A Store
    :maxdepth: 1
 
    customization
+   custom-admin
    custom-payment
+   product-attributes
    custom-product
    translation
    templates

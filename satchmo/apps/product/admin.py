@@ -1,15 +1,17 @@
 from django.contrib import admin
 from django.forms import models, ValidationError
 from django.utils.translation import get_language, ugettext_lazy as _
+from l10n.l10n_settings import get_l10n_setting
 from livesettings import config_value
 from product.models import Category, CategoryTranslation, CategoryImage, CategoryImageTranslation, \
                                    OptionGroup, OptionGroupTranslation, Option, OptionTranslation, Product, \
                                    CustomProduct, CustomTextField, CustomTextFieldTranslation, ConfigurableProduct, \
                                    DownloadableProduct, SubscriptionProduct, Trial, ProductVariation, ProductAttribute, \
                                    Price, ProductImage, ProductImageTranslation, default_weight_unit, \
-                                   default_dimension_unit, ProductTranslation, Discount, TaxClass
+                                   default_dimension_unit, ProductTranslation, Discount, TaxClass, AttributeOption
 from satchmo_utils.thumbnail.field import ImageWithThumbnailField
 from satchmo_utils.thumbnail.widgets import AdminImageWithThumbnailWidget
+import re
 
 class CategoryTranslation_Inline(admin.StackedInline):
     model = CategoryTranslation
@@ -30,7 +32,7 @@ class CategoryImageTranslation_Inline(admin.StackedInline):
 class DiscountOptions(admin.ModelAdmin):
     list_display=('site', 'description','active')
     list_display_links = ('description',)
-    filter_horizontal = ('validProducts',)
+    raw_id_fields = ('validProducts',)
 
 class OptionGroupTranslation_Inline(admin.StackedInline):
     model = OptionGroupTranslation
@@ -56,9 +58,41 @@ class Trial_Inline(admin.StackedInline):
     model = Trial
     extra = 2
 
+class ProductAttributeForm(models.ModelForm):
+    
+    def clean_validation(self):
+        validation = self.cleaned_data['validation']
+        try:
+            re.compile(validation)
+        except:
+            raise ValidationError(_("Invalid regular expression"))
+        return validation
+        
+
+class ProductAttributeAdmin(admin.ModelAdmin):
+    form = ProductAttributeForm
+    prepopulated_fields = {"name": ("description",)}
+    
+
+class ProductAttributeInlineForm(models.ModelForm):
+    
+    def clean_value(self):
+        value = self.cleaned_data['value']
+        attribute = self.cleaned_data['option']
+        product = self.cleaned_data['product']
+        function_name = attribute.validation.split('.')[-1]
+        import_name = '.'.join(attribute.validation.split('.')[:-1])
+        import_module = __import__(import_name, fromlist=[function_name])
+        validation_function = getattr(import_module, function_name)
+        success, valid_value = validation_function(value, product)
+        if not success:
+            raise ValidationError(attribute.error_message)
+        return valid_value
+
 class ProductAttribute_Inline(admin.TabularInline):
     model = ProductAttribute
-    extra = 1
+    extra = 2
+    form = ProductAttributeInlineForm
 
 class Price_Inline(admin.TabularInline):
     model = Price
@@ -96,11 +130,17 @@ class CategoryAdminForm(models.ModelForm):
         return parent
 
 class CategoryOptions(admin.ModelAdmin):
-    list_display = ('site','name', '_parents_repr', 'is_active')
+    
+    if config_value('SHOP','SHOW_SITE'):
+        list_display = ('site',)
+    else:
+        list_display = ()
+    
+    list_display += ('name', '_parents_repr', 'is_active')
     list_display_links = ('name',)
     ordering = ['site', 'parent__id', 'ordering', 'name']
     inlines = [CategoryImage_Inline]
-    if config_value('LANGUAGE','SHOW_TRANSLATIONS'):
+    if get_l10n_setting('show_translations'):
         inlines.append(CategoryTranslation_Inline)
     filter_horizontal = ('related_categories',)
     form = CategoryAdminForm
@@ -118,20 +158,66 @@ class CategoryImageOptions(admin.ModelAdmin):
 
 class OptionGroupOptions(admin.ModelAdmin):
     inlines = [Option_Inline]
-    if config_value('LANGUAGE','SHOW_TRANSLATIONS'):
+    if get_l10n_setting('show_translations'):
         inlines.append(OptionGroupTranslation_Inline)
-
-    list_display = ['site', 'name']
+    if config_value('SHOP','SHOW_SITE'):
+        list_display = ('site',)
+    else:
+        list_display = ()
+    list_display += ('name',)
 
 class OptionOptions(admin.ModelAdmin):
     inlines = []
-    if config_value('LANGUAGE','SHOW_TRANSLATIONS'):
+    if get_l10n_setting('show_translations'):
         inlines.append(OptionTranslation_Inline)
 
 class ProductOptions(admin.ModelAdmin):
-    list_display = ('site', 'slug', 'sku', 'name', 'unit_price', 'items_in_stock', 'get_subtypes')
+    
+    def make_active(self, request, queryset):
+        rows_updated = queryset.update(active=True)
+        if rows_updated == 1:
+            message_bit = _("1 product was")
+        else:
+            message_bit = _("%s products were" % rows_updated)
+        self.message_user(request, _("%s successfully marked as active") % message_bit)
+    make_active.short_description = _("Mark selected products as active")
+    
+    def make_inactive(self, request, queryset):
+        rows_updated = queryset.update(active=False)
+        if rows_updated == 1:
+            message_bit = _("1 product was")
+        else:
+            message_bit = _("%s products were" % rows_updated)
+        self.message_user(request, _("%s successfully marked as inactive") % message_bit)
+    make_inactive.short_description = _("Mark selected products as inactive")
+    
+    def make_featured(self, request, queryset):
+        rows_updated = queryset.update(featured=True)
+        if rows_updated == 1:
+            message_bit = _("1 product was")
+        else:
+            message_bit = _("%s products were" % rows_updated)
+        self.message_user(request, _("%s successfully marked as featured") % message_bit)
+    make_featured.short_description = _("Mark selected products as featured")
+    
+    def make_unfeatured(self, request, queryset):
+        rows_updated = queryset.update(featured=False)
+        if rows_updated == 1:
+            message_bit = _("1 product was")
+        else:
+            message_bit = _("%s products were" % rows_updated)
+        self.message_user(request, _("%s successfully marked as not featured") % message_bit)
+    make_unfeatured.short_description = _("Mark selected products as not featured")
+
+    if config_value('SHOP','SHOW_SITE'):
+        list_display = ('site',)
+    else:
+        list_display = ()
+
+    list_display += ('slug', 'name', 'unit_price', 'items_in_stock', 'active','featured', 'get_subtypes')
     list_display_links = ('slug', 'name')
-    list_filter = ('category', 'date_added')
+    list_filter = ('category', 'date_added','active','featured')
+    actions = ('make_active', 'make_inactive', 'make_featured', 'make_unfeatured')
     fieldsets = (
     (None, {'fields': ('site', 'category', 'name', 'slug', 'sku', 'description', 'short_description', 'date_added', 
             'active', 'featured', 'items_in_stock','total_sold','ordering', 'shipclass')}), (_('Meta Data'), {'fields': ('meta',), 'classes': ('collapse',)}), 
@@ -140,7 +226,7 @@ class ProductOptions(admin.ModelAdmin):
             (_('Related Products'), {'fields':('related_items','also_purchased'),'classes':('collapse',)}), )
     search_fields = ['slug', 'sku', 'name']
     inlines = [ProductAttribute_Inline, Price_Inline, ProductImage_Inline]
-    if config_value('LANGUAGE','SHOW_TRANSLATIONS'):
+    if get_l10n_setting('show_translations'):
         inlines.append(ProductTranslation_Inline)
     filter_horizontal = ('category',)
     
@@ -158,7 +244,7 @@ class CustomProductOptions(admin.ModelAdmin):
 
 class CustomTextFieldOptions(admin.ModelAdmin):
     inlines = []
-    if config_value('LANGUAGE','SHOW_TRANSLATIONS'):
+    if get_l10n_setting('show_translations'):
         inlines.append(CustomTextFieldTranslation_Inline)
 
 class SubscriptionProductOptions(admin.ModelAdmin):
@@ -169,7 +255,7 @@ class ProductVariationOptions(admin.ModelAdmin):
 
 class ProductImageOptions(admin.ModelAdmin):
     inlines = []
-    if config_value('LANGUAGE','SHOW_TRANSLATIONS'):
+    if get_l10n_setting('show_translations'):
         inlines.append(ProductImageTranslation_Inline)
 
 admin.site.register(Category, CategoryOptions)
@@ -185,5 +271,6 @@ admin.site.register(DownloadableProduct)
 admin.site.register(SubscriptionProduct, SubscriptionProductOptions)
 admin.site.register(ProductVariation, ProductVariationOptions)
 admin.site.register(TaxClass)
+admin.site.register(AttributeOption, ProductAttributeAdmin)
 #admin.site.register(ProductImage, ProductImageOptions)
 

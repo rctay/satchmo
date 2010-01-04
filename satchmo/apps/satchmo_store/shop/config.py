@@ -36,6 +36,13 @@ ENFORCE_STATE = config_register(
     description = _('State required?'),
     help_text = _("Require a state during registration/checkout for countries that have states?"),
     default = True))
+
+SHOW_SITE = config_register(
+    BooleanValue(SHOP_GROUP,
+    'SHOW_SITE',
+    description = _('Show Site Field?'),
+    help_text = _("Should the Site field be displayed in the admin lists? A server restart is required for this to take effect."),
+    default = True))
     
 config_register(DecimalValue(
     SHOP_GROUP,
@@ -53,6 +60,13 @@ config_register(PositiveIntegerValue(
         default = 0
     ))
 
+PERSISTENT_CART = config_register(
+    BooleanValue(SHOP_GROUP,
+    'PERSISTENT_CART',
+    description = _('Persistent Cart?'),
+    help_text = _("When a user logs in, attempt to retrieve previous carts and merge with existing?"),
+    default = False
+    ))
 
 #### Google Group ####
 

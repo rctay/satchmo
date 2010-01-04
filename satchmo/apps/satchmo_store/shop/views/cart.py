@@ -2,10 +2,10 @@ from decimal import Decimal
 from django.core import urlresolvers
 from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.shortcuts import render_to_response
-from django.template import RequestContext
+from django.template import RequestContext, loader
 from django.utils.datastructures import MultiValueDictKeyError
 from django.utils.safestring import mark_safe
-from django.utils.simplejson.encoder import JSONEncoder
+from django.utils import simplejson
 from django.utils.translation import ugettext as _
 from django.views.decorators.cache import never_cache
 from livesettings import config_value
@@ -20,9 +20,18 @@ from satchmo_utils.numbers import RoundedDecimalError, round_decimal
 from satchmo_utils.views import bad_or_missing
 import logging
 
+try:
+    from django.utils.simplejson.encoder import JSONEncoder
+except ImportError:
+    from simplejson.encoder import JSONEncoder
+
 log = logging.getLogger('shop.views.cart')
 
 NOTSET = object()
+
+def _json_response(data, template="shop/json.html"):
+    return HttpResponse(loader.render_to_string(template, 
+        {'json':mark_safe(simplejson.dumps(data))}), mimetype='application/javascript')
 
 def decimal_too_big(quantity):
     """
@@ -262,13 +271,9 @@ def add_ajax(request, id=0, template="shop/json.html"):
 
     data['cart_count'] = str(round_decimal(tempCart.numItems, 2))
     data['cart_total'] = str(tempCart.total)
-
-    encoded = JSONEncoder().encode(data)
-    encoded = mark_safe(encoded)
     log.debug('CART AJAX: %s', data)
-
     satchmo_cart_changed.send(tempCart, cart=tempCart, request=request)
-    return render_to_response(template, {'json' : encoded})
+    return _json_response(data, template)
 
 def add_multiple(request, redirect_to='satchmo_cart', products=None, template="shop/multiple_product_form.html"):
     """Add multiple items to the cart.
@@ -326,8 +331,7 @@ def remove_ajax(request, template="shop/json.html"):
             data['cart_total'] = str(cart.total)
             data['cart_count'] = str(round_decimal(cart.numItems, 2)) 
             data['item_id'] = cartitem.id
-
-    return render_to_response(template, {'json': JSONEncoder().encode(data)})
+    return _json_response(data, template)
 
 def set_quantity(request):
     """Set the quantity for a cart item.
@@ -383,10 +387,7 @@ def set_quantity_ajax(request, template="shop/json.html"):
         data['item_qty'] = str(round_decimal(itemqty, 2))
         data['item_price'] = price
 
-    encoded = JSONEncoder().encode(data)
-    encoded = mark_safe(encoded)
-    return render_to_response(template, {'json': encoded})
-
+    return _json_response(data, template)
 
 def product_from_post(productslug, formdata):
     product = Product.objects.get_by_site(slug=productslug)

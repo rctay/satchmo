@@ -16,7 +16,8 @@ from satchmo_store.accounts.mail import send_welcome_email
 from satchmo_store.accounts import signals
 from satchmo_store.contact import CUSTOMER_ID
 from satchmo_store.contact.models import Contact
-from satchmo_store.shop.models import Config
+from satchmo_store.shop.models import Config, Cart
+
 import logging
 
 log = logging.getLogger('satchmo_store.accounts.views')
@@ -29,13 +30,43 @@ YESNO = (
 def emaillogin(request, template_name='registration/login.html', 
     auth_form=EmailAuthenticationForm, redirect_field_name=REDIRECT_FIELD_NAME):
     "Displays the login form and handles the login action. Altered to use the EmailAuthenticationForm"
+
     redirect_to = request.REQUEST.get(redirect_field_name, '')
 
     # Avoid redirecting to logout if the user clicked on login after logout
     if redirect_to == urlresolvers.reverse('auth_logout'):
         redirect_to = None
 
-    if request.method == "POST":
+    success, todo = _login(request, redirect_to)
+    if success:
+        # return the response redirect
+        return todo
+    else:
+        # continue with the login form
+        form = todo
+
+    request.session.set_test_cookie()
+    if Site._meta.installed:
+        current_site = Site.objects.get_current()
+    else:
+        current_site = RequestSite(request)
+
+    return render_to_response(template_name, {
+        'form': form,
+        redirect_field_name: redirect_to,
+        'site_name': current_site.name,
+    }, context_instance=RequestContext(request))
+emaillogin = never_cache(emaillogin)
+
+def _login(request, redirect_to, auth_form=EmailAuthenticationForm):
+    """"Altered version of the default login, intended to be called by `combined_login`.
+
+    Returns tuple:
+    - success
+    - redirect (success) or form (on failure)
+    """
+    
+    if request.method == 'POST':
         form = auth_form(data=request.POST)
         if form.is_valid():
             # Light security check -- make sure redirect_to isn't garbage.
@@ -44,42 +75,29 @@ def emaillogin(request, template_name='registration/login.html',
             login(request, form.get_user())
             if request.session.test_cookie_worked():
                 request.session.delete_test_cookie()
-            return HttpResponseRedirect(redirect_to)
-    else:
-        form = auth_form(request)
-    request.session.set_test_cookie()
-    if Site._meta.installed:
-        current_site = Site.objects.get_current()
-    else:
-        current_site = RequestSite(request)
-    return render_to_response(template_name, {
-        'form': form,
-        redirect_field_name: redirect_to,
-        'site_name': current_site.name,
-    }, context_instance=RequestContext(request))
-emaillogin = never_cache(emaillogin)
-
-def _login(request, redirect_to):
-    """"Altered version of the default login, intended to be called by `combined_login`.
-
-    Returns tuple:
-    - success
-    - redirect (success) or form (on failure)
-    """
-    form = EmailAuthenticationForm(data=request.POST)
-    if request.method == 'POST':
-        if form.is_valid():
-            # Light security check -- make sure redirect_to isn't garbage.
-            if not redirect_to or '//' in redirect_to or ' ' in redirect_to:
-                redirect_to = settings.LOGIN_REDIRECT_URL
-            login(request, form.get_user())
-            if request.session.test_cookie_worked():
-                request.session.delete_test_cookie()
+                if config_value('SHOP','PERSISTENT_CART'):
+                    _get_prev_cart(request)
             return (True, HttpResponseRedirect(redirect_to))
         else:
-            log.error(form.errors)
+            log.debug(form.errors)
+    else:
+        form = auth_form(request)
 
     return (False, form)
+
+def _get_prev_cart(request):
+    try:
+        contact = request.user.contact_set.get()
+        saved_cart = contact.cart_set.latest('date_time_created')
+        # If the latest cart has len == 0, cart is unusable.
+        if len(saved_cart) and request.session['cart']:
+            # Merge the two carts together
+            existing_cart = Cart.objects.from_request(request, create=False)
+            saved_cart.merge_carts(existing_cart)
+            request.session['cart'] = saved_cart.id
+    except Exception, e:
+        pass
+
 
 def register_handle_address_form(request, redirect=None):
     """

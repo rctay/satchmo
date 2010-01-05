@@ -7,32 +7,31 @@
 
 {% load i18n satchmo_category satchmo_google satchmo_util satchmo_currency satchmo_discounts app_plugins normalize_decimal %}
 <head>
+    <title>{% block title %}{{ shop_name }}{% if pagetitle %}: {{ pagetitle }}{% endif %}{% endblock %}</title>
     {% block extra-head %}{% endblock %}
     {% block stylesheet %}<link rel="stylesheet" href="{{ media_url }}css/style.css" />{% endblock %}
-    <title>{% block title %}{{ shop_name }}{% if pagetitle %}: {{ pagetitle }}{% endif %}{% endblock %}</title>
     {% plugin_point "page_head" %}
 </head>
 {% block body %}
 <body{% if bodyid %} id="{{ bodyid }}"{% endif %}{% if bodyclass %} class="{{ bodyclass }}"{% endif %}>
     {% plugin_point "page_top" %}
     <div id="container">
-	    <div id="top">
-	        <h1>{{ shop_name }}</h1>
-	    </div>
-
-	    <div id="navbar">
+	<div id="top">
+	    <h1>{{ shop_name }}</h1>
+	</div>
+	<div id="navbar">
 	    <ul>
-	    	{% block navbar %}Breadcrumbs here{% endblock %}
-	   	</ul>
-    </div>
+		{% block navbar %}Breadcrumbs here{% endblock %}
+	    </ul>
+	</div>
+	<div id="sidebar-secondary">
+	    {% block sidebar-secondary %}
+	    <div id="search_form">
+		{% satchmo_search_form %}
+	    </div>
+		    {% block sidebar %}
 
-    <div id="sidebar-secondary">
-		{% block sidebar-secondary %}
-		<div>
-			{% satchmo_search_form %}
-		</div>
-		<div>
-			{% block sidebar %}
+	    <div id="shop_category">
 			<h3>{% trans "Shop Categories" %}</h3>
 			{% block sidebar-categories %}
 			<div id="menu_container">

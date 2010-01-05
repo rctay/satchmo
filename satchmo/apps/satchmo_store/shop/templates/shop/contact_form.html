@@ -2,22 +2,33 @@
 {% load i18n %}
 
 {% block navbar %}
-   <li class="first"><a href="{{ shop_base }}/">{% trans "Home" %}</a></li>
+   <li class="first"><a href="{{ shop_base }}/" title="{% trans "Home" %}">{% trans "Home" %}</a></li>
    <li>{% trans "Contact Us" %}</li>
 {% endblock %}
 
 {% block content %}
 <h3>{% trans "Contact Information" %}</h3>
 
-{% if form.errors %}
-<h3>{% blocktrans count form.errors|length as count %}Please correct the following error:{% plural %}Please correct the following errors:{% endblocktrans %}</h3>
-{% endif %}
-
-<table>
-<form method="post" action=".">
-    {{ form.as_table }}
-<tr><td></td><td><input type="submit" value="{% trans "Send Email" %}"/></td></tr>
+<form method="post" action="." >   
+    <p>{% trans "You'll need to fill out at least the fields with a *" %}</p>
+    {% if form.errors %}
+    <p class="error">{% blocktrans count form.errors|length as count %}Please correct the following error:{% plural %}Please correct the following errors:{% endblocktrans %}</p>
+    {% endif %}
+    
+    <fieldset>
+        <legend>{% trans "Contact Information" %}</legend>
+        <!--<ol>
+            {{ form.as_ul }}
+        </ol>-->
+        <ul>
+            <li>{{ form.name.errors }} {{ form.name.label_tag }} {{ form.name }}</li>
+            <li>{{ form.sender.errors }} {{ form.sender.label_tag }} {{ form.sender }}</li>
+            <li>{{ form.subject.errors }} {{ form.subject.label_tag }} {{ form.subject }}</li>
+            <li>{{ form.inquiry.errors }} {{ form.inquiry.label_tag }} {{ form.inquiry }}</li>
+            <li>{{ form.contents.errors }} {{ form.contents.label_tag }} {{ form.contents }}</li>
+        </ul>
+        <button type="submit" name="send email">{% trans "Send E-mail" %}</button>
+    </fieldset>
 </form>
-</table>
 
 {% endblock %}

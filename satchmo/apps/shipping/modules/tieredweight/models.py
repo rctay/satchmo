@@ -110,7 +110,7 @@ class Shipper(BaseShipper):
 
 
 class Carrier(models.Model):
-    name = models.CharField(_('carrier'), max_length=50)
+    name = models.CharField(_('carrier'), max_length=128)
     ordering = models.IntegerField(_('Ordering'), default=0)
     active = models.BooleanField(_('Active'), default=True)
     default_zone = models.ForeignKey('Zone', verbose_name=_('default_zone'), 
@@ -137,7 +137,7 @@ class Carrier(models.Model):
 
 class Zone(models.Model):
     carrier = models.ForeignKey(Carrier, verbose_name=_('carrier'), related_name='zones')
-    name = models.CharField(_('name'), max_length=50)
+    name = models.CharField(_('name'), max_length=128)
     countries = models.ManyToManyField(Country, verbose_name=_('countries'), blank=True)
     handling = models.DecimalField(_('handling'), max_digits=10, decimal_places=2,
         null=True, blank=True)

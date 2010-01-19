@@ -1,0 +1,1173 @@
+Tue, 12 Jan 2010 17:08:23 root         INFO     Satchmo Started
+Tue, 12 Jan 2010 17:08:23 root         INFO     Satchmo Started
+Tue, 12 Jan 2010 08:08:24 tiered.config DEBUG    loaded
+Tue, 12 Jan 2010 08:08:24 tieredweight.config DEBUG    loaded
+Tue, 12 Jan 2010 08:08:24 shop.listeners DEBUG    Added default shop listeners
+Tue, 12 Jan 2010 08:08:24 purchaseorder.config DEBUG    added purchase order payments
+Tue, 12 Jan 2010 08:08:24 satchmo_toolbar DEBUG    Satchmo toolbar ready
+Tue, 12 Jan 2010 08:08:26 productratings.urls DEBUG    adding ratings urls
+Tue, 12 Jan 2010 08:08:26 brand.urls   DEBUG    adding brand urls at ^brand/
+Tue, 12 Jan 2010 08:08:26 productratings.urls DEBUG    adding comments urls
+Tue, 12 Jan 2010 08:08:26 satchmo_store.urls DEBUG    Adding local serving of static files at: /home/franck/workspace/nacsrv/cowri/src/django_project/externals/trunk/satchmo/satchmo/static/
+Tue, 12 Jan 2010 08:08:26 product_feeds.urls DEBUG    Adding product_feed urls
+Tue, 12 Jan 2010 08:08:26 wishlist.urls DEBUG    adding wishlist urls at ^wishlist/
+Tue, 12 Jan 2010 08:08:26 newsletter.urls DEBUG    Adding newsletter urls at ^newsletter/
+Tue, 12 Jan 2010 08:08:27 recentlist.middleware DEBUG    Product url is ^/shop/product/(?P<slug>[-\w]+)/
+Tue, 12 Jan 2010 08:08:27 satchmo_utils.widgets DEBUG    value: <class 'decimal.Decimal'>
+...Tue, 12 Jan 2010 08:08:30 product.models DEBUG    Trying with ct=2
+Tue, 12 Jan 2010 08:08:30 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$1.00, shipping=$0.00, discount=$16.00, tax=$0.00
+.Tue, 12 Jan 2010 08:08:31 product.models DEBUG    Trying with ct=3
+Tue, 12 Jan 2010 08:08:31 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$4.34, shipping=$2.67, discount=$9.99, tax=$0.00
+.Tue, 12 Jan 2010 08:08:32 product.models DEBUG    Trying with ct=2
+Tue, 12 Jan 2010 08:08:32 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$1.00, shipping=$6.00, discount=$10.00, tax=$0.00
+.Tue, 12 Jan 2010 08:08:33 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$8.80, shipping=$4.80, discount=$3.40, tax=$0.00
+.Tue, 12 Jan 2010 08:08:34 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$8.80, shipping=$6.00, discount=$2.20, tax=$0.00
+.Tue, 12 Jan 2010 08:08:35 product.models DEBUG    Trying with ct=1
+Tue, 12 Jan 2010 08:08:35 satchmo_store.shop.models DEBUG    Order #2, recalc: sub_total=$0.00, shipping=$0.00, discount=$12.00, tax=$0.00
+.Tue, 12 Jan 2010 08:08:36 product.models DEBUG    Trying with ct=2
+Tue, 12 Jan 2010 08:08:36 satchmo_store.shop.models DEBUG    Order #2, recalc: sub_total=$1.00, shipping=$1.00, discount=$10.00, tax=$0.00
+.Tue, 12 Jan 2010 08:08:37 product.models DEBUG    Trying with ct=1
+Tue, 12 Jan 2010 08:08:37 satchmo_store.shop.models DEBUG    Order #2, recalc: sub_total=$0.00, shipping=$6.00, discount=$6.00, tax=$0.00
+.Tue, 12 Jan 2010 08:08:38 satchmo_store.shop.models DEBUG    Order #2, recalc: sub_total=$4.80, shipping=$0.00, discount=$7.20, tax=$0.00
+.Tue, 12 Jan 2010 08:08:38 satchmo_store.shop.models DEBUG    Order #2, recalc: sub_total=$4.80, shipping=$4.80, discount=$2.40, tax=$0.00
+.Tue, 12 Jan 2010 08:08:39 satchmo_store.shop.models DEBUG    Order #2, recalc: sub_total=$4.80, shipping=$6.00, discount=$1.20, tax=$0.00
+.Tue, 12 Jan 2010 08:08:40 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$11.00, shipping=$6.00, discount=$0.00, tax=$0.00
+Tue, 12 Jan 2010 08:08:40 satchmo_store.shop.models DEBUG    Order #2, recalc: sub_total=$6.00, shipping=$6.00, discount=$0.00, tax=$0.00
+......Tue, 12 Jan 2010 08:08:41 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$105.00, shipping=$10.00, discount=$0.00, tax=$0.00
+.Tue, 12 Jan 2010 08:08:42 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$105.00, shipping=$10.00, discount=$0.00, tax=$0.00
+.Tue, 12 Jan 2010 08:08:44 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:08:45 shop.views.cart DEBUG    FORM: <QueryDict: {u'qty__dj-rocks-l-b': [u'2'], u'qty__PY-Rocks': [u'1']}>
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    saving
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=neat-book-hard
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=dj-rocks-s-bl
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=dj-rocks
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=dj-rocks-m-w
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=robot-attack-hard
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=neat-book
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=dj-rocks-m-bl
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=PY-Rocks
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    Adding PY-Rocks=1 to cart from MultipleProductForm
+Tue, 12 Jan 2010 08:08:45 upsell.views DEBUG    cart_add_listener heard satchmo_cart_add_complete
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=neat-book-tape
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=dj-rocks-s-b
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=robot-attack-soft
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=dj-rocks-l-bl
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=dj-rocks-s-w
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=dj-rocks-m-b
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=robot-attack-tape
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=neat-software-full
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=satchmo-computer
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=dj-rocks-l-b
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    Adding dj-rocks-l-b=2 to cart from MultipleProductForm
+Tue, 12 Jan 2010 08:08:45 upsell.views DEBUG    cart_add_listener heard satchmo_cart_add_complete
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=neat-book-soft
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=neat-software-upgrade
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=robot-attack
+Tue, 12 Jan 2010 08:08:45 shop.forms   DEBUG    qty=dj-rocks-l-w
+Tue, 12 Jan 2010 08:08:45 shop.listeners DEBUG    caught cart changed signal - remove_order_on_cart_update
+Tue, 12 Jan 2010 08:08:45 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:08:45 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:08:45 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:08:45 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:08:45 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:08:45 shop.templatetags.satchmo_cart DEBUG    sub details
+.Tue, 12 Jan 2010 08:08:47 root         DEBUG    subtypes = ('ConfigurableProduct',)
+Tue, 12 Jan 2010 08:08:47 product.utils DEBUG    serialized: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:08:47 product.utils DEBUG    Serialized Options dj-rocks: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:08:47 product.views DEBUG    finding product template: ['product/detail_configurableproduct.html', 'product/product.html']
+Tue, 12 Jan 2010 08:08:47 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:08:47 recentlist.middleware DEBUG    Added recently viewed: [u'dj-rocks']
+Tue, 12 Jan 2010 08:08:47 shop.views.cart DEBUG    FORM: <QueryDict: {u'1': [u'L'], u'productname': [u'dj-rocks'], u'2': [u'BL'], u'quantity': [u'2']}>
+Tue, 12 Jan 2010 08:08:47 shop.views.cart DEBUG    found product: Django Rocks shirt
+Tue, 12 Jan 2010 08:08:47 shop.views.cart DEBUG    product dj-rocks is active
+Tue, 12 Jan 2010 08:08:47 upsell.views DEBUG    cart_add_listener heard satchmo_cart_add_complete
+Tue, 12 Jan 2010 08:08:47 shop.listeners DEBUG    caught cart changed signal - remove_order_on_cart_update
+Tue, 12 Jan 2010 08:08:47 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:08:48 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:08:48 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:08:48 shop.templatetags.satchmo_cart DEBUG    sub details
+.Tue, 12 Jan 2010 08:08:49 shop.views.cart DEBUG    FORM: <QueryDict: {u'productname': [u'PY-Rocks'], u'quantity': [u'1']}>
+Tue, 12 Jan 2010 08:08:49 shop.views.cart DEBUG    found product: Python Rocks shirt
+Tue, 12 Jan 2010 08:08:49 shop.views.cart DEBUG    product PY-Rocks is not active
+Tue, 12 Jan 2010 08:08:49 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+.Tue, 12 Jan 2010 08:08:51 shop.views.cart DEBUG    FORM: <QueryDict: {u'3': [u'soft'], u'productname': [u'neat-book'], u'quantity': [u'1.5a']}>
+Tue, 12 Jan 2010 08:08:51 shop.views.cart DEBUG    found product: A really neat book
+Tue, 12 Jan 2010 08:08:51 shop.views.cart DEBUG    product neat-book is active
+Tue, 12 Jan 2010 08:08:51 shop.views.cart DEBUG    Product Error: Invalid quantity.
+Tue, 12 Jan 2010 08:08:51 root         DEBUG    subtypes = ('ConfigurableProduct',)
+Tue, 12 Jan 2010 08:08:51 product.utils DEBUG    serialized: ({'items': (<Option: Hard cover>, <Option: Soft cover>, <Option: On tape>), 'name': u'Book type', 'id': 3},)
+Tue, 12 Jan 2010 08:08:51 product.utils DEBUG    Serialized Options neat-book: ({'items': (<Option: Hard cover>, <Option: Soft cover>, <Option: On tape>), 'name': u'Book type', 'id': 3},)
+Tue, 12 Jan 2010 08:08:51 product.views DEBUG    finding product template: ['product/detail_configurableproduct.html', 'product/product.html']
+Tue, 12 Jan 2010 08:08:51 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:08:51 recentlist.middleware DEBUG    Added recently viewed: [u'neat-book-soft']
+.Tue, 12 Jan 2010 08:08:52 shop.views.cart DEBUG    FORM: <QueryDict: {u'3': [u'soft'], u'productname': [u'neat-book'], u'quantity': [u'0']}>
+Tue, 12 Jan 2010 08:08:52 shop.views.cart DEBUG    found product: A really neat book
+Tue, 12 Jan 2010 08:08:52 shop.views.cart DEBUG    product neat-book is active
+Tue, 12 Jan 2010 08:08:52 shop.views.cart DEBUG    Product Error: Please enter a positive number.
+Tue, 12 Jan 2010 08:08:52 root         DEBUG    subtypes = ('ConfigurableProduct',)
+Tue, 12 Jan 2010 08:08:52 product.utils DEBUG    serialized: ({'items': (<Option: Hard cover>, <Option: Soft cover>, <Option: On tape>), 'name': u'Book type', 'id': 3},)
+Tue, 12 Jan 2010 08:08:52 product.utils DEBUG    Serialized Options neat-book: ({'items': (<Option: Hard cover>, <Option: Soft cover>, <Option: On tape>), 'name': u'Book type', 'id': 3},)
+Tue, 12 Jan 2010 08:08:52 product.views DEBUG    finding product template: ['product/detail_configurableproduct.html', 'product/product.html']
+Tue, 12 Jan 2010 08:08:52 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:08:52 recentlist.middleware DEBUG    Added recently viewed: [u'neat-book-soft']
+.Tue, 12 Jan 2010 08:08:54 shop.views.cart DEBUG    FORM: <QueryDict: {u'productname': [u'nonexistent-product'], u'quantity': [u'1']}>
+Tue, 12 Jan 2010 08:08:54 shop.views.cart DEBUG    Could not find product: nonexistent-product
+Tue, 12 Jan 2010 08:08:54 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+.Tue, 12 Jan 2010 08:08:55 configuration DEBUG    new setting PRODUCT.NO_STOCK_CHECKOUT
+Tue, 12 Jan 2010 08:08:55 configuration INFO     Updated setting PRODUCT.NO_STOCK_CHECKOUT = False
+Tue, 12 Jan 2010 08:08:55 shop.views.cart DEBUG    FORM: <QueryDict: {u'3': [u'soft'], u'productname': [u'neat-book'], u'quantity': [u'1']}>
+Tue, 12 Jan 2010 08:08:55 shop.views.cart DEBUG    found product: A really neat book
+Tue, 12 Jan 2010 08:08:55 shop.views.cart DEBUG    product neat-book is active
+Tue, 12 Jan 2010 08:08:55 shop.listeners DEBUG    out of stock on neat-book-soft
+Tue, 12 Jan 2010 08:08:55 shop.views.cart DEBUG    Product Error: 'A really neat book (Soft cover)' is out of stock.
+Tue, 12 Jan 2010 08:08:55 root         DEBUG    subtypes = ('ConfigurableProduct',)
+Tue, 12 Jan 2010 08:08:55 product.utils DEBUG    serialized: ({'items': (<Option: Hard cover>, <Option: Soft cover>, <Option: On tape>), 'name': u'Book type', 'id': 3},)
+Tue, 12 Jan 2010 08:08:55 product.utils DEBUG    Serialized Options neat-book: ({'items': (<Option: Hard cover>, <Option: Soft cover>, <Option: On tape>), 'name': u'Book type', 'id': 3},)
+Tue, 12 Jan 2010 08:08:55 product.views DEBUG    finding product template: ['product/detail_configurableproduct.html', 'product/product.html']
+Tue, 12 Jan 2010 08:08:55 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:08:55 recentlist.middleware DEBUG    Added recently viewed: [u'neat-book-soft']
+.Tue, 12 Jan 2010 08:08:57 root         DEBUG    subtypes = ('ConfigurableProduct',)
+Tue, 12 Jan 2010 08:08:57 product.utils DEBUG    serialized: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:08:57 product.utils DEBUG    Serialized Options dj-rocks: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:08:57 product.views DEBUG    finding product template: ['product/detail_configurableproduct.html', 'product/product.html']
+Tue, 12 Jan 2010 08:08:57 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:08:57 recentlist.middleware DEBUG    Added recently viewed: [u'dj-rocks']
+Tue, 12 Jan 2010 08:08:57 shop.views.cart DEBUG    FORM: <QueryDict: {u'1': [u'L'], u'productname': [u'dj-rocks'], u'2': [u'BL'], u'quantity': [u'2']}>
+Tue, 12 Jan 2010 08:08:57 shop.views.cart DEBUG    found product: Django Rocks shirt
+Tue, 12 Jan 2010 08:08:57 shop.views.cart DEBUG    product dj-rocks is active
+Tue, 12 Jan 2010 08:08:57 upsell.views DEBUG    cart_add_listener heard satchmo_cart_add_complete
+Tue, 12 Jan 2010 08:08:57 shop.listeners DEBUG    caught cart changed signal - remove_order_on_cart_update
+Tue, 12 Jan 2010 08:08:57 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:08:57 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:08:57 shop.listeners DEBUG    caught cart changed signal - remove_order_on_cart_update
+Tue, 12 Jan 2010 08:08:57 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+.Tue, 12 Jan 2010 08:08:59 root         DEBUG    subtypes = ('ConfigurableProduct',)
+Tue, 12 Jan 2010 08:08:59 product.utils DEBUG    serialized: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:08:59 product.utils DEBUG    Serialized Options dj-rocks: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:08:59 product.views DEBUG    finding product template: ['product/detail_configurableproduct.html', 'product/product.html']
+Tue, 12 Jan 2010 08:08:59 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:08:59 recentlist.middleware DEBUG    Added recently viewed: [u'dj-rocks']
+Tue, 12 Jan 2010 08:08:59 shop.views.cart DEBUG    FORM: <QueryDict: {u'1': [u'L'], u'productname': [u'dj-rocks'], u'2': [u'BL'], u'quantity': [u'2']}>
+Tue, 12 Jan 2010 08:08:59 shop.views.cart DEBUG    found product: Django Rocks shirt
+Tue, 12 Jan 2010 08:08:59 shop.views.cart DEBUG    product dj-rocks is active
+Tue, 12 Jan 2010 08:08:59 upsell.views DEBUG    cart_add_listener heard satchmo_cart_add_complete
+Tue, 12 Jan 2010 08:08:59 shop.listeners DEBUG    caught cart changed signal - remove_order_on_cart_update
+Tue, 12 Jan 2010 08:08:59 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:08:59 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:09:00 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:00 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:09:00 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'payment.forms.PaymentContactInfoForm'>
+Tue, 12 Jan 2010 08:09:00 satchmo_store.contact.forms DEBUG    creating new contact
+Tue, 12 Jan 2010 08:09:00 newsletter.listeners DEBUG    Updating newletter subscription for Teddy Tester to False
+Tue, 12 Jan 2010 08:09:00 newsletter   DEBUG    Updating subscription status from False to False for Teddy Tester
+Tue, 12 Jan 2010 08:09:00 shop.listeners DEBUG    Recalculating all contact orders not in process
+Tue, 12 Jan 2010 08:09:00 shop.listeners DEBUG    Found 0 orders to recalc
+Tue, 12 Jan 2010 08:09:00 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$46.00, shipping=$0.00, discount=$0.00, tax=$4.60
+Tue, 12 Jan 2010 08:09:00 payship      DEBUG    processor=<module 'payment.modules.dummy.processor' from '../../apps/payment/modules/dummy/processor.py'>
+Tue, 12 Jan 2010 08:09:00 payship      DEBUG    using default form
+Tue, 12 Jan 2010 08:09:00 configuration DEBUG    Getting shipping methods: [u'shipping.modules.flat', u'shipping.modules.per']
+Tue, 12 Jan 2010 08:09:00 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$46.00, shipping=$0.00, discount=$0.00, tax=$4.60
+Tue, 12 Jan 2010 08:09:00 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:00 payship      DEBUG    processor=<module 'payment.modules.dummy.processor' from '../../apps/payment/modules/dummy/processor.py'>
+Tue, 12 Jan 2010 08:09:00 payship      DEBUG    using default form
+Tue, 12 Jan 2010 08:09:00 configuration DEBUG    Getting shipping methods: [u'shipping.modules.flat', u'shipping.modules.per']
+Tue, 12 Jan 2010 08:09:00 configuration DEBUG    Getting shipping methods: [u'shipping.modules.flat', u'shipping.modules.per']
+Tue, 12 Jan 2010 08:09:00 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$46.00, shipping=$4.00, discount=$0.00, tax=$4.60
+Tue, 12 Jan 2010 08:09:00 payment.modules.base DEBUG    Creating pending DUMMY payment of 0.00 for Order #1: Teddy Tester
+Tue, 12 Jan 2010 08:09:00 satchmo_store.shop.models DEBUG    Pending Payment - creating linked payment
+Tue, 12 Jan 2010 08:09:00 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$46.00, shipping=$4.00, discount=$0.00, tax=$4.60
+Tue, 12 Jan 2010 08:09:00 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:01 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$46.00, shipping=$4.00, discount=$0.00, tax=$4.60
+Tue, 12 Jan 2010 08:09:01 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:01 payment.modules.base DEBUG    Found pending payment: Order Pending Payment #1
+Tue, 12 Jan 2010 08:09:01 payment.modules.base DEBUG    Using linked payment: Order Payment #1
+Tue, 12 Jan 2010 08:09:01 payment.modules.base DEBUG    Recorded DUMMY payment of 54.60 for Order #1: Teddy Tester
+Tue, 12 Jan 2010 08:09:01 satchmo_store.shop.models INFO     Order success: Order #1: Teddy Tester
+Tue, 12 Jan 2010 08:09:01 payment.listeners DEBUG    heard satchmo_order_status_changed, =New
+Tue, 12 Jan 2010 08:09:01 payment.views INFO     Processing Payment test module transaction with DUMMY
+        Order 1
+        Results=True
+        Response=0
+        Reason=Success
+Tue, 12 Jan 2010 08:09:01 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+.Tue, 12 Jan 2010 08:09:03 root         DEBUG    subtypes = ('ConfigurableProduct',)
+Tue, 12 Jan 2010 08:09:03 product.utils DEBUG    serialized: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:09:03 product.utils DEBUG    Serialized Options dj-rocks: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:09:03 product.views DEBUG    finding product template: ['product/detail_configurableproduct.html', 'product/product.html']
+Tue, 12 Jan 2010 08:09:03 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:03 shop.templatetags DEBUG    returning product rating form for Django Rocks shirt
+Tue, 12 Jan 2010 08:09:03 recentlist.middleware DEBUG    Added recently viewed: [u'dj-rocks']
+Tue, 12 Jan 2010 08:09:03 shop.views.cart DEBUG    FORM: <QueryDict: {u'1': [u'L'], u'productname': [u'dj-rocks'], u'2': [u'BL'], u'quantity': [u'2']}>
+Tue, 12 Jan 2010 08:09:03 shop.views.cart DEBUG    found product: Django Rocks shirt
+Tue, 12 Jan 2010 08:09:03 shop.views.cart DEBUG    product dj-rocks is active
+Tue, 12 Jan 2010 08:09:03 upsell.views DEBUG    cart_add_listener heard satchmo_cart_add_complete
+Tue, 12 Jan 2010 08:09:03 shop.listeners DEBUG    caught cart changed signal - remove_order_on_cart_update
+Tue, 12 Jan 2010 08:09:03 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:03 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:09:04 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:04 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:09:04 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'payment.forms.PaymentContactInfoForm'>
+Tue, 12 Jan 2010 08:09:04 satchmo_store.contact.forms DEBUG    Saving contact info for  
+Tue, 12 Jan 2010 08:09:04 newsletter.listeners DEBUG    Updating newletter subscription for Teddy Tester to False
+Tue, 12 Jan 2010 08:09:04 newsletter   DEBUG    Updating subscription status from False to False for Teddy Tester
+Tue, 12 Jan 2010 08:09:04 shop.listeners DEBUG    Recalculating all contact orders not in process
+Tue, 12 Jan 2010 08:09:04 shop.listeners DEBUG    Found 0 orders to recalc
+Tue, 12 Jan 2010 08:09:04 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$46.00, shipping=$0.00, discount=$0.00, tax=$4.60
+.Tue, 12 Jan 2010 08:09:05 satchmo_store.accounts.views DEBUG    No contact in request
+Tue, 12 Jan 2010 08:09:05 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:05 accounts.forms DEBUG    Saving contact
+Tue, 12 Jan 2010 08:09:05 newsletter   DEBUG    Updating subscription status from False to False for Paul Test
+Tue, 12 Jan 2010 08:09:05 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:06 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:06 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:06 satchmo_store.accounts.views DEBUG    No contact in request
+Tue, 12 Jan 2010 08:09:06 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:06 accounts.forms DEBUG    Saving contact
+Tue, 12 Jan 2010 08:09:06 newsletter   DEBUG    Updating subscription status from False to False for New Tester
+Tue, 12 Jan 2010 08:09:06 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:06 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'satchmo_store.contact.forms.ExtendedContactInfoForm'>
+Tue, 12 Jan 2010 08:09:06 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:06 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'satchmo_store.contact.forms.ExtendedContactInfoForm'>
+Tue, 12 Jan 2010 08:09:06 satchmo_store.contact.forms DEBUG    Saving contact info for New Tester
+Tue, 12 Jan 2010 08:09:06 newsletter.listeners DEBUG    Updating newletter subscription for New Tester to False
+Tue, 12 Jan 2010 08:09:06 newsletter   DEBUG    Updating subscription status from False to False for New Tester
+Tue, 12 Jan 2010 08:09:06 shop.listeners DEBUG    Recalculating all contact orders not in process
+Tue, 12 Jan 2010 08:09:06 shop.listeners DEBUG    Found 0 orders to recalc
+Tue, 12 Jan 2010 08:09:06 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+.Tue, 12 Jan 2010 08:09:08 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:08 satchmo_store.shop.views WARNING  No email address configured for the shop.  Using admin settings.
+Tue, 12 Jan 2010 08:09:08 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+.Tue, 12 Jan 2010 08:09:09 root         DEBUG    subtypes = ('ConfigurableProduct',)
+Tue, 12 Jan 2010 08:09:09 product.utils DEBUG    serialized: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:09:09 product.utils DEBUG    Serialized Options dj-rocks: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:09:09 product.views DEBUG    finding product template: ['product/detail_configurableproduct.html', 'product/product.html']
+Tue, 12 Jan 2010 08:09:10 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:10 shop.templatetags DEBUG    returning product rating form for Django Rocks shirt
+Tue, 12 Jan 2010 08:09:10 recentlist.middleware DEBUG    Added recently viewed: [u'dj-rocks']
+Tue, 12 Jan 2010 08:09:10 shop.views.cart DEBUG    FORM: <QueryDict: {u'1': [u'L'], u'productname': [u'dj-rocks'], u'2': [u'BL'], u'quantity': [u'2']}>
+Tue, 12 Jan 2010 08:09:10 shop.views.cart DEBUG    found product: Django Rocks shirt
+Tue, 12 Jan 2010 08:09:10 shop.views.cart DEBUG    product dj-rocks is active
+Tue, 12 Jan 2010 08:09:10 upsell.views DEBUG    cart_add_listener heard satchmo_cart_add_complete
+Tue, 12 Jan 2010 08:09:10 shop.listeners DEBUG    caught cart changed signal - remove_order_on_cart_update
+Tue, 12 Jan 2010 08:09:10 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:10 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:09:10 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:10 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:09:10 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'payment.forms.PaymentContactInfoForm'>
+Tue, 12 Jan 2010 08:09:10 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+.Tue, 12 Jan 2010 08:09:12 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:12 root         DEBUG    subtypes = ('CustomProduct',)
+Tue, 12 Jan 2010 08:09:12 product.utils DEBUG    serialized: ({'items': (<Option: 1 GB>, <Option: 1.5 GB>, <Option: 2 GB>), 'name': u'Memory', 'id': 5}, {'items': (<Option: Cheap>, <Option: Mid>, <Option: Large Tower>), 'name': u'Case', 'id': 6})
+Tue, 12 Jan 2010 08:09:12 product.utils DEBUG    Serialized Options satchmo-computer: ({'items': (<Option: 1 GB>, <Option: 1.5 GB>, <Option: 2 GB>), 'name': u'Memory', 'id': 5}, {'items': (<Option: Cheap>, <Option: Mid>, <Option: Large Tower>), 'name': u'Case', 'id': 6})
+Tue, 12 Jan 2010 08:09:12 product.views DEBUG    finding product template: ['product/detail_customproduct.html', 'product/product.html']
+Tue, 12 Jan 2010 08:09:12 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:12 recentlist.middleware DEBUG    Added recently viewed: [u'satchmo-computer']
+Tue, 12 Jan 2010 08:09:12 shop.views.cart DEBUG    FORM: <QueryDict: {u'productname': [u'satchmo-computer'], u'6': [u'mid'], u'5': [u'1.5gb'], u'custom_monogram': [u'CBM'], u'quantity': [u'1']}>
+Tue, 12 Jan 2010 08:09:12 shop.views.cart DEBUG    found product: satchmo computer
+Tue, 12 Jan 2010 08:09:12 shop.views.cart DEBUG    product satchmo-computer is active
+Tue, 12 Jan 2010 08:09:12 upsell.views DEBUG    cart_add_listener heard satchmo_cart_add_complete
+Tue, 12 Jan 2010 08:09:12 shop.listeners DEBUG    caught cart changed signal - remove_order_on_cart_update
+Tue, 12 Jan 2010 08:09:13 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:13 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:09:13 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:13 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:09:13 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'payment.forms.PaymentContactInfoForm'>
+Tue, 12 Jan 2010 08:09:13 satchmo_store.contact.forms DEBUG    creating new contact
+Tue, 12 Jan 2010 08:09:13 newsletter.listeners DEBUG    Updating newletter subscription for Teddy Tester to False
+Tue, 12 Jan 2010 08:09:13 newsletter   DEBUG    Updating subscription status from False to False for Teddy Tester
+Tue, 12 Jan 2010 08:09:13 shop.listeners DEBUG    Recalculating all contact orders not in process
+Tue, 12 Jan 2010 08:09:13 shop.listeners DEBUG    Found 0 orders to recalc
+Tue, 12 Jan 2010 08:09:13 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$168.00, shipping=$0.00, discount=$0.00, tax=$0.00
+Tue, 12 Jan 2010 08:09:13 payship      DEBUG    processor=<module 'payment.modules.dummy.processor' from '../../apps/payment/modules/dummy/processor.py'>
+Tue, 12 Jan 2010 08:09:13 payship      DEBUG    using default form
+Tue, 12 Jan 2010 08:09:13 configuration DEBUG    Getting shipping methods: [u'shipping.modules.flat', u'shipping.modules.per']
+Tue, 12 Jan 2010 08:09:13 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$168.00, shipping=$0.00, discount=$0.00, tax=$0.00
+Tue, 12 Jan 2010 08:09:13 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:13 payship      DEBUG    processor=<module 'payment.modules.dummy.processor' from '../../apps/payment/modules/dummy/processor.py'>
+Tue, 12 Jan 2010 08:09:13 payship      DEBUG    using default form
+Tue, 12 Jan 2010 08:09:13 configuration DEBUG    Getting shipping methods: [u'shipping.modules.flat', u'shipping.modules.per']
+Tue, 12 Jan 2010 08:09:13 configuration DEBUG    Getting shipping methods: [u'shipping.modules.flat', u'shipping.modules.per']
+Tue, 12 Jan 2010 08:09:13 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$168.00, shipping=$4.00, discount=$0.00, tax=$0.00
+Tue, 12 Jan 2010 08:09:13 payment.modules.base DEBUG    Creating pending DUMMY payment of 0.00 for Order #1: Teddy Tester
+Tue, 12 Jan 2010 08:09:13 satchmo_store.shop.models DEBUG    Pending Payment - creating linked payment
+Tue, 12 Jan 2010 08:09:13 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$168.00, shipping=$4.00, discount=$0.00, tax=$0.00
+Tue, 12 Jan 2010 08:09:14 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:14 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$168.00, shipping=$4.00, discount=$0.00, tax=$0.00
+Tue, 12 Jan 2010 08:09:14 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:14 payment.modules.base DEBUG    Found pending payment: Order Pending Payment #1
+Tue, 12 Jan 2010 08:09:14 payment.modules.base DEBUG    Using linked payment: Order Payment #1
+Tue, 12 Jan 2010 08:09:14 payment.modules.base DEBUG    Recorded DUMMY payment of 172 for Order #1: Teddy Tester
+Tue, 12 Jan 2010 08:09:14 satchmo_store.shop.models INFO     Order success: Order #1: Teddy Tester
+Tue, 12 Jan 2010 08:09:14 payment.listeners DEBUG    heard satchmo_order_status_changed, =New
+Tue, 12 Jan 2010 08:09:14 payment.views INFO     Processing Payment test module transaction with DUMMY
+        Order 1
+        Results=True
+        Response=0
+        Reason=Success
+Tue, 12 Jan 2010 08:09:14 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+.Tue, 12 Jan 2010 08:09:16 root         DEBUG    subtypes = ('ConfigurableProduct',)
+Tue, 12 Jan 2010 08:09:16 product.utils DEBUG    serialized: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:09:16 product.utils DEBUG    Serialized Options dj-rocks: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:09:16 product.views DEBUG    finding product template: ['product/detail_configurableproduct.html', 'product/product.html']
+Tue, 12 Jan 2010 08:09:16 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:16 recentlist.middleware DEBUG    Added recently viewed: [u'dj-rocks']
+.Tue, 12 Jan 2010 08:09:17 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:17 root         DEBUG    subtypes = ('ConfigurableProduct',)
+Tue, 12 Jan 2010 08:09:18 product.utils DEBUG    serialized: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:09:18 product.utils DEBUG    Serialized Options dj-rocks: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:09:18 product.views DEBUG    finding product template: ['product/detail_configurableproduct.html', 'product/product.html']
+Tue, 12 Jan 2010 08:09:18 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:18 shop.templatetags DEBUG    returning product rating form for Django Rocks shirt
+Tue, 12 Jan 2010 08:09:18 recentlist.middleware DEBUG    Added recently viewed: [u'dj-rocks']
+Tue, 12 Jan 2010 08:09:18 shop.views.cart DEBUG    FORM: <QueryDict: {u'1': [u'L'], u'productname': [u'dj-rocks'], u'2': [u'BL'], u'quantity': [u'2']}>
+Tue, 12 Jan 2010 08:09:18 shop.views.cart DEBUG    found product: Django Rocks shirt
+Tue, 12 Jan 2010 08:09:18 shop.views.cart DEBUG    product dj-rocks is active
+Tue, 12 Jan 2010 08:09:18 upsell.views DEBUG    cart_add_listener heard satchmo_cart_add_complete
+Tue, 12 Jan 2010 08:09:18 shop.listeners DEBUG    caught cart changed signal - remove_order_on_cart_update
+Tue, 12 Jan 2010 08:09:18 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:18 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:09:18 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:18 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:09:18 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'payment.forms.PaymentContactInfoForm'>
+Tue, 12 Jan 2010 08:09:18 satchmo_store.contact.forms DEBUG    Saving contact info for  
+Tue, 12 Jan 2010 08:09:18 newsletter.listeners DEBUG    Updating newletter subscription for Teddy Tester to False
+Tue, 12 Jan 2010 08:09:18 newsletter   DEBUG    Updating subscription status from False to False for Teddy Tester
+Tue, 12 Jan 2010 08:09:18 shop.listeners DEBUG    Recalculating all contact orders not in process
+Tue, 12 Jan 2010 08:09:18 shop.listeners DEBUG    Found 0 orders to recalc
+Tue, 12 Jan 2010 08:09:19 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$46.00, shipping=$0.00, discount=$0.00, tax=$4.60
+Tue, 12 Jan 2010 08:09:19 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:19 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+.Tue, 12 Jan 2010 08:09:20 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+.Tue, 12 Jan 2010 08:09:22 satchmo_store.accounts.views DEBUG    No contact in request
+Tue, 12 Jan 2010 08:09:22 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:22 accounts.forms DEBUG    Saving contact
+Tue, 12 Jan 2010 08:09:22 newsletter   DEBUG    Updating subscription status from False to False for Paul Test
+Tue, 12 Jan 2010 08:09:22 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:22 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:22 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+.Tue, 12 Jan 2010 08:09:24 root         DEBUG    subtypes = ()
+Tue, 12 Jan 2010 08:09:24 product.views DEBUG    finding product template: ['product/product.html']
+Tue, 12 Jan 2010 08:09:24 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:24 recentlist.middleware DEBUG    Added recently viewed: [u'orphaned-product']
+.Tue, 12 Jan 2010 08:09:25 root         DEBUG    subtypes = ('ConfigurableProduct',)
+Tue, 12 Jan 2010 08:09:25 product.utils DEBUG    serialized: ({'items': (<Option: Hard cover>, <Option: Soft cover>, <Option: On tape>), 'name': u'Book type', 'id': 3},)
+Tue, 12 Jan 2010 08:09:25 product.utils DEBUG    Serialized Options neat-book: ({'items': (<Option: Hard cover>, <Option: Soft cover>, <Option: On tape>), 'name': u'Book type', 'id': 3},)
+Tue, 12 Jan 2010 08:09:25 product.views DEBUG    finding product template: ['product/detail_configurableproduct.html', 'product/product.html']
+Tue, 12 Jan 2010 08:09:25 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:25 recentlist.middleware DEBUG    Added recently viewed: [u'neat-book-soft']
+.Tue, 12 Jan 2010 08:09:27 root         DEBUG    subtypes = ('ConfigurableProduct',)
+Tue, 12 Jan 2010 08:09:27 product.utils DEBUG    serialized: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:09:27 product.utils DEBUG    Serialized Options dj-rocks: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:09:27 product.views DEBUG    finding product template: ['product/detail_configurableproduct.html', 'product/product.html']
+Tue, 12 Jan 2010 08:09:27 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:27 recentlist.middleware DEBUG    Added recently viewed: [u'dj-rocks']
+Tue, 12 Jan 2010 08:09:27 shop.views.cart DEBUG    FORM: <QueryDict: {u'1': [u'L'], u'productname': [u'dj-rocks'], u'2': [u'BL'], u'quantity': [u'2']}>
+Tue, 12 Jan 2010 08:09:27 shop.views.cart DEBUG    found product: Django Rocks shirt
+Tue, 12 Jan 2010 08:09:27 shop.views.cart DEBUG    product dj-rocks is active
+Tue, 12 Jan 2010 08:09:27 upsell.views DEBUG    cart_add_listener heard satchmo_cart_add_complete
+Tue, 12 Jan 2010 08:09:27 shop.listeners DEBUG    caught cart changed signal - remove_order_on_cart_update
+Tue, 12 Jan 2010 08:09:27 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:27 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:09:27 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:27 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:09:28 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'payment.forms.PaymentContactInfoForm'>
+Tue, 12 Jan 2010 08:09:28 satchmo_store.contact.forms DEBUG    creating new contact
+Tue, 12 Jan 2010 08:09:28 newsletter.listeners DEBUG    Updating newletter subscription for Teddy Tester to False
+Tue, 12 Jan 2010 08:09:28 newsletter   DEBUG    Updating subscription status from False to False for Teddy Tester
+Tue, 12 Jan 2010 08:09:28 shop.listeners DEBUG    Recalculating all contact orders not in process
+Tue, 12 Jan 2010 08:09:28 shop.listeners DEBUG    Found 0 orders to recalc
+Tue, 12 Jan 2010 08:09:28 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$46.00, shipping=$0.00, discount=$0.00, tax=$4.60
+Tue, 12 Jan 2010 08:09:28 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:28 accounts.forms DEBUG    Saving contact
+Tue, 12 Jan 2010 08:09:28 newsletter   DEBUG    Updating subscription status from False to False for Teddy Tester
+Tue, 12 Jan 2010 08:09:28 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+.Tue, 12 Jan 2010 08:09:29 search listener DEBUG    default product search listener
+Tue, 12 Jan 2010 08:09:29 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:29 search listener DEBUG    default product search listener
+Tue, 12 Jan 2010 08:09:30 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:30 search listener DEBUG    default product search listener
+Tue, 12 Jan 2010 08:09:30 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+F.Tue, 12 Jan 2010 08:09:32 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:32 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:32 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:32 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:32 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+....Tue, 12 Jan 2010 08:09:32 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:32 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:32 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:32 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:32 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:32 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+..Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+.Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+..................................Tue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:33 shop.templatetags.satchmo_util WARNING  No url found for satchmo_search (OK if running tests)
+Tue, 12 Jan 2010 08:09:33 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:33 shop.templatetags.satchmo_util WARNING  No url found for satchmo_search (OK if running tests)
+Tue, 12 Jan 2010 08:09:33 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+ETue, 12 Jan 2010 08:09:33 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:34 shop.templatetags.satchmo_util WARNING  No url found for satchmo_search (OK if running tests)
+Tue, 12 Jan 2010 08:09:34 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+ETue, 12 Jan 2010 08:09:34 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:34 shop.templatetags.satchmo_util WARNING  No url found for satchmo_search (OK if running tests)
+Tue, 12 Jan 2010 08:09:34 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+ETue, 12 Jan 2010 08:09:34 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:34 shop.templatetags.satchmo_util WARNING  No url found for satchmo_search (OK if running tests)
+Tue, 12 Jan 2010 08:09:34 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:09:34 shop.templatetags.satchmo_util WARNING  No url found for satchmo_search (OK if running tests)
+Tue, 12 Jan 2010 08:09:34 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+ETue, 12 Jan 2010 08:09:34 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:34 shop.templatetags.satchmo_util WARNING  No url found for satchmo_search (OK if running tests)
+Tue, 12 Jan 2010 08:09:34 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+EETue, 12 Jan 2010 08:09:34 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:34 shop.templatetags.satchmo_util WARNING  No url found for satchmo_search (OK if running tests)
+Tue, 12 Jan 2010 08:09:34 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+EFTue, 12 Jan 2010 08:09:34 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:34 shop.templatetags.satchmo_util WARNING  No url found for satchmo_search (OK if running tests)
+Tue, 12 Jan 2010 08:09:34 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+EFFTue, 12 Jan 2010 08:09:34 satchmo_store.shop.models WARNING  No Shop Config found, using test shop config for site=1.
+Tue, 12 Jan 2010 08:09:34 shop.templatetags.satchmo_util WARNING  No url found for satchmo_search (OK if running tests)
+Tue, 12 Jan 2010 08:09:34 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+EE...........Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting coll1.test
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting coll1.test = set a
+Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting coll1.test1
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting coll1.test1 = set b
+Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting coll2.test
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting coll2.test = set a
+Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting coll3.test
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting coll3.test = set d
+Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting BASE.collect
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.collect = ['coll1', 'coll3']
+.Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting coll1.test
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting coll1.test = set a
+Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting coll1.test1
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting coll1.test1 = set b
+Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting coll2.test
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting coll2.test = set a
+Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting coll3.test
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting coll3.test = set d
+Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting BASE.collect
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.collect = ['coll1', 'coll3']
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.collect = ['coll1', 'coll2', 'coll3']
+F.Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting test3.s2
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting test3.s2 = 100
+.Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting test3.s2
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting test3.s2 = 100
+.Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting BASE.groupchoice2
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.groupchoice2 = bar
+Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting BASE.groupchoice
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.groupchoice = ['groupreq']
+.Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting modules.test
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting modules.test = satchmo_store
+.Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting req1.bool2
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting req1.bool2 = True
+Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting req1.bool1
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting req1.bool1 = True
+.Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting BASE.rc1
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.rc1 = c1
+Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting BASE.choices2
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.choices2 = c1
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.choices2 = c2
+FTue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting BASE.rc1
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.rc1 = c1
+Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting BASE.choices2
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.choices2 = c1
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.rc1 = ['c1', 'c2']
+FTue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting BASE.valchoices
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.valchoices = foo
+Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting BASE.valchoices2
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.valchoices2 = a
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.valchoices2 = b
+FTue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting BASE.valchoices
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.valchoices = foo
+Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting BASE.valchoices2
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.valchoices2 = a
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.valchoices = ['foo', 'bar']
+F....Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting test2.s3
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting test2.s3 = 20
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Deleted setting test2.s3
+.Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting test2.s1
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting test2.s1 = test1
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting test2.s1 = test2
+FTue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting test2.s1
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting test2.s1 = test
+..Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting test2.s1
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting test2.s1 = test1
+.Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new long setting BASE.LONG
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.LONG = ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Deleted setting BASE.LONG
+.Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new long setting BASE.LONG
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.LONG = ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+.Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new long setting BASE.LONG
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.LONG = ****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting BASE.LONG = test
+FTue, 12 Jan 2010 08:09:42 configuration DEBUG    not updating setting overgroup.s2 - livesettings db is disabled
+Tue, 12 Jan 2010 08:09:42 configuration.models DEBUG    Returning overridden: ImmutableSetting: overgroup.s2=100
+..Tue, 12 Jan 2010 08:09:42 configuration.models DEBUG    Returning overridden: ImmutableSetting: overgroup.choices=["one","two","three"]
+.Tue, 12 Jan 2010 08:09:42 configuration.models DEBUG    Returning overridden: ImmutableSetting: overgroup.s2=100
+..Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting m1.c1
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting m1.c1 = [1, 2]
+.Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting m1.c1
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting m1.c1 = [1, 2]
+.Tue, 12 Jan 2010 08:09:42 configuration DEBUG    new setting mv2.c1
+Tue, 12 Jan 2010 08:09:42 configuration INFO     Updated setting mv2.c1 = [1, 2, 3]
+...........Tue, 12 Jan 2010 08:09:53 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'satchmo_store.contact.forms.ContactInfoForm'>
+Tue, 12 Jan 2010 08:09:53 satchmo_store.contact.forms DEBUG    Saving contact info for  
+Tue, 12 Jan 2010 08:09:53 contact.models DEBUG    Creating organization: Testers Anonymous
+Tue, 12 Jan 2010 08:09:53 newsletter.listeners DEBUG    Updating newletter subscription for Test Company to False
+Tue, 12 Jan 2010 08:09:53 newsletter   DEBUG    Updating subscription status from False to False for Test Company
+Tue, 12 Jan 2010 08:09:53 shop.listeners DEBUG    Recalculating all contact orders not in process
+Tue, 12 Jan 2010 08:09:53 shop.listeners DEBUG    Found 0 orders to recalc
+.Tue, 12 Jan 2010 08:10:03 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'satchmo_store.contact.forms.ContactInfoForm'>
+Tue, 12 Jan 2010 08:10:03 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'satchmo_store.contact.forms.ContactInfoForm'>
+Tue, 12 Jan 2010 08:10:03 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'satchmo_store.contact.forms.ContactInfoForm'>
+Tue, 12 Jan 2010 08:10:03 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'satchmo_store.contact.forms.ContactInfoForm'>
+Tue, 12 Jan 2010 08:10:03 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'satchmo_store.contact.forms.ContactInfoForm'>
+Tue, 12 Jan 2010 08:10:03 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'satchmo_store.contact.forms.ContactInfoForm'>
+Tue, 12 Jan 2010 08:10:03 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'satchmo_store.contact.forms.ContactInfoForm'>
+Tue, 12 Jan 2010 08:10:03 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'satchmo_store.contact.forms.ContactInfoForm'>
+.Tue, 12 Jan 2010 08:10:04 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'satchmo_store.contact.forms.ContactInfoForm'>
+..Tue, 12 Jan 2010 08:10:04 contact.models DEBUG    Creating organization: The Testers
+.Tue, 12 Jan 2010 08:10:15 configuration DEBUG    new setting TAX.MODULE
+Tue, 12 Jan 2010 08:10:15 configuration INFO     Updated setting TAX.MODULE = tax.modules.area
+Tue, 12 Jan 2010 08:10:15 tax.area     DEBUG    Got rate [Default] = Default - Germany = 20.00%
+Tue, 12 Jan 2010 08:10:15 tax.area     DEBUG    Got rate [Default] = Default - Germany = 20.00%
+Tue, 12 Jan 2010 08:10:16 tax.area     DEBUG    Got rate [Default] = Default - Germany = 20.00%
+Tue, 12 Jan 2010 08:10:16 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$105.00, shipping=$10.00, discount=$0.00, tax=$20.00
+Tue, 12 Jan 2010 08:10:16 tax.area     DEBUG    Got rate [Default] = Default - Switzerland = 16.00%
+Tue, 12 Jan 2010 08:10:16 tax.area     DEBUG    Got rate [Default] = Default - Switzerland = 16.00%
+Tue, 12 Jan 2010 08:10:16 tax.area     DEBUG    Got rate [Default] = Default - Switzerland = 16.00%
+Tue, 12 Jan 2010 08:10:16 satchmo_store.shop.models DEBUG    Order #2, recalc: sub_total=$100.00, shipping=$10.00, discount=$0.00, tax=$16.00
+.Tue, 12 Jan 2010 08:10:27 configuration DEBUG    new setting TAX.MODULE
+Tue, 12 Jan 2010 08:10:27 configuration INFO     Updated setting TAX.MODULE = tax.modules.area
+Tue, 12 Jan 2010 08:10:27 tax.area     DEBUG    Got rate [Default] = Default - Manchester = 20.00%
+Tue, 12 Jan 2010 08:10:27 tax.area     DEBUG    Got rate [Default] = Default - Manchester = 20.00%
+Tue, 12 Jan 2010 08:10:27 tax.area     DEBUG    Got rate [Default] = Default - Manchester = 20.00%
+Tue, 12 Jan 2010 08:10:27 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$100.00, shipping=$10.00, discount=$0.00, tax=$20.00
+.Tue, 12 Jan 2010 08:10:38 tax.test     DEBUG    fractionalpercent
+Tue, 12 Jan 2010 08:10:38 configuration DEBUG    new setting TAX.MODULE
+Tue, 12 Jan 2010 08:10:38 configuration INFO     Updated setting TAX.MODULE = tax.modules.percent
+Tue, 12 Jan 2010 08:10:38 configuration DEBUG    new setting TAX.PERCENT
+Tue, 12 Jan 2010 08:10:38 configuration INFO     Updated setting TAX.PERCENT = 12.254
+Tue, 12 Jan 2010 08:10:38 tax.test     DEBUG    making order
+Tue, 12 Jan 2010 08:10:38 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$100.00, shipping=$10.00, discount=$0.00, tax=$12.25
+Tue, 12 Jan 2010 08:10:38 configuration INFO     Updated setting TAX.PERCENT = 12.25
+Tue, 12 Jan 2010 08:10:38 satchmo_store.shop.models DEBUG    Order #2, recalc: sub_total=$209.90, shipping=$10.00, discount=$0.00, tax=$25.72
+FTue, 12 Jan 2010 08:10:49 configuration DEBUG    new setting TAX.MODULE
+Tue, 12 Jan 2010 08:10:49 configuration INFO     Updated setting TAX.MODULE = tax.modules.percent
+Tue, 12 Jan 2010 08:10:49 configuration DEBUG    new setting TAX.PERCENT
+Tue, 12 Jan 2010 08:10:49 configuration INFO     Updated setting TAX.PERCENT = 10
+Tue, 12 Jan 2010 08:10:49 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$100.00, shipping=$10.00, discount=$0.00, tax=$10.00
+.Tue, 12 Jan 2010 08:11:00 configuration DEBUG    new setting TAX.MODULE
+Tue, 12 Jan 2010 08:11:00 configuration INFO     Updated setting TAX.MODULE = tax.modules.percent
+Tue, 12 Jan 2010 08:11:00 configuration DEBUG    new setting TAX.PERCENT
+Tue, 12 Jan 2010 08:11:00 configuration INFO     Updated setting TAX.PERCENT = 10
+Tue, 12 Jan 2010 08:11:00 configuration DEBUG    new setting TAX.TAX_SHIPPING
+Tue, 12 Jan 2010 08:11:00 configuration INFO     Updated setting TAX.TAX_SHIPPING = True
+Tue, 12 Jan 2010 08:11:00 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$100.00, shipping=$10.00, discount=$0.00, tax=$11.00
+.............Tue, 12 Jan 2010 08:11:01 shipping.TieredWeight DEBUG    No tiered price found for zone 1: weight=4
+.Tue, 12 Jan 2010 08:11:01 shipping.TieredWeight DEBUG    No tiered price found for zone 1: weight=100
+.Tue, 12 Jan 2010 08:11:01 product.models DEBUG    Trying with ct=4
+.Tue, 12 Jan 2010 08:11:01 product.models DEBUG    Trying with ct=4
+.Tue, 12 Jan 2010 08:11:01 product.models DEBUG    Trying with ct=4
+Tue, 12 Jan 2010 08:11:01 product.models DEBUG    Trying with ct=3
+.Tue, 12 Jan 2010 08:11:01 product.models DEBUG    Trying with ct=4
+..Tue, 12 Jan 2010 08:11:01 product.models DEBUG    Trying with ct=3
+.Tue, 12 Jan 2010 08:11:01 product.models DEBUG    Trying with ct=3
+Tue, 12 Jan 2010 08:11:01 product.models DEBUG    Trying with ct=2
+.......Tue, 12 Jan 2010 08:11:02 product.models DEBUG    Create variation: [<Option: Small>, <Option: Black>]
+Tue, 12 Jan 2010 08:11:02 product.models INFO     Creating variation for [django-shirt] django-shirt_small_black_1
+Tue, 12 Jan 2010 08:11:02 product.models DEBUG    Setting default name for ProductVariant: Django shirt
+Tue, 12 Jan 2010 08:11:02 product.models DEBUG    Setting default name for ProductVariant: Django shirt (Small/Black)
+Tue, 12 Jan 2010 08:11:02 product.models DEBUG    Create variation: [<Option: Small>, <Option: White>]
+Tue, 12 Jan 2010 08:11:02 product.models INFO     Creating variation for [django-shirt] django-shirt_small_white
+Tue, 12 Jan 2010 08:11:02 product.models DEBUG    Setting default name for ProductVariant: Django shirt
+Tue, 12 Jan 2010 08:11:02 product.models DEBUG    Setting default name for ProductVariant: Django shirt (Small/White)
+Tue, 12 Jan 2010 08:11:02 product.models DEBUG    Create variation: [<Option: Large>, <Option: Black>]
+Tue, 12 Jan 2010 08:11:02 product.models INFO     Creating variation for [django-shirt] django-shirt_large_black
+Tue, 12 Jan 2010 08:11:02 product.models DEBUG    Setting default name for ProductVariant: Django shirt
+Tue, 12 Jan 2010 08:11:02 product.models DEBUG    Setting default name for ProductVariant: Django shirt (Large/Black)
+Tue, 12 Jan 2010 08:11:02 product.models DEBUG    Create variation: [<Option: Large>, <Option: White>]
+Tue, 12 Jan 2010 08:11:02 product.models INFO     Creating variation for [django-shirt] django-shirt_large_white
+Tue, 12 Jan 2010 08:11:02 product.models DEBUG    Setting default name for ProductVariant: Django shirt
+Tue, 12 Jan 2010 08:11:02 product.models DEBUG    Setting default name for ProductVariant: Django shirt (Large/White)
+...Tue, 12 Jan 2010 08:11:03 product.utils DEBUG    serialized: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:11:03 product.utils DEBUG    Serialized Options dj-rocks: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+.Tue, 12 Jan 2010 08:11:03 product.utils DEBUG    Creating price lookup for Django Rocks shirt
+Tue, 12 Jan 2010 08:11:04 product.utils DEBUG    serialized: ({'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2}, {'items': (<Option: Large>, <Option: Medium>, <Option: Small>), 'name': u'sizes', 'id': 1})
+Tue, 12 Jan 2010 08:11:04 product.utils DEBUG    Serialized Options dj-rocks: ({'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2}, {'items': (<Option: Large>, <Option: Medium>, <Option: Small>), 'name': u'sizes', 'id': 1})
+.............Tue, 12 Jan 2010 08:11:14 root         DEBUG    subtypes = ('ConfigurableProduct',)
+Tue, 12 Jan 2010 08:11:14 product.utils DEBUG    serialized: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:11:14 product.utils DEBUG    Serialized Options dj-rocks: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:11:14 product.utils WARNING  You must run satchmo_rebuild_pricing and add it to a cron-job to run every day, or else the product details will not work for product detail pages.
+Tue, 12 Jan 2010 08:11:14 product.views DEBUG    finding product template: ['product/detail_configurableproduct.html', 'product/product.html']
+Tue, 12 Jan 2010 08:11:15 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:11:15 recentlist.middleware DEBUG    Added recently viewed: [u'dj-rocks']
+Tue, 12 Jan 2010 08:11:15 shop.views.cart DEBUG    FORM: <QueryDict: {u'1': [u'L'], u'productname': [u'dj-rocks'], u'2': [u'BL'], u'quantity': [u'2']}>
+Tue, 12 Jan 2010 08:11:15 shop.views.cart DEBUG    found product: Django Rocks shirt
+Tue, 12 Jan 2010 08:11:15 shop.views.cart DEBUG    product dj-rocks is active
+Tue, 12 Jan 2010 08:11:15 upsell.views DEBUG    cart_add_listener heard satchmo_cart_add_complete
+Tue, 12 Jan 2010 08:11:15 shop.listeners DEBUG    caught cart changed signal - remove_order_on_cart_update
+Tue, 12 Jan 2010 08:11:15 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:11:15 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:11:15 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:11:15 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:11:15 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'payment.forms.PaymentContactInfoForm'>
+Tue, 12 Jan 2010 08:11:16 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:11:16 configuration DEBUG    new setting PAYMENT.MINIMUM_ORDER
+Tue, 12 Jan 2010 08:11:16 configuration INFO     Updated setting PAYMENT.MINIMUM_ORDER = 100.00
+Tue, 12 Jan 2010 08:11:16 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:11:16 shop.views.cart DEBUG    FORM: <QueryDict: {u'1': [u'L'], u'productname': [u'dj-rocks'], u'2': [u'BL'], u'quantity': [u'10']}>
+Tue, 12 Jan 2010 08:11:16 shop.views.cart DEBUG    found product: Django Rocks shirt
+Tue, 12 Jan 2010 08:11:16 shop.views.cart DEBUG    product dj-rocks is active
+Tue, 12 Jan 2010 08:11:16 upsell.views DEBUG    cart_add_listener heard satchmo_cart_add_complete
+Tue, 12 Jan 2010 08:11:16 shop.listeners DEBUG    caught cart changed signal - remove_order_on_cart_update
+Tue, 12 Jan 2010 08:11:16 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:11:16 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:11:16 satchmo_store.contact.forms INFO     Sending form_init signal: <class 'payment.forms.PaymentContactInfoForm'>
+Tue, 12 Jan 2010 08:11:16 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+...Tue, 12 Jan 2010 08:11:16 satchmo_utils DEBUG    No url found for DUMMY_test_doesnt_exist
+Tue, 12 Jan 2010 08:11:16 satchmo_utils ERROR    Could not find any url for test_doesnt_exist
+..Tue, 12 Jan 2010 08:11:17 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$105.00, shipping=$10.00, discount=$0.00, tax=$10.00
+Tue, 12 Jan 2010 08:11:17 payment.modules.base DEBUG    Creating pending DUMMY payment of 125.000 for Order #1: Order Tester
+Tue, 12 Jan 2010 08:11:17 satchmo_store.shop.models DEBUG    Pending Payment - creating linked payment
+Tue, 12 Jan 2010 08:11:17 payment.modules.base DEBUG    Recording DUMMY authorization of 125 for Order #1: Order Tester
+Tue, 12 Jan 2010 08:11:17 payment.modules.base DEBUG    Found pending payment: Order Pending Payment #1
+Tue, 12 Jan 2010 08:11:17 satchmo_store.shop.models INFO     Order success: Order #1: Order Tester
+Tue, 12 Jan 2010 08:11:18 payment.listeners DEBUG    heard satchmo_order_status_changed, =New
+Tue, 12 Jan 2010 08:11:18 payment.modules.base DEBUG    Recording DUMMY capture of authorization #1 for Order #1: Order Tester
+.Tue, 12 Jan 2010 08:11:19 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$105.00, shipping=$10.00, discount=$0.00, tax=$10.00
+Tue, 12 Jan 2010 08:11:19 payment.modules.base DEBUG    Creating pending DUMMY payment of 25.00 for Order #1: Order Tester
+Tue, 12 Jan 2010 08:11:19 satchmo_store.shop.models DEBUG    Pending Payment - creating linked payment
+Tue, 12 Jan 2010 08:11:19 payment.modules.base DEBUG    Recording DUMMY authorization of 125 for Order #1: Order Tester
+Tue, 12 Jan 2010 08:11:19 payment.modules.base DEBUG    Found pending payment: Order Pending Payment #1
+Tue, 12 Jan 2010 08:11:19 satchmo_store.shop.models INFO     Order success: Order #1: Order Tester
+Tue, 12 Jan 2010 08:11:19 payment.listeners DEBUG    heard satchmo_order_status_changed, =New
+Tue, 12 Jan 2010 08:11:19 payment.modules.base DEBUG    Creating pending DUMMY payment of 100.00 for Order #1: Order Tester
+Tue, 12 Jan 2010 08:11:19 satchmo_store.shop.models DEBUG    Pending Payment - creating linked payment
+Tue, 12 Jan 2010 08:11:19 payment.modules.base DEBUG    Recording DUMMY authorization of 0 for Order #1: Order Tester
+Tue, 12 Jan 2010 08:11:19 payment.modules.base DEBUG    Found pending payment: Order Pending Payment #1
+Tue, 12 Jan 2010 08:11:19 satchmo_store.shop.models INFO     Order success: Order #1: Order Tester
+Tue, 12 Jan 2010 08:11:19 payment.modules.base DEBUG    Recording DUMMY capture of authorization #1 for Order #1: Order Tester
+Tue, 12 Jan 2010 08:11:19 payment.modules.base DEBUG    Recording DUMMY capture of authorization #2 for Order #1: Order Tester
+Tue, 12 Jan 2010 08:11:19 satchmo_store.shop.models INFO     Order success: Order #1: Order Tester
+.Tue, 12 Jan 2010 08:11:20 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$105.00, shipping=$10.00, discount=$0.00, tax=$10.00
+Tue, 12 Jan 2010 08:11:20 payment.modules.base DEBUG    Creating pending DUMMY payment of 125.000 for Order #1: Order Tester
+Tue, 12 Jan 2010 08:11:20 satchmo_store.shop.models DEBUG    Pending Payment - creating linked payment
+Tue, 12 Jan 2010 08:11:20 payment.modules.base DEBUG    Found pending payment: Order Pending Payment #1
+Tue, 12 Jan 2010 08:11:20 payment.modules.base DEBUG    Using linked payment: Order Payment #1
+Tue, 12 Jan 2010 08:11:20 payment.modules.base DEBUG    Recorded DUMMY payment of 125 for Order #1: Order Tester
+Tue, 12 Jan 2010 08:11:20 satchmo_store.shop.models INFO     Order success: Order #1: Order Tester
+Tue, 12 Jan 2010 08:11:21 payment.listeners DEBUG    heard satchmo_order_status_changed, =New
+.Tue, 12 Jan 2010 08:11:22 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$105.00, shipping=$10.00, discount=$0.00, tax=$10.00
+Tue, 12 Jan 2010 08:11:22 payment.modules.base DEBUG    Creating pending DUMMY payment of 125.000 for Order #1: Order Tester
+Tue, 12 Jan 2010 08:11:22 satchmo_store.shop.models DEBUG    Pending Payment - creating linked payment
+Tue, 12 Jan 2010 08:11:22 payment.modules.base DEBUG    Found pending payment: Order Pending Payment #1
+Tue, 12 Jan 2010 08:11:22 payment.modules.base DEBUG    Deleting 1 expired pending payment entries for order #1
+Tue, 12 Jan 2010 08:11:22 payment.modules.base DEBUG    Creating pending DUMMY payment of 125.000 for Order #1: Order Tester
+Tue, 12 Jan 2010 08:11:22 satchmo_store.shop.models DEBUG    Pending Payment - creating linked payment
+.Tue, 12 Jan 2010 08:11:22 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$3.95, shipping=$0.00, discount=$0.00, tax=$0.00
+Tue, 12 Jan 2010 08:11:22 satchmo_store.shop.models DEBUG    Adjusting lineitem unit price for membership-p2. Full price=9.950000, discount=0.  Final price for qty 1 is 9.950000
+Tue, 12 Jan 2010 08:11:22 satchmo_store.shop.models DEBUG    Order #2, recalc: sub_total=$9.95, shipping=$0.00, discount=$0.00, tax=$0.00
+.Tue, 12 Jan 2010 08:11:23 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$3.95, shipping=$0.00, discount=$0.00, tax=$0.00
+Tue, 12 Jan 2010 08:11:23 satchmo_store.shop.models DEBUG    Adjusting lineitem unit price for membership-p2. Full price=9.950000, discount=0.  Final price for qty 1 is 9.950000
+Tue, 12 Jan 2010 08:11:23 satchmo_store.shop.models DEBUG    Order #2, recalc: sub_total=$9.95, shipping=$0.00, discount=$0.00, tax=$0.00
+Tue, 12 Jan 2010 08:11:23 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$7.90, shipping=$0.00, discount=$0.00, tax=$0.00
+Tue, 12 Jan 2010 08:11:23 payment.modules.base DEBUG    No pending DUMMY payments for Order #1: Jane Doe
+Tue, 12 Jan 2010 08:11:23 payment.modules.base DEBUG    Recorded DUMMY payment of 3.95 for Order #1: Jane Doe
+Tue, 12 Jan 2010 08:11:23 satchmo_store.shop.models INFO     Order success: Order #1: Jane Doe
+Tue, 12 Jan 2010 08:11:23 payment.listeners DEBUG    heard satchmo_order_status_changed, =New
+Tue, 12 Jan 2010 08:11:23 payment.views.cron INFO     Processing Payment test module recurring transaction with DUMMY
+                            Order #1
+                            Results=True
+                            Response=0
+                            Reason=Success
+Tue, 12 Jan 2010 08:11:23 satchmo_store.shop.models DEBUG    Order #2, recalc: sub_total=$19.90, shipping=$0.00, discount=$0.00, tax=$0.00
+Tue, 12 Jan 2010 08:11:23 payment.modules.base DEBUG    No pending DUMMY payments for Order #2: Jane Doe
+Tue, 12 Jan 2010 08:11:23 payment.modules.base DEBUG    Recorded DUMMY payment of 9.95 for Order #2: Jane Doe
+Tue, 12 Jan 2010 08:11:23 satchmo_store.shop.models INFO     Order success: Order #2: Jane Doe
+Tue, 12 Jan 2010 08:11:23 payment.listeners DEBUG    heard satchmo_order_status_changed, =New
+Tue, 12 Jan 2010 08:11:23 payment.views.cron INFO     Processing Payment test module recurring transaction with DUMMY
+                            Order #2
+                            Results=True
+                            Response=0
+                            Reason=Success
+.Tue, 12 Jan 2010 08:11:24 satchmo_store.shop.models DEBUG    Order #1, recalc: sub_total=$3.95, shipping=$0.00, discount=$0.00, tax=$0.00
+Tue, 12 Jan 2010 08:11:24 satchmo_store.shop.models DEBUG    Adjusting lineitem unit price for membership-p2. Full price=9.950000, discount=0.  Final price for qty 1 is 9.950000
+Tue, 12 Jan 2010 08:11:24 satchmo_store.shop.models DEBUG    Order #2, recalc: sub_total=$9.95, shipping=$0.00, discount=$0.00, tax=$0.00
+.Tue, 12 Jan 2010 08:11:24 giftcertificate.tests DEBUG    creating with price: 10.00
+Tue, 12 Jan 2010 08:11:24 satchmo_store.shop.models INFO     Order success: Order #1: Gift Tester
+Tue, 12 Jan 2010 08:11:24 giftcertificate.models DEBUG    Order success called, creating gift certs on order: Order #1: Gift Tester
+Tue, 12 Jan 2010 08:11:24 giftcertificate.models DEBUG    Creating gc for 20
+..Tue, 12 Jan 2010 08:11:25 giftcertificate.models INFO     usage: GiftCertificateUsage: 10
+..............FF.Tue, 12 Jan 2010 08:11:31 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+.Tue, 12 Jan 2010 08:11:33 root         DEBUG    subtypes = ('ConfigurableProduct',)
+Tue, 12 Jan 2010 08:11:33 product.utils DEBUG    serialized: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:11:33 product.utils DEBUG    Serialized Options dj-rocks: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:11:33 product.views DEBUG    finding product template: ['product/detail_configurableproduct.html', 'product/product.html']
+Tue, 12 Jan 2010 08:11:33 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:11:33 recentlist.middleware DEBUG    Added recently viewed: [u'dj-rocks']
+Tue, 12 Jan 2010 08:11:33 wishlist.listener DEBUG    Found addwish in post, returning the wishlist add view
+Tue, 12 Jan 2010 08:11:33 wishlist.view DEBUG    wishlist requires login
+Tue, 12 Jan 2010 08:11:33 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+.Tue, 12 Jan 2010 08:11:34 root         DEBUG    subtypes = ('ConfigurableProduct',)
+Tue, 12 Jan 2010 08:11:34 product.utils DEBUG    serialized: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:11:34 product.utils DEBUG    Serialized Options dj-rocks: ({'items': (<Option: Small>, <Option: Medium>, <Option: Large>), 'name': u'sizes', 'id': 1}, {'items': (<Option: Black>, <Option: White>, <Option: Blue>), 'name': u'colors', 'id': 2})
+Tue, 12 Jan 2010 08:11:34 product.views DEBUG    finding product template: ['product/detail_configurableproduct.html', 'product/product.html']
+Tue, 12 Jan 2010 08:11:35 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:11:35 shop.templatetags DEBUG    returning product rating form for Django Rocks shirt
+Tue, 12 Jan 2010 08:11:35 recentlist.middleware DEBUG    Added recently viewed: [u'dj-rocks']
+Tue, 12 Jan 2010 08:11:35 wishlist.listener DEBUG    Found addwish in post, returning the wishlist add view
+Tue, 12 Jan 2010 08:11:35 wishlist.view DEBUG    FORM: <QueryDict: {u'1': [u'M'], u'2': [u'BL'], u'addwish': [u'Add to wishlist'], u'productname': [u'dj-rocks']}>
+Tue, 12 Jan 2010 08:11:35 shop.views.cart DEBUG    found product: Django Rocks shirt
+Tue, 12 Jan 2010 08:11:35 product.views DEBUG    finding product template: ['product/detail_productvariation.html', 'product/product.html']
+Tue, 12 Jan 2010 08:11:35 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:11:35 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+.Tue, 12 Jan 2010 08:11:37 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:11:37 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+.Tue, 12 Jan 2010 08:11:38 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:11:38 shop.listeners DEBUG    caught cart changed signal - remove_order_on_cart_update
+Tue, 12 Jan 2010 08:11:38 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:11:38 shop.templatetags.satchmo_cart DEBUG    sub details
+Tue, 12 Jan 2010 08:11:39 shop.templatetags.satchmo_util WARNING  No url found for satchmo_set_language (OK if running tests)
+Tue, 12 Jan 2010 08:11:39 shop.templatetags.satchmo_cart DEBUG    sub details
+.Tue, 12 Jan 2010 08:11:39 newsletter   DEBUG    Updating subscription status from False to True for <satchmo_ext.newsletter.models.NullContact object at 0x59c40d0>
+Tue, 12 Jan 2010 08:11:39 simple newsletter DEBUG    Subscription now: [Y] setattr@test.com
+.Tue, 12 Jan 2010 08:11:39 newsletter   DEBUG    Updating subscription status from False to True for <satchmo_ext.newsletter.models.NullContact object at 0x598a450>
+Tue, 12 Jan 2010 08:11:39 simple newsletter DEBUG    Subscription now: [Y] explicityes@test.com
+.Tue, 12 Jan 2010 08:11:39 newsletter   DEBUG    Updating subscription status from False to False for <satchmo_ext.newsletter.models.NullContact object at 0x5ab8c10>
+..Tue, 12 Jan 2010 08:11:39 newsletter   DEBUG    Updating subscription status from False to True for <satchmo_ext.newsletter.models.NullContact object at 0x5570290>
+Tue, 12 Jan 2010 08:11:39 simple newsletter DEBUG    Subscription now: [Y] setreset@test.com
+Tue, 12 Jan 2010 08:11:39 newsletter   DEBUG    Updating subscription status from True to False for <satchmo_ext.newsletter.models.NullContact object at 0x5570290>
+Tue, 12 Jan 2010 08:11:39 simple newsletter DEBUG    Subscription now: [N] setreset@test.com
+.Tue, 12 Jan 2010 08:11:39 newsletter   DEBUG    Updating subscription status from False to True for <satchmo_ext.newsletter.models.NullContact object at 0x5aaded0>
+Tue, 12 Jan 2010 08:11:39 simple newsletter DEBUG    Subscription now: [Y] testsubview@test.com
+.Tue, 12 Jan 2010 08:11:39 newsletter   DEBUG    Updating subscription status from False to True for <satchmo_ext.newsletter.models.NullContact object at 0x5adbf90>
+Tue, 12 Jan 2010 08:11:39 simple newsletter DEBUG    Subscription now: [Y] testunsubview@test.com
+Tue, 12 Jan 2010 08:11:39 newsletter   DEBUG    Updating subscription status from True to False for <satchmo_ext.newsletter.models.NullContact object at 0x5aef790>
+Tue, 12 Jan 2010 08:11:39 simple newsletter DEBUG    Subscription now: [N] testunsubview@test.com
+...................
+======================================================================
+ERROR: test_activation_extra_context (registration.tests.views.RegistrationViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/franck/workspace/nacsrv/cowri/lib/djangoproject/registration/tests/views.py", line 243, in test_activation_extra_context
+    kwargs={'activation_key': 'foo'}))
+  File "/usr/local/lib/python2.6/dist-packages/django/test/client.py", line 286, in get
+    response = self.request(**r)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 92, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/franck/workspace/nacsrv/cowri/lib/djangoproject/registration/views.py", line 92, in activate
+    context_instance=context)
+  File "/usr/local/lib/python2.6/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 108, in render_to_string
+    return t.render(context_instance)
+  File "/usr/local/lib/python2.6/dist-packages/django/test/utils.py", line 30, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/__init__.py", line 779, in render
+    bits.append(self.render_node(node, context))
+  File "/usr/local/lib/python2.6/dist-packages/django/template/debug.py", line 71, in render_node
+    result = node.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader_tags.py", line 97, in render
+    return compiled_parent.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/test/utils.py", line 30, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/__init__.py", line 779, in render
+    bits.append(self.render_node(node, context))
+  File "/usr/local/lib/python2.6/dist-packages/django/template/debug.py", line 71, in render_node
+    result = node.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader_tags.py", line 97, in render
+    return compiled_parent.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/test/utils.py", line 30, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/__init__.py", line 779, in render
+    bits.append(self.render_node(node, context))
+  File "/usr/local/lib/python2.6/dist-packages/django/template/debug.py", line 71, in render_node
+    result = node.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader_tags.py", line 24, in render
+    result = self.nodelist.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/__init__.py", line 779, in render
+    bits.append(self.render_node(node, context))
+  File "/usr/local/lib/python2.6/dist-packages/django/template/debug.py", line 71, in render_node
+    result = node.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader_tags.py", line 24, in render
+    result = self.nodelist.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/__init__.py", line 779, in render
+    bits.append(self.render_node(node, context))
+  File "/usr/local/lib/python2.6/dist-packages/django/template/debug.py", line 71, in render_node
+    result = node.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/defaulttags.py", line 261, in render
+    return self.nodelist_false.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/__init__.py", line 779, in render
+    bits.append(self.render_node(node, context))
+  File "/usr/local/lib/python2.6/dist-packages/django/template/debug.py", line 81, in render_node
+    raise wrapped
+TemplateSyntaxError: Caught an exception while rendering: expiration_days
+
+Original Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/template/debug.py", line 71, in render_node
+    result = node.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/templatetags/i18n.py", line 85, in render
+    data = dict([(v, _render_value_in_context(context[v], context)) for v in vars])
+  File "/usr/local/lib/python2.6/dist-packages/django/template/context.py", line 49, in __getitem__
+    raise KeyError(key)
+KeyError: u'expiration_days'
+
+
+======================================================================
+ERROR: test_activation_success_url (registration.tests.views.RegistrationViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/franck/workspace/nacsrv/cowri/lib/djangoproject/registration/tests/views.py", line 224, in test_activation_success_url
+    self.assertRedirects(response, success_redirect)
+  File "/usr/local/lib/python2.6/dist-packages/django/test/testcases.py", line 308, in assertRedirects
+    redirect_response = response.client.get(path, QueryDict(query))
+  File "/usr/local/lib/python2.6/dist-packages/django/test/client.py", line 286, in get
+    response = self.request(**r)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 92, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/views/generic/simple.py", line 17, in direct_to_template
+    t = loader.get_template(template)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 81, in get_template
+    source, origin = find_template_source(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 74, in find_template_source
+    raise TemplateDoesNotExist, name
+TemplateDoesNotExist: registration/test_template_name.html
+
+======================================================================
+ERROR: test_activation_template_name (registration.tests.views.RegistrationViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/franck/workspace/nacsrv/cowri/lib/djangoproject/registration/tests/views.py", line 233, in test_activation_template_name
+    kwargs={'activation_key': 'foo'}))
+  File "/usr/local/lib/python2.6/dist-packages/django/test/client.py", line 286, in get
+    response = self.request(**r)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 92, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/franck/workspace/nacsrv/cowri/lib/djangoproject/registration/views.py", line 92, in activate
+    context_instance=context)
+  File "/usr/local/lib/python2.6/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 103, in render_to_string
+    t = get_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 81, in get_template
+    source, origin = find_template_source(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 74, in find_template_source
+    raise TemplateDoesNotExist, name
+TemplateDoesNotExist: registration/test_template_name.html
+
+======================================================================
+ERROR: test_invalid_activation (registration.tests.views.RegistrationViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/franck/workspace/nacsrv/cowri/lib/djangoproject/registration/tests/views.py", line 202, in test_invalid_activation
+    kwargs={'activation_key': expired_profile.activation_key}))
+  File "/usr/local/lib/python2.6/dist-packages/django/test/client.py", line 286, in get
+    response = self.request(**r)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 92, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/franck/workspace/nacsrv/cowri/lib/djangoproject/registration/views.py", line 92, in activate
+    context_instance=context)
+  File "/usr/local/lib/python2.6/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 108, in render_to_string
+    return t.render(context_instance)
+  File "/usr/local/lib/python2.6/dist-packages/django/test/utils.py", line 30, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/__init__.py", line 779, in render
+    bits.append(self.render_node(node, context))
+  File "/usr/local/lib/python2.6/dist-packages/django/template/debug.py", line 71, in render_node
+    result = node.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader_tags.py", line 97, in render
+    return compiled_parent.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/test/utils.py", line 30, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/__init__.py", line 779, in render
+    bits.append(self.render_node(node, context))
+  File "/usr/local/lib/python2.6/dist-packages/django/template/debug.py", line 71, in render_node
+    result = node.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader_tags.py", line 97, in render
+    return compiled_parent.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/test/utils.py", line 30, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/__init__.py", line 779, in render
+    bits.append(self.render_node(node, context))
+  File "/usr/local/lib/python2.6/dist-packages/django/template/debug.py", line 71, in render_node
+    result = node.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader_tags.py", line 24, in render
+    result = self.nodelist.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/__init__.py", line 779, in render
+    bits.append(self.render_node(node, context))
+  File "/usr/local/lib/python2.6/dist-packages/django/template/debug.py", line 71, in render_node
+    result = node.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader_tags.py", line 24, in render
+    result = self.nodelist.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/__init__.py", line 779, in render
+    bits.append(self.render_node(node, context))
+  File "/usr/local/lib/python2.6/dist-packages/django/template/debug.py", line 71, in render_node
+    result = node.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/defaulttags.py", line 261, in render
+    return self.nodelist_false.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/__init__.py", line 779, in render
+    bits.append(self.render_node(node, context))
+  File "/usr/local/lib/python2.6/dist-packages/django/template/debug.py", line 81, in render_node
+    raise wrapped
+TemplateSyntaxError: Caught an exception while rendering: expiration_days
+
+Original Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/template/debug.py", line 71, in render_node
+    result = node.render(context)
+  File "/usr/local/lib/python2.6/dist-packages/django/templatetags/i18n.py", line 85, in render
+    data = dict([(v, _render_value_in_context(context[v], context)) for v in vars])
+  File "/usr/local/lib/python2.6/dist-packages/django/template/context.py", line 49, in __getitem__
+    raise KeyError(key)
+KeyError: u'expiration_days'
+
+
+======================================================================
+ERROR: test_registration_disallowed_url (registration.tests.views.RegistrationViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/franck/workspace/nacsrv/cowri/lib/djangoproject/registration/tests/views.py", line 143, in test_registration_disallowed_url
+    self.assertRedirects(response, closed_redirect)
+  File "/usr/local/lib/python2.6/dist-packages/django/test/testcases.py", line 308, in assertRedirects
+    redirect_response = response.client.get(path, QueryDict(query))
+  File "/usr/local/lib/python2.6/dist-packages/django/test/client.py", line 286, in get
+    response = self.request(**r)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 92, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/views/generic/simple.py", line 17, in direct_to_template
+    t = loader.get_template(template)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 81, in get_template
+    source, origin = find_template_source(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 74, in find_template_source
+    raise TemplateDoesNotExist, name
+TemplateDoesNotExist: registration/registration_closed.html
+
+======================================================================
+ERROR: test_registration_extra_context (registration.tests.views.RegistrationViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/franck/workspace/nacsrv/cowri/lib/djangoproject/registration/tests/views.py", line 127, in test_registration_extra_context
+    self.assertEqual(response.context['foo'], 'bar')
+TypeError: 'NoneType' object is unsubscriptable
+
+======================================================================
+ERROR: test_registration_success_url (registration.tests.views.RegistrationViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/franck/workspace/nacsrv/cowri/lib/djangoproject/registration/tests/views.py", line 159, in test_registration_success_url
+    self.assertRedirects(response, success_redirect)
+  File "/usr/local/lib/python2.6/dist-packages/django/test/testcases.py", line 308, in assertRedirects
+    redirect_response = response.client.get(path, QueryDict(query))
+  File "/usr/local/lib/python2.6/dist-packages/django/test/client.py", line 286, in get
+    response = self.request(**r)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 92, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/views/generic/simple.py", line 17, in direct_to_template
+    t = loader.get_template(template)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 81, in get_template
+    source, origin = find_template_source(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 74, in find_template_source
+    raise TemplateDoesNotExist, name
+TemplateDoesNotExist: registration/registration_closed.html
+
+======================================================================
+ERROR: test_registration_view_closed (registration.tests.views.RegistrationViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/franck/workspace/nacsrv/cowri/lib/djangoproject/registration/tests/views.py", line 97, in test_registration_view_closed
+    self.assertRedirects(response, closed_redirect)
+  File "/usr/local/lib/python2.6/dist-packages/django/test/testcases.py", line 308, in assertRedirects
+    redirect_response = response.client.get(path, QueryDict(query))
+  File "/usr/local/lib/python2.6/dist-packages/django/test/client.py", line 286, in get
+    response = self.request(**r)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 92, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/views/generic/simple.py", line 17, in direct_to_template
+    t = loader.get_template(template)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 81, in get_template
+    source, origin = find_template_source(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 74, in find_template_source
+    raise TemplateDoesNotExist, name
+TemplateDoesNotExist: registration/registration_closed.html
+
+======================================================================
+ERROR: test_registration_view_success (registration.tests.views.RegistrationViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/franck/workspace/nacsrv/cowri/lib/djangoproject/registration/tests/views.py", line 64, in test_registration_view_success
+    'http://testserver%s' % reverse('registration_complete'))
+  File "/usr/local/lib/python2.6/dist-packages/django/test/testcases.py", line 308, in assertRedirects
+    redirect_response = response.client.get(path, QueryDict(query))
+  File "/usr/local/lib/python2.6/dist-packages/django/test/client.py", line 286, in get
+    response = self.request(**r)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 92, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/views/generic/simple.py", line 17, in direct_to_template
+    t = loader.get_template(template)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 81, in get_template
+    source, origin = find_template_source(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 74, in find_template_source
+    raise TemplateDoesNotExist, name
+TemplateDoesNotExist: registration/registration_closed.html
+
+======================================================================
+ERROR: test_valid_activation (registration.tests.views.RegistrationViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/franck/workspace/nacsrv/cowri/lib/djangoproject/registration/tests/views.py", line 176, in test_valid_activation
+    profile = RegistrationProfile.objects.get(user__username='alice')
+  File "/usr/local/lib/python2.6/dist-packages/django/db/models/manager.py", line 119, in get
+    return self.get_query_set().get(*args, **kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/db/models/query.py", line 298, in get
+    % self.model._meta.object_name)
+DoesNotExist: RegistrationProfile matching query does not exist.
+
+======================================================================
+FAIL: test_search (satchmo_store.shop.tests.ShopTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "../../apps/satchmo_store/shop/tests.py", line 417, in test_search
+    self.assertContains(response, "Django Rocks shirt", count=1)
+  File "/usr/local/lib/python2.6/dist-packages/django/test/testcases.py", line 342, in assertContains
+    (real_count, text, count))
+AssertionError: Found 10 instances of 'Django Rocks shirt' in response (expected 1)
+
+======================================================================
+FAIL: test_registration_template_name (registration.tests.views.RegistrationViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/franck/workspace/nacsrv/cowri/lib/djangoproject/registration/tests/views.py", line 118, in test_registration_template_name
+    'registration/test_template_name.html')
+  File "/usr/local/lib/python2.6/dist-packages/django/test/testcases.py", line 414, in assertTemplateUsed
+    self.fail('No templates used to render the response')
+AssertionError: No templates used to render the response
+
+======================================================================
+FAIL: test_registration_view_failure (registration.tests.views.RegistrationViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/franck/workspace/nacsrv/cowri/lib/djangoproject/registration/tests/views.py", line 79, in test_registration_view_failure
+    self.assertEqual(response.status_code, 200)
+AssertionError: 302 != 200
+
+======================================================================
+FAIL: test_registration_view_initial (registration.tests.views.RegistrationViewTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/franck/workspace/nacsrv/cowri/lib/djangoproject/registration/tests/views.py", line 46, in test_registration_view_initial
+    self.assertEqual(response.status_code, 200)
+AssertionError: 302 != 200
+
+======================================================================
+FAIL: testCollectUnique (livesettings.tests.ConfigCollectGroup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "../../apps/livesettings/tests.py", line 456, in testCollectUnique
+    self.assertEqual(v, ['set a', 'set a', 'set d'])
+AssertionError: [u'set a', u'set d'] != ['set a', 'set a', 'set d']
+
+======================================================================
+FAIL: testRequiresSingleValue (livesettings.tests.ConfigTestRequiresChoices)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "../../apps/livesettings/tests.py", line 329, in testRequiresSingleValue
+    self.assertEqual(keys, ['c2'])
+AssertionError: ['c1'] != ['c2']
+
+======================================================================
+FAIL: testSimpleRequiresChoices (livesettings.tests.ConfigTestRequiresChoices)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "../../apps/livesettings/tests.py", line 316, in testSimpleRequiresChoices
+    self.assertEqual(keys, ['c1', 'c2', 'c3'])
+AssertionError: ['c1', 'c3'] != ['c1', 'c2', 'c3']
+
+======================================================================
+FAIL: testRequiresSingleValue (livesettings.tests.ConfigTestRequiresValue)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "../../apps/livesettings/tests.py", line 389, in testRequiresSingleValue
+    self.assertEqual(keys, ['c2'])
+AssertionError: ['c1'] != ['c2']
+
+======================================================================
+FAIL: testRequiresValue (livesettings.tests.ConfigTestRequiresValue)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "../../apps/livesettings/tests.py", line 376, in testRequiresValue
+    self.assertEqual(keys, ['c1', 'c2', 'c3'])
+AssertionError: ['c1', 'c3'] != ['c1', 'c2', 'c3']
+
+======================================================================
+FAIL: Test setting one value and then updating
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "../../apps/livesettings/tests.py", line 65, in testSetAndReset
+    self.assertEqual(c.value, 'test2')
+AssertionError: u'test1' != 'test2'
+
+======================================================================
+FAIL: testShortInLong (livesettings.tests.LongSettingTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "../../apps/livesettings/tests.py", line 477, in testShortInLong
+    self.assertEqual(len(w), 4)
+AssertionError: 1000 != 4
+
+======================================================================
+FAIL: Test proper handling of taxes when using a fractional percent tax.  This can cause
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "../../apps/tax/tests.py", line 205, in testFractionalPercentShipping
+    self.assertEqual(tax, Decimal('25.71275'))
+AssertionError: Decimal('25.7211460') != Decimal('25.71275')
+
+======================================================================
+FAIL: Test that a tiered user gets the tiered price
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "../../apps/satchmo_ext/tieredpricing/tests.py", line 41, in test_tiered_user
+    self.assertEqual(product.unit_price, Decimal("17.550"))
+AssertionError: Decimal('19.50') != Decimal('17.550')
+
+======================================================================
+FAIL: Test setting an explicit tieredprice on a product
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "../../apps/satchmo_ext/tieredpricing/tests.py", line 56, in test_tieredprice
+    self.assertEqual(product.unit_price, Decimal("10.00"))
+AssertionError: Decimal('19.50') != Decimal('10.00')
+
+----------------------------------------------------------------------
+Ran 286 tests in 196.791s
+
+FAILED (failures=14, errors=10)

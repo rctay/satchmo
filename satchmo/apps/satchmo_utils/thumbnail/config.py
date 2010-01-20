@@ -15,5 +15,11 @@ config_register_list(
         'RENAME_IMAGES',
         description=_("Rename product images?"),
         help_text=_("Automatically rename product images on upload?"),
+        default=True),
+    
+    BooleanValue(THUMB_GROUP,
+        'MAKE_ADMIN_THUMBNAILS',
+        description=_("Generate thumbnails images for admin pages?"),
+        help_text=_("Automatically generate thumbnails and display images in product admin page?"),
         default=True)
 )

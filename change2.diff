@@ -1,0 +1,55 @@
+diff -r 7229348e8c11 satchmo/apps/satchmo_ext/brand/__init__.py
+--- a/satchmo/apps/satchmo_ext/brand/__init__.py	Sun Jan 10 18:14:23 2010 -0600
++++ b/satchmo/apps/satchmo_ext/brand/__init__.py	Thu Jan 14 10:03:28 2010 +0100
+@@ -0,0 +1,7 @@
++from satchmo_store.shop.satchmo_settings import add_setting_defaults
++
++brand_settings_defaults = {
++    'BRAND_SLUG' : 'brand',
++    }
++
++add_setting_defaults(brand_settings_defaults)
+\ No newline at end of file
+diff -r 7229348e8c11 satchmo/apps/satchmo_ext/brand/models.py
+--- a/satchmo/apps/satchmo_ext/brand/models.py	Sun Jan 10 18:14:23 2010 -0600
++++ b/satchmo/apps/satchmo_ext/brand/models.py	Thu Jan 14 10:03:28 2010 +0100
+@@ -26,7 +26,7 @@
+     """A product brand"""
+     site = models.ForeignKey(Site)
+     slug = models.SlugField(_("Slug"), unique=True,
+-        help_text=_("Used for URLs"))
++    help_text=_("Used for URLs"))
+     products = models.ManyToManyField(Product, blank=True, verbose_name=_("Products"), through='BrandProduct')
+     ordering = models.IntegerField(_("Ordering"))
+     active = models.BooleanField(default=True)
+@@ -176,6 +176,6 @@
+         ordering=('languagecode', )
+         verbose_name_plural = _('Brand Category Translations')
+ 
+-import config        
++#import config        
+ from urls import add_brand_urls
+ collect_urls.connect(add_brand_urls, sender=product)
+diff -r 7229348e8c11 satchmo/apps/satchmo_ext/brand/urls.py
+--- a/satchmo/apps/satchmo_ext/brand/urls.py	Sun Jan 10 18:14:23 2010 -0600
++++ b/satchmo/apps/satchmo_ext/brand/urls.py	Thu Jan 14 10:03:28 2010 +0100
+@@ -2,7 +2,7 @@
+ Urls for Product Brand module, note that you do not have to add this to your urls file, it will get automatically included by collect_urls.
+ """
+ from django.conf.urls.defaults import *
+-from livesettings import config_value
++from satchmo_store.shop import get_satchmo_setting
+ import logging
+ 
+ log = logging.getLogger('brand.urls')
+@@ -13,7 +13,9 @@
+     (r'^(?P<brandname>.*)/$', 'brand_page', {}, 'satchmo_brand_view'),
+ )
+ 
+-brandbase = r'^' + config_value('PRODUCT','BRAND_SLUG') + '/'    
++brandbase = r'^' + get_satchmo_setting('BRAND_SLUG') + '/'
++
++prodbase = r'^' + get_satchmo_setting('PRODUCT_SLUG') + '/'
+ brandpatterns = patterns('',
+     (brandbase, include('satchmo_ext.brand.urls'))
+ )

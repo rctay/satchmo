@@ -14,11 +14,12 @@ l10n_settings_defaults = {
 
     'currency_formats' : {
         'USD' : {'symbol': '$', 'positive' : "$%(val)0.2f", 'negative': "-$%(val)0.2f", 'decimal' : '.'},
-        'GBP' : {'symbol': '£', 'positive' : "£%(val)0.2f", 'negative': "-£%(val)0.2f", 'decimal' : '.'},
+        'GBP' : {'symbol': u'£', 'positive' : u"£%(val)0.2f", 'negative': u"-£%(val)0.2f", 'decimal' : '.'},
     },
     
     'default_currency' : 'USD',
-    'show_translations': True
+    'show_translations': True,  #Display in the admin
+    'allow_translations' : True, #Display the list of languages to store user
 }
 
 

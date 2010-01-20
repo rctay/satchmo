@@ -151,16 +151,32 @@ def remove_model_thumbnails(model):
                 _remove_thumbnails(url)
 
 def make_admin_thumbnail(url):
-    """ make thumbnails for admin interface """
-    return make_thumbnail(url, width=120)
+    """ make thumbnails for admin interface if MAKE_ADMIN_THUMBNAILS is set to True """
+    make_admin_thumbs = True
+    try :
+        make_admin_thumbs = config_value('THUMBNAIL', 'MAKE_ADMIN_THUMBNAILS')
+    except SettingNotSet:
+        log.warn("Error getting MAKE_ADMIN_THUMBNAILS, OK if in SyncDB")
+        
+    if make_admin_thumbs :
+        return make_thumbnail(url, width=120)
+    else:
+        return None
 
 def make_admin_thumbnails(model):
-    """ create thumbnails for admin interface for all ImageFields (and subclasses) in the model """
-
-    for obj in model._meta.fields:
-        if isinstance(obj, ImageField):
-            url = getattr(model, obj.name).path
-            make_thumbnail(url, width=120)
+    """ create thumbnails for admin interface for all ImageFields (and subclasses)
+    in the model if MAKE_ADMIN_THUMBNAILS is set to True  """
+    make_admin_thumbs = True
+    try :
+        make_admin_thumbs = config_value('THUMBNAIL', 'MAKE_ADMIN_THUMBNAILS')
+    except SettingNotSet:
+        log.warn("Error getting MAKE_ADMIN_THUMBNAILS, OK if in SyncDB")
+        
+    if make_admin_thumbs :
+        for obj in model._meta.fields:
+            if isinstance(obj, ImageField):
+                url = getattr(model, obj.name).path
+                make_thumbnail(url, width=120)
 
 def _get_thumbnail_url(photo_url, width=None, height=None, root=settings.MEDIA_ROOT, url_root=settings.MEDIA_URL):
     """ return thumbnail URL for requested photo_url and required width and/or height

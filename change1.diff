@@ -1,0 +1,21 @@
+diff -r 7229348e8c11 satchmo/apps/product/views/__init__.py
+--- a/satchmo/apps/product/views/__init__.py	Sun Jan 10 18:14:23 2010 -0600
++++ b/satchmo/apps/product/views/__init__.py	Thu Jan 14 10:00:52 2010 +0100
+@@ -130,6 +130,9 @@
+     
+     # Save product id for xheaders, in case we display a ConfigurableProduct
+     product_id = product.id
++    
++    # Clone product object in order to have current product variations in context (extra_context)
++    current_product = product
+ 
+     if 'ProductVariation' in subtype_names:
+         selected_options = product.productvariation.unique_option_ids
+@@ -141,6 +144,7 @@
+     
+     extra_context = {
+         'product': product,
++        'current_product' : current_product,
+         'default_view_tax': default_view_tax,
+         'sale': best_discount,
+         'error_message' : errors,

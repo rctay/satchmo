@@ -39,7 +39,7 @@ def optionids_from_post(configurableproduct, POST):
     from the passed `ConfigurableProduct`"""
     chosen_options = []
     for opt_grp in configurableproduct.option_group.all():
-        if POST.has_key(str(opt_grp.id)):
+        if POST.has_key('opt_grp%s' % str(opt_grp.id)) :
             chosen_options.append('%s-%s' % (opt_grp.id, POST[str(opt_grp.id)]))
     return sorted_tuple(chosen_options)
 

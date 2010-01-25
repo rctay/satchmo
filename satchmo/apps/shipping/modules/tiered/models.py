@@ -156,7 +156,7 @@ class Carrier(models.Model):
         trans = self._find_translation()
 
         if trans:
-            return trans.method
+            return "aaa"#trans.method
         else:
             return ""
 

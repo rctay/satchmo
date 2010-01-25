@@ -35,6 +35,7 @@ class Shipper(BaseShipper):
     def __init__(self, carrier):
         self.id = 'tieredweight_%i' % carrier.pk
         self._carrier = carrier
+        print "********constructeur**********"
         super(BaseShipper, self).__init__()
 
 
@@ -48,6 +49,8 @@ class Shipper(BaseShipper):
         if self._zone:
             try:
                 self._weight = _get_cart_weight(cart)
+                print "WEIGHT :  "
+                print self._weight 
                 self._cost = self._zone.cost(self._weight)
             except TieredWeightException:
                 pass
@@ -129,7 +132,7 @@ class Carrier(models.Model):
 
     def get_zone(self, country):
         try:
-            return self.zones.filter(countries=country).get()
+            return self.zones.filter(countries=country)[0]
         except Zone.DoesNotExist:
             if self.default_zone:
                 return self.default_zone
@@ -138,10 +141,17 @@ class Carrier(models.Model):
 class Zone(models.Model):
     carrier = models.ForeignKey(Carrier, verbose_name=_('carrier'), related_name='zones')
     name = models.CharField(_('name'), max_length=128)
+    #countries = models.ManyToManyField(Country, verbose_name=_('countries'), blank=True)
     countries = models.ManyToManyField(Country, verbose_name=_('countries'), blank=True)
     handling = models.DecimalField(_('handling'), max_digits=10, decimal_places=2,
         null=True, blank=True)
-
+    
+    def get_zone(self, country):
+        print self.countries
+        for rec in self.countries.get_query_set() :
+            if country == rec :
+                return self
+        return None
 
     def __unicode__(self):
         return u'%s' % self.name

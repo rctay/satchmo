@@ -2,6 +2,10 @@
 {% load satchmo_currency %}
 {% if default_view_tax %}{% load satchmo_tax %}{% endif %}
 {% if default_view_tax %}{{ taxed_shipping_price }} {{ shipping_tax }}{% else %}{{amount|currency}}{% endif %} : {{ description }}
-<br>
+<br />
 {% blocktrans %}Sent via {{ method }} arrives approximately {{ expected_delivery }}.{% endblocktrans %}
-<hr>
+{{ zone }}
+{{ zone.name }}
+{{ zone.description }}
+{{ zone.name }}
+<hr />

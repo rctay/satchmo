@@ -10,6 +10,7 @@ def update_shipping(order, shipping, contact, cart):
     shipper = shipping_method_by_key(shipping)
     shipper.calculate(cart, contact)
     order.shipping_description = shipper.description().encode("utf-8")
-    order.shipping_method = shipper.method()
+    #order.shipping_method = shipper.method()
+    order.shipping_method = "qsldfkjqsd"
     order.shipping_cost = shipper.cost()
     order.shipping_model = shipping

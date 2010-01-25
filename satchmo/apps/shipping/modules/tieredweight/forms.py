@@ -31,13 +31,13 @@ class ZoneAdminForm(forms.ModelForm):
             except IndexError:
                 pass
 
-        if zones:
-            used_countries = []
-            for zone in zones:
-                for country in zone.countries.all():
-                    used_countries.append(country.name)
-            tmp_qs = self.fields['countries'].queryset
-            self.fields['countries'].queryset = tmp_qs.exclude(name__in=used_countries)
+        #if zones:
+        #    used_countries = []
+        #    for zone in zones:
+        #        for country in zone.countries.all():
+        #            used_countries.append(country.name)
+        #    tmp_qs = self.fields['countries'].queryset
+        #    #self.fields['countries'].queryset = tmp_qs.exclude(name__in=used_countries)
 
     class Meta:
         model = Zone

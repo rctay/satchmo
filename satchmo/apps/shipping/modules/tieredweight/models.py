@@ -35,7 +35,6 @@ class Shipper(BaseShipper):
     def __init__(self, carrier):
         self.id = 'tieredweight_%i' % carrier.pk
         self._carrier = carrier
-        print "********constructeur**********"
         super(BaseShipper, self).__init__()
 
 
@@ -145,6 +144,7 @@ class Zone(models.Model):
     countries = models.ManyToManyField(Country, verbose_name=_('countries'), blank=True)
     handling = models.DecimalField(_('handling'), max_digits=10, decimal_places=2,
         null=True, blank=True)
+    description =  models.CharField(_('name'), max_length=256)
     
     def get_zone(self, country):
         print self.countries

@@ -125,7 +125,11 @@ def _get_shipping_choices(request, paymentmodule, cart, contact, default_view_ta
                 'expected_delivery' : method.expectedDelivery(),
                 'default_view_tax' : default_view_tax,
                 'shipping_tax': shipping_tax,
-                'taxed_shipping_price': taxed_shipping_price})
+                'taxed_shipping_price': taxed_shipping_price,
+                'shipping_options' : shipping_options,
+                'shipping_dict' : shipping_dict,
+                'carrier_dict' : method._carrier,
+                })
             rendered[method.id] = t.render(c)
             
     #now sort by price, low to high
@@ -133,6 +137,9 @@ def _get_shipping_choices(request, paymentmodule, cart, contact, default_view_ta
     sortme.sort()
     
     shipping_options = [(key, rendered[key]) for cost, key in sortme]
+    
+    print "##################SHIPPING OPTIONS#################################"
+    print shipping_options
 
     shipping_choices_query.send(sender=cart, cart=cart, 
         paymentmodule=paymentmodule, contact=contact, 

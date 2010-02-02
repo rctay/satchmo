@@ -2102,6 +2102,8 @@ class ProductAttribute(models.Model):
     languagecode = models.CharField(_('language'), max_length=10, choices=settings.LANGUAGES, null=True, blank=True)
     option = models.ForeignKey(AttributeOption)
     value = models.CharField(_("Value"), max_length=255)
+    #---Add a label to store name display value 
+    label = models.CharField(_("Label"), max_length=255)
 
     def _name(self):
         return self.option.name

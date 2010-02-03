@@ -601,6 +601,8 @@ class Order(models.Model):
         choices=ORDER_CHOICES, max_length=50, blank=True)
     shipping_description = models.CharField(_("Shipping Description"),
         max_length=50, blank=True, null=True)
+    shipping_name = models.CharField(_("Shipping Name"),
+        max_length=128, blank=True, null=True)
     shipping_method = models.CharField(_("Shipping Method"),
         max_length=50, blank=True, null=True)
     shipping_model = ShippingChoiceCharField(_("Shipping Models"),

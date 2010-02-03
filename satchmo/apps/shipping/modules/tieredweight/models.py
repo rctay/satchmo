@@ -86,7 +86,12 @@ class Shipper(BaseShipper):
         """
         assert(self._calculated)
         return self._zone.method
-
+    
+    def name(self):
+        """
+        Describes the actual delivery service Method name
+        """
+        return self._zone.name
 
     def expectedDelivery(self):
         """

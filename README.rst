@@ -11,14 +11,14 @@ hg's repository.
 
 (On everything else, don't count on them to be fast-forwardable or stable.)
 
-The branch `master <http://github.com/rctay/satchmo/tree/master>`_ is rebased
-on top of `tip`; right now, it contains the README and nothing else, but this
-might change in the future.
-
 From time to time, you may see branches prefixed `rc/`; they are probably new
 features/work still in development, or finalized and waiting for upstream
 approval (see below). In either case, don't count on them to be around or to be
 stable.
+
+The branch `master <http://github.com/rctay/satchmo/tree/master>`_ is
+independent of these branches; right now, it contains this README and nothing
+else, but this might change in the future.
 
 Development Flow
 ----------------

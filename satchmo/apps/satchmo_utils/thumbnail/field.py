@@ -56,7 +56,7 @@ class ImageWithThumbnailField(ImageField):
                                                       upload_to=upload_to,
                                                       **kwargs)
         self.name_field = name_field
-        self.auto_rename = auto_rename
+        self.auto_rename = NOTSET
         
     def _save_rename(self, instance, **kwargs):
         if hasattr(self, '_renaming') and self._renaming:

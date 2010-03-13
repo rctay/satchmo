@@ -2083,6 +2083,8 @@ class AttributeOption(models.Model):
     validation = models.CharField(_("Field Validations"), choices=VALIDATIONS, max_length=100)
     sort_order = models.IntegerField(_("Sort Order"), default=1)
     error_message = models.CharField(_("Error Message"), default=_("Inavlid Entry"), max_length=100)
+    #---Add a label to store name display value 
+    label = models.CharField(_("Label"), max_length=255)
     
     class Meta:
         ordering = ('sort_order',)

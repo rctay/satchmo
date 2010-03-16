@@ -71,6 +71,13 @@ def taxed_discount_cart_total(cart, discount):
         
 register.filter('taxed_discount_cart_total', taxed_discount_cart_total)
 
+def discount_cart_tax_amount(cart, discount):
+    """Returns the discounted tax total for this cart"""
+    
+    return taxed_discount_cart_total(cart, discount) - untaxed_discount_cart_total(cart, discount)
+        
+register.filter('discount_cart_tax_amount', discount_cart_tax_amount)
+
 def discount_line_total(cartitem, discount):
     """Returns the discounted line total for this cart item, including tax if that is the default."""
     if config_value('TAX', 'DEFAULT_VIEW_TAX'):

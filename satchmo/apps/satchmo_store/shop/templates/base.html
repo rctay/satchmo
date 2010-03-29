@@ -49,7 +49,7 @@
                 {% endif %}
 			</div>
 			{% endblock sidebar-categories %}
-			
+
 			{% block sidebar-secondary-bottom %}
 			{% plugin_point "sidebar_secondary_bottom" %}
 			{% endblock %}
@@ -87,9 +87,9 @@
 		{% url satchmo_checkout-step1 as checkouturl %}
         {% if checkouturl %}<a href="{{ checkouturl }}">{% trans "Check out" %}</a>{% endif %}
 	    {% endif %}
-	
+
 		{% plugin_point "shop_sidebar_actions" %}
-    
+
 		{% url satchmo_contact as contact_url %}
 	    {% if contact_url %}<p><a href="{{ contact_url }}">{% trans "Contact Us" %}</a></p>{% endif %}
 

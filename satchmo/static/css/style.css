@@ -165,6 +165,15 @@ padding: 0;
 list-style-type: none;
 }
 
+/**
+ * Checkout - step 1
+ **/
+
+#checkout-login { margin: 1em auto; width: 25em; }
+#checkout-login p { margin-bottom: 0.5em; }
+#checkout-login .note { margin-bottom: 1em; }
+#checkout-login .field label { float: left; width: 10em; }
+#checkout-login .submit { margin-left: 10em; }
 
 #shipping ul li {
 list-style-type: none;

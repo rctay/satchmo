@@ -15,7 +15,7 @@ margin-top: 0;
 width: 100%;
 background-color: #fff;
 color: #333;
-line-height: 90%;	
+line-height: 90%;
 border: none;
 border-bottom: 1px solid silver;
 }
@@ -47,7 +47,7 @@ padding: 1em;
 	font-size: 110%;
 	font-weight: bold;
 	margin-bottom: 0.1em;
-	margin-top: 1em;	
+	margin-top: 1em;
 }
 
 #sidebar-primary {
@@ -90,7 +90,7 @@ padding: 1em;
 #pagination ul {
 margin: 0;
 padding: 0;
-text-align: left; 
+text-align: left;
 font-size: 12px;
 }
 
@@ -102,7 +102,7 @@ padding-bottom: 1px;
 
 #pagination a, #pagination a:visited {
 padding: 0 5px;
-text-decoration: none; 
+text-decoration: none;
 }
 
 #pagination li.currentpage {
@@ -167,7 +167,7 @@ list-style-type: none;
 
 
 #shipping ul li {
-list-style-type: none;	
+list-style-type: none;
 text-decoration: none;
 padding-left: 1em;
 text-indent: -1em;
@@ -177,7 +177,7 @@ text-indent: -1em;
 border-style: solid;
 border-width: 1px;
 padding: 3px;
-margin-bottom: 25px;	
+margin-bottom: 25px;
 }
 
 #checkoutprogress ul {
@@ -212,7 +212,7 @@ background-color: #ccc;
 #product_category ul li {
 list-style: none;
 padding: 0.5em;
-border-bottom: 1px dashed #e0e0e0;	
+border-bottom: 1px dashed #e0e0e0;
 background-color: white;
 }
 
@@ -320,22 +320,22 @@ img {
 
 /* =============== Navigation Bars ===================== */
 
-#navbar ul {		
+#navbar ul {
 	margin: 1em;
 	padding: 0px;
 }
-#navbar ul li { 
-	display: inline; 
-	list-style: none; 		
+#navbar ul li {
+	display: inline;
+	list-style: none;
 }
-#navbar ul li { 
-	padding-left: 0.7em; 
-	padding-right: 0.5em; 
-	border-left: 1px solid #b0b0b0; 	
-}  
+#navbar ul li {
+	padding-left: 0.7em;
+	padding-right: 0.5em;
+	border-left: 1px solid #b0b0b0;
+}
 #navbar ul li.first {
-	padding-left: 0em; 
-	border-left: none; 
+	padding-left: 0em;
+	border-left: none;
 }
 
 .recentview h3 {
@@ -346,7 +346,7 @@ img {
 	padding-bottom: 10px;
 }
 
-div.recentlyadded { 
+div.recentlyadded {
     display: block;
 }
 

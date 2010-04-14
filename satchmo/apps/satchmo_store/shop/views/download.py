@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core import urlresolvers
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
@@ -9,6 +10,7 @@ import mimetypes
 import os
 import os.path
 import re
+from urlparse import urljoin
 
 SHA1_RE = re.compile('^[a-f0-9]{40}$')
 
@@ -105,16 +107,30 @@ def send_file(request, download_key):
     file_path = file.path
     file_name = os.path.split(file_path)[1]
 
+    #
+    # generate the url; we do this instead of relying on file.url/file.name, as
+    # django doesn't seem to do it correctly.
+    #
+    norm_root = os.path.normcase(os.path.normpath(settings.MEDIA_ROOT))
+    norm_path = os.path.normcase(os.path.normpath(file_path))
+    # by splitting on MEDIA_ROOT, we also get PRODUCT.PROTECTED_DIR included in
+    url_part = norm_path.split(norm_root)[1].replace('\\', '/')
+    # we don't want urljoin to think this is a "root" url.
+    if url_part[0] == '/':
+        url_part = url_part[1:]
+    # interim url
+    file_url = urljoin(settings.MEDIA_URL, url_part)
+
     dl_product.num_attempts += 1
     dl_product.save()
     del request.session['download_key']
     response = HttpResponse()
     # For Nginx
-    response['X-Accel-Redirect'] = file_path
+    response['X-Accel-Redirect'] = file_url
     # For Apache and Lighttpd v1.5
-    response['X-Sendfile'] = file_path
+    response['X-Sendfile'] = file_url
     # For Lighttpd v1.4
-    response['X-LIGHTTPD-send-file'] = file_path
+    response['X-LIGHTTPD-send-file'] = file_url
     response['Content-Disposition'] = "attachment; filename=%s" % file_name
     response['Content-length'] =  file.size
     contenttype, encoding = mimetypes.guess_type(file_name)

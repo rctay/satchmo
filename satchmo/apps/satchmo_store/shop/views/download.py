@@ -105,7 +105,7 @@ def send_file(request, download_key):
     # For Lighttpd
     response['X-LIGHTTPD-send-file'] = file_path
     response['Content-Disposition'] = "attachment; filename=%s" % file_name
-    response['Content-length'] =  os.stat(file_path).st_size
+    response['Content-length'] =  os.path.getsize(file_path)
     contenttype, encoding = mimetypes.guess_type(file_name)
     if contenttype:
         response['Content-type'] = contenttype

@@ -22,8 +22,8 @@ def get_product_types():
 
 def _protected_dir(instance, filename):
     raw = config_value_safe('PRODUCT', 'PROTECTED_DIR', 'images/')
-    updir = normalize_dir(raw)
-    return os.path.normpath(os.path.join(updir, os.path.basename(filename)))
+    updir = os.path.normpath(normalize_dir(raw))
+    return os.path.join(updir, instance.file.field.get_filename(filename))
 
 class DownloadableProduct(models.Model):
     """

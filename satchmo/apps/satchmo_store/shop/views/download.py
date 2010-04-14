@@ -5,6 +5,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.utils.translation import ugettext_lazy as _
 from product.modules.downloadable.models import DownloadLink
+from satchmo_store.shop.signals import download_url_for_file
 import mimetypes
 
 import os
@@ -104,7 +105,14 @@ def send_file(request, download_key):
     # we don't want urljoin to think this is a "root" url.
     if url_part[0] == '/':
         url_part = url_part[1:]
-    file_url = urljoin(settings.MEDIA_URL, url_part)
+
+    # poll listeners
+    url_dict = {'url': urljoin(settings.MEDIA_URL, url_part)}
+    download_url_for_file.send(None, file=file,
+        product=dl_product.downloadable_product,
+        url_dict=url_dict,
+    )
+    file_url = url_dict['url']
 
     dl_product.num_attempts += 1
     dl_product.save()

@@ -120,7 +120,9 @@ class DownloadableProductTest(TestCase):
         # we should have gotten a page that says "click here".
         # hit the pd_url again; we should get a sendfile redirect.
         response = self.client.get(pd_url)
-        # ideally, we should be using 'failIfRaises', but that doesn't exist.
-        self.failIfEqual(response.get('X-Accel-Redirect', None), None)
-        self.failIfEqual(response.get('X-Sendfile', None), None)
-        self.failIfEqual(response.get('X-LIGHTTPD-send-file', None), None)
+
+        exp_url = "%s%s/%s" % (settings.MEDIA_URL, self.protected_dir.split(os.path.sep)[-1], self.file_name)
+
+        self.assertEqual(response['X-Accel-Redirect'], exp_url)
+        self.assertEqual(response['X-Sendfile'], exp_url)
+        self.assertEqual(response['X-LIGHTTPD-send-file'], exp_url)

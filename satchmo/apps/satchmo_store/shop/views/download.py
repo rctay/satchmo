@@ -61,23 +61,34 @@ def send_file(request, download_key):
     The key is maintained in the url but the session variable is used to control the
     download in order to maintain security.
 
-    For this to work, your server must support the X-Sendfile header
-    Lighttpd and Apache should both work with the headers used below.
-    For apache, will need mod_xsendfile
-    For lighttpd, allow-x-send-file must be enabled
+    Also, you should ensure that the directory where the file is stored locally
+    is protected from other users.
 
-    Also, you must ensure that the directory where the file is stored is protected
-    from users.
+    In the below configuration, ``settings.MEDIA_URL`` is assumed to be the URL
+    ``/static/``, and ``PRODUCT.PROTECTED_DIR`` is assumed to be the default
+    ``'protected'``.
 
-    In lighttpd.conf:
-    $HTTP["url"] =~ "^/static/protected/" {
-    url.access-deny = ("")
-    }
+    For Apache, install mod_xsendfile, and add this to your configuration:
 
-    In Nginx:
-    location /protected/{
-             internal;
-             root /usr/local/www/website/static;
+        <Location /static/protected/>
+            XSendFile on
+        </Location>
+
+    TODO: add denying of direct hits, and aliasing.
+
+    For lighttpd, set "allow-x-send-file" to "enable" in your FastCGI/SCGI
+    config, and add also the below to your configuration file:
+
+        $HTTP["url"] =~ "^/static/protected/" {
+            url.access-deny = ("")
+            server.document-root = "/usr/local/www/website/static"
+        }
+
+    For nginx, add this to your configuration file:
+
+        location /static/protected/ {
+            internal;
+            root /usr/local/www/website/static;
         }
 
     """
@@ -95,9 +106,9 @@ def send_file(request, download_key):
     response = HttpResponse()
     # For Nginx
     response['X-Accel-Redirect'] = dl_product.downloadable_product.file.path
-    # For Apache
+    # For Apache and Lighttpd v1.5
     response['X-Sendfile'] = dl_product.downloadable_product.file.path
-    # For Lighttpd
+    # For Lighttpd v1.4
     response['X-LIGHTTPD-send-file'] = dl_product.downloadable_product.file.path
     response['Content-Disposition'] = "attachment; filename=%s" % file_name
     response['Content-length'] =  os.stat(dl_product.downloadable_product.file.path).st_size

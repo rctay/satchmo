@@ -1310,7 +1310,7 @@ msgstr "Login"
 
 #: templates/shop/checkout/authentication_required.html:33
 msgid "If you do not have an account, please"
-msgstr "Wenn sie noch kein Benutzerkonto besitzen, bitte"
+msgstr "Wenn Sie noch kein Benutzerkonto besitzen, bitte"
 
 #: templates/shop/checkout/authentication_required.html:33
 msgid "click here"
@@ -1318,7 +1318,7 @@ msgstr "hier klicken"
 
 #: templates/shop/checkout/authentication_required.html:34
 msgid "If you do not remember your password, please"
-msgstr "Wenn sie ihr Passwort vergessen haben, bitte"
+msgstr "Wenn Sie ihr Passwort vergessen haben, bitte"
 
 #: templates/shop/checkout/authentication_required.html:34
 msgid "click here</a> to have it reset."
@@ -1458,7 +1458,7 @@ msgid ""
 "If you already have an account, you can login now to fill in most of the "
 "information below."
 msgstr ""
-"Wenn sie bereits ein Benutzerkonto besitzen, können sie sich jetzt anmelden "
+"Wenn Sie bereits ein Benutzerkonto besitzen, können sie sich jetzt anmelden "
 "um die meisten der Felder mit den Daten aus ihrem Benutzerkonto befüllen zu "
 "lassen."
 

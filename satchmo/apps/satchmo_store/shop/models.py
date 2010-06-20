@@ -798,5 +798,5 @@ class OrderTaxDetail(models.Model):
 
 import config
 
-import listeners
-listeners.start_default_listening()
+# import listeners
+# listeners.start_default_listening()

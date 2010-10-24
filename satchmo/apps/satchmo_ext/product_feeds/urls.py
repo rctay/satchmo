@@ -7,7 +7,7 @@ log = logging.getLogger('product_feeds.urls')
 
 urlpatterns = patterns('satchmo_ext.product_feeds.views',
     (r'atom/$', 'product_feed', {}, 'satchmo_atom_feed'),
-    (r'atom/(?P<category>\w+)/$', 'product_feed', {}, 'satchmo_atom_category_feed'),
+    (r'atom/(?P<category>([-\w])*)/$', 'product_feed', {}, 'satchmo_atom_category_feed'),
     (r'products.csv$', 'admin_product_feed', {'template' : "product_feeds/product_feed.csv"}, 'satchmo_product_feed'),
 )
 

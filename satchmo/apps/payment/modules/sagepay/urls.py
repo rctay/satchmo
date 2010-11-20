@@ -13,6 +13,6 @@ urlpatterns = patterns('',
     (r'^secure3d/$', 'payment.modules.sagepay.views.confirm_secure3d',
        {'SSL':ssl}, 'SAGEPAY_satchmo_checkout-secure3d'),
 
-     (r'^success/$', 'payment.sagepay.checkout.success',
+     (r'^success/$', 'payment.views.checkout.success',
         {'SSL':ssl}, 'SAGEPAY_satchmo_checkout-success'),
 )

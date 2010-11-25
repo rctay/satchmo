@@ -161,11 +161,11 @@ class CustomChargeForm(forms.Form):
         form_initialdata.send('CustomChargeForm', form=self, initial=initial)
         kwargs['initial'] = initial
         super(CustomChargeForm, self).__init__(*args, **kwargs)
-        form_init.send(self.__class__, form=self)
+        form_init.send(CustomChargeForm, form=self)
 
     def clean(self, *args, **kwargs):
         super(CustomChargeForm, self).clean(*args, **kwargs)
-        form_validate.send(self.__class__, form=self)
+        form_validate.send(CustomChargeForm, form=self)
         return self.cleaned_data
 
 class PaymentMethodForm(ProxyContactForm):

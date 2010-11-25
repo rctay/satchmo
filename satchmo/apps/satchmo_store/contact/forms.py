@@ -56,7 +56,7 @@ class ContactInfoForm(ProxyContactForm):
 
     def __init__(self, *args, **kwargs):
         initial = kwargs.get('initial', {})
-        form_initialdata.send(self.__class__, form=self, initial=initial, contact = kwargs.get('contact', None))
+        form_initialdata.send(ContactInfoForm, form=self, initial=initial, contact = kwargs.get('contact', None))
         kwargs['initial'] = initial
 
         shop = kwargs.pop('shop', None)
@@ -137,8 +137,8 @@ class ContactInfoForm(ProxyContactForm):
             fld = self.fields[f]
             if fld.required:
                 fld.label = (fld.label or f) + '*'
-        log.info('Sending form_init signal: %s', self.__class__)
-        form_init.send(self.__class__, form=self)
+        log.info('Sending form_init signal: %s', ContactInfoForm)
+        form_init.send(ContactInfoForm, form=self)
 
     def _check_state(self, data, country):
         if country and self.enforce_state and country.adminarea_set.filter(active=True).count() > 0:

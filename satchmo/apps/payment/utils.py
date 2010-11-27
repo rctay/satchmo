@@ -1,7 +1,5 @@
 from decimal import Decimal
-from livesettings import config_get
 from livesettings import config_get_group
-from payment import active_gateways
 from satchmo_store.shop.models import Order, OrderItem, OrderItemDetail
 from satchmo_store.shop.signals import satchmo_post_copy_item_to_order
 from shipping.utils import update_shipping
@@ -46,12 +44,6 @@ def get_or_create_order(request, working_cart, contact, data):
         shipping=shipping, discount=discount, notes=notes, update=update)
     request.session['orderID'] = order.id
     return order
-
-def get_gateway_by_settings(gateway_settings, settings={}):
-    log.debug('getting gateway by settings: %s', gateway_settings.key)
-    processor_module = gateway_settings.MODULE.load_module('processor')
-    gateway_settings = get_gateway_settings(gateway_settings, settings=settings)
-    return processor_module.PaymentProcessor(settings=gateway_settings)
 
 def get_processor_by_key(key):
     """

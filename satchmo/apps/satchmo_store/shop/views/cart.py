@@ -1,7 +1,7 @@
 from decimal import Decimal
 from django.contrib import messages
 from django.core import urlresolvers
-from django.http import HttpResponseRedirect, HttpResponse, Http404
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext, loader
 from django.utils.datastructures import MultiValueDictKeyError

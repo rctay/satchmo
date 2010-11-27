@@ -1,6 +1,7 @@
 from decimal import Decimal, InvalidOperation
 from django.contrib.sites.models import Site
 from django.db.models import Q
+from livesettings import config_value
 from product.models import Product, Category, Discount
 import logging
 
@@ -14,19 +15,25 @@ def default_product_search_listener(sender, request=None, category=None, keyword
     log.debug('default product search listener')
     site = Site.objects.get_current()
     productkwargs = {}
-    
+
+    show_pv = config_value('PRODUCT','SEARCH_SHOW_PRODUCTVARIATIONS', False)
+
     if keywords:
-        products = Product.objects.active().filter(site=site)
-        categories = Category.objects.active().filter(site=site)
+        products = Product.objects.active_by_site(variations=show_pv, site=site, **productkwargs)
+        pl = list(products)
+        log.debug('initial: %s\n%s', pl, productkwargs)
+
+        #automatically assumes active categories only
+        categories = Category.objects.by_site(site=site)
     else:
         products = None
         categories = None
 
     if category:
-        categories = Category.objects.active().filter(slug=category)
+        categories = Category.objects.active(site=site, slug=category)
         if categories:
             categories = categories[0].get_active_children(include_self=True)
-        productkwargs['category__in'] = categories
+        products.filter(category__in = categories)
 
     for keyword in keywords:
         if not category:
@@ -34,7 +41,7 @@ def default_product_search_listener(sender, request=None, category=None, keyword
                 Q(name__icontains=keyword) |
                 Q(meta__icontains=keyword) |
                 Q(description__icontains=keyword))
-                
+
         products = products.filter(
             Q(name__icontains=keyword)
             | Q(short_description__icontains=keyword)
@@ -43,13 +50,13 @@ def default_product_search_listener(sender, request=None, category=None, keyword
             | Q(sku__iexact=keyword) )
 
     results.update({
-        'categories': categories, 
+        'categories': categories,
         'products': products
         })
 
 def priceband_search_listener(sender, request=None, category=None, keywords=[], results={}, **kwargs):
     """Filter search results by price bands.
-    
+
     If a "priceband" parameter is available, it will be parsed as follows:
         lowval-highval
         if there is no "-", then it will be parsed as lowval or higher
@@ -59,12 +66,12 @@ def priceband_search_listener(sender, request=None, category=None, keywords=[], 
         data = request.GET
     else:
         data = request.POST
-    
+
     priceband = data.get('priceband', None)
-    
+
     if not priceband:
         return
-        
+
     bands = priceband.split('-')
     try:
         if len(bands) > 1:
@@ -76,17 +83,16 @@ def priceband_search_listener(sender, request=None, category=None, keywords=[], 
     except (TypeError, InvalidOperation):
         log.warn("Couldn't parse priceband=%s", priceband)
         return
-    
+
     priced = []
     products = results['products']
-    products = products.filter(productvariation__parent__isnull=True)
     log.debug('priceband pre-filter length=%i', len(products))
     for p in products:
         price = p.unit_price
         if price>low and price<=high:
             priced.append(p)
     log.debug('priceband post-filter length=%i', len(priced))
-    
+
     categories = results['categories']
     categories = categories.filter(product__in = priced)
     results['products'] = priced
@@ -94,7 +100,7 @@ def priceband_search_listener(sender, request=None, category=None, keywords=[], 
 
 def discount_used_listener(sender, order=None, **kwargs):
     """If an order has a discount, increment numUses on it.
-    
+
     satchmo_store.shop.signals.order_success listener set up in shop.listeners.
     """
     if order.discount_code:

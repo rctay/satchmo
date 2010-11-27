@@ -63,8 +63,8 @@ def default_weight_unit():
         return 'lb'
 
 class CategoryManager(models.Manager):
-    def active(self):
-        return self.filter(is_active=True)
+    def active(self, **kwargs):
+        return self.filter(is_active=True, **kwargs)
 
     def by_site(self, site=None, **kwargs):
         """Get all categories for this site"""
@@ -73,7 +73,7 @@ class CategoryManager(models.Manager):
 
         site = site.id
 
-        return self.active().filter(site__id__exact = site, **kwargs)
+        return self.active(site__id__exact = site, **kwargs)
 
     def get_by_site(self, site=None, **kwargs):
         if not site:
@@ -86,7 +86,7 @@ class CategoryManager(models.Manager):
         if not site:
             site = Site.objects.get_current()
 
-        return self.active().filter(parent__isnull=True, site=site, **kwargs)
+        return self.active(parent__isnull=True, site=site, **kwargs)
 
     def search_by_site(self, keyword, site=None, include_children=False):
         """Search for categories by keyword.

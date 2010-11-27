@@ -7,6 +7,7 @@ from product.models import Option, Product, ProductPriceLookup, OptionGroup, Pri
 from product.prices import get_product_quantity_price, get_product_quantity_adjustments
 from satchmo_utils import cross_list
 from satchmo_utils.unique_id import slugify
+import config # livesettings options
 import datetime
 import logging
 
@@ -465,3 +466,4 @@ class ProductVariation(models.Model):
 
     def __unicode__(self):
         return self.product.slug
+

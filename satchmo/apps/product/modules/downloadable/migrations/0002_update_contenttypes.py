@@ -12,6 +12,10 @@ class Migration(UpdateContentTypeMigration):
         ('product', '0011_split_products'),
     )
 
+    needed_by = (
+        ('product', '0012_update_contenttypes'),
+    )
+
     def forwards(self, orm):
         self.migrate_contenttype('product', 'downloadable', ('downloadableproduct', ))
         self.migrate_contenttype('shop', 'downloadable', ('downloadlink', ))

@@ -8,6 +8,10 @@ class Migration(SchemaMigration):
         ('product', '0010_add_discountable_categories'),
     )
 
+    needed_by = (
+        ('product', '0011_split_products'),
+    )
+
     def forwards(self, orm):
         db.rename_table('product_configurableproduct', 'configurable_configurableproduct')
         db.rename_table('product_configurableproduct_option_group', 'configurable_configurableproduct_option_group')

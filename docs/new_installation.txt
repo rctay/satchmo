@@ -83,11 +83,9 @@ Installing Dependencies
 
 #. Install sorl-thumbnail:
 
-   - Check out from source::
-
-       hg clone https://sorl-thumbnail.googlecode.com/hg/ sorl-thumbnail
-       cd /path/to/sorl-thumbnail
-       python setup.py install
+   - Using pip::
+   
+       pip install sorl-thumbnail==3.2.5
 
 #. Install signals-ahoy:
 

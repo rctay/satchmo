@@ -11,6 +11,7 @@ from django.core import urlresolvers
 from django.core.cache import cache
 from django.db import models
 from django.db.models import Q
+from django.utils.encoding import smart_str
 from django.utils.translation import get_language, ugettext, ugettext_lazy as _
 from l10n.utils import moneyfmt, lookup_translation
 from livesettings import config_value, SettingNotSet, config_value_safe
@@ -62,8 +63,8 @@ def default_weight_unit():
         return 'lb'
 
 class CategoryManager(models.Manager):
-    def active(self):
-        return self.filter(is_active=True)
+    def active(self, **kwargs):
+        return self.filter(is_active=True, **kwargs)
 
     def by_site(self, site=None, **kwargs):
         """Get all categories for this site"""
@@ -72,7 +73,7 @@ class CategoryManager(models.Manager):
 
         site = site.id
 
-        return self.active().filter(site__id__exact = site, **kwargs)
+        return self.active(site__id__exact = site, **kwargs)
 
     def get_by_site(self, site=None, **kwargs):
         if not site:
@@ -85,7 +86,7 @@ class CategoryManager(models.Manager):
         if not site:
             site = Site.objects.get_current()
 
-        return self.active().filter(parent__isnull=True, site=site, **kwargs)
+        return self.active(parent__isnull=True, site=site, **kwargs)
 
     def search_by_site(self, keyword, site=None, include_children=False):
         """Search for categories by keyword.
@@ -139,14 +140,13 @@ class Category(models.Model):
             if self.parent_id and self.parent != self:
                 img = self.parent.main_image
 
-        if not img:
+        if not img and config_value('PRODUCT', 'SHOW_NO_PHOTO_IN_CATEGORY'):
             #This should be a "Image Not Found" placeholder image
             try:
                 img = CategoryImage.objects.filter(category__isnull=True).order_by('sort')[0]
             except IndexError:
                 import sys
                 print >>sys.stderr, 'Warning: default category image not found - try syncdb'
-
         return img
 
     main_image = property(_get_mainImage)
@@ -597,6 +597,8 @@ class Discount(models.Model):
         """Tests if discount is valid for a single product"""
         if not product.is_discountable:
             return False
+        elif self.allValid:
+            return True
         p = self.valid_products.filter(id__exact = product.id)
         return p.count() > 0 or \
             (product.slug in self._valid_products_in_categories())
@@ -1263,7 +1265,7 @@ class ProductPriceLookupManager(models.Manager):
         return objs
 
     def delete_for_product(self, product):
-        for obj in self.filter(productslug=product.slug):
+        for obj in self.filter(productslug=product.slug, siteid=product.site.id):
             obj.delete()
 
     def rebuild_all(self, site=None):
@@ -1382,6 +1384,8 @@ class ProductAttribute(models.Model):
     class Meta:
         verbose_name = _("Product Attribute")
         verbose_name_plural = _("Product Attributes")
+        ordering = ('option__sort_order',)
+
 
     def __unicode__(self):
         return self.option.name
@@ -1406,6 +1410,7 @@ class CategoryAttribute(models.Model):
     class Meta:
         verbose_name = _("Category Attribute")
         verbose_name_plural = _("Category Attributes")
+        ordering = ('option__sort_order',)
 
     def __unicode__(self):
         return self.option.name
@@ -1489,7 +1494,12 @@ class ProductImage(models.Model):
 
     def _get_filename(self):
         if self.product:
-            return '%s-%s' % (self.product.slug, self.id)
+            # In some cases the name could be too long to fit into the field
+            # Truncate it if this is the case
+            pic_field_max_length = self._meta.get_field('picture').max_length
+            max_slug_length = pic_field_max_length -len('images/productimage-picture-.jpg') - len(str(self.id))
+            slug = self.product.slug[:max_slug_length]
+            return '%s-%s' % (slug, self.id)
         else:
             return 'default'
     _filename = property(_get_filename)
@@ -1524,7 +1534,7 @@ class ProductImageTranslation(models.Model):
         unique_together = ('productimage', 'languagecode', 'version')
 
     def __unicode__(self):
-        return u"ProductImageTranslation: [%s] (ver #%i) %s Name: %s" % (self.languagecode, self.version, self.productimage, self.name)
+        return u"ProductImageTranslation: [%s] (ver #%i) %s" % (self.languagecode, self.version, self.productimage)
 
 class TaxClass(models.Model):
     """
@@ -1545,7 +1555,7 @@ class TaxClass(models.Model):
         verbose_name_plural = _("Tax Classes")
 
 def make_option_unique_id(groupid, value):
-    return '%s-%s' % (str(groupid), str(value),)
+    return '%s-%s' % (smart_str(groupid), smart_str(value),)
 
 def round_cents(work):
     cents = Decimal("0.01")

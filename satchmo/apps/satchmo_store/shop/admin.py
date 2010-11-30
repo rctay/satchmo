@@ -2,7 +2,6 @@ from satchmo_store.shop.models import Config, Cart, CartItem, CartItemDetails, O
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from satchmo_utils.admin import AutocompleteAdmin
-from satchmo_utils.widgets import ReadOnlyWidget
 
 class CartItem_Inline(admin.TabularInline):
     model = CartItem
@@ -76,7 +75,7 @@ class OrderOptions(AutocompleteAdmin):
             ('ship_street1', 'ship_street2', 'ship_city', 'ship_state', 'ship_postal_code', 'ship_country')}), (_('Billing Address'), {'classes': ('collapse',), 'fields':
             ('bill_street1', 'bill_street2', 'bill_city', 'bill_state', 'bill_postal_code', 'bill_country')}), (_('Totals'), {'fields':
             ('sub_total', 'shipping_cost', 'shipping_discount', 'tax', 'discount', 'total', 'time_stamp')}))
-    list_display = ('contact', 'time_stamp', 'order_total', 'balance_forward', 'status', 'invoice', 'packingslip', 'shippinglabel')
+    list_display = ('id', 'contact', 'time_stamp', 'order_total', 'balance_forward', 'status', 'invoice', 'packingslip', 'shippinglabel')
     list_filter = ['time_stamp', 'contact', 'status']
     date_hierarchy = 'time_stamp'
     list_filter = ['time_stamp', 'status']
@@ -87,14 +86,7 @@ class OrderOptions(AutocompleteAdmin):
     inlines = [OrderItem_Inline, OrderStatus_Inline, OrderVariable_Inline,
         OrderTaxDetail_Inline, OrderAuthorizationDetail_Inline,
         OrderPaymentDetail_Inline, OrderPaymentFailureDetail_Inline]
-
-    def formfield_for_dbfield(self, db_field, **kwargs):
-        read_only = ['status']
-        field = super(OrderOptions, self).formfield_for_dbfield(db_field, **kwargs)
-        if db_field.name in read_only:
-            field.widget = ReadOnlyWidget()
-        return field
-
+    readonly_fields = ('status',)
 
 class OrderItemOptions(admin.ModelAdmin):
     inlines = [OrderItemDetail_Inline]

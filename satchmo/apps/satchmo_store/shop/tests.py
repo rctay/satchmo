@@ -6,13 +6,15 @@ from django.core.urlresolvers import reverse as url
 from django.test import TestCase
 from django.test.client import Client
 from django.utils.encoding import smart_str
+from django.utils.translation import get_language
+from django.core.cache import cache
 from keyedcache import cache_delete
 from l10n.models import Country
 from l10n.utils import moneyfmt
 from livesettings import config_get
 from payment import active_gateways
 from product.models import Product
-from product.utils import rebuild_pricing
+from product.utils import rebuild_pricing, find_auto_discounts
 from satchmo_store.contact import CUSTOMER_ID
 from satchmo_store.contact.models import *
 from satchmo_store.shop import get_satchmo_setting, signals
@@ -66,6 +68,9 @@ class ShopTest(TestCase):
         self.client = Client()
         self.US = Country.objects.get(iso2_code__iexact = "US")
         rebuild_pricing()
+        current_site = Site.objects.get_current()
+        cache_key = "cat-%s-%s" % (current_site.id, get_language())
+        cache.delete(cache_key)
 
     def tearDown(self):
         cache_delete()
@@ -161,22 +166,20 @@ class ShopTest(TestCase):
     def test_cart_adding_errors_invalid_qty(self):
         # You should not be able to add a product with a non-valid decimal quantity.
         response = self.client.post(prefix + '/cart/add/',
-            {'productname': 'neat-book', '3': 'soft', 'quantity': '1.5a'})
+            {'productname': 'neat-book', '3': 'soft', 'quantity': '1.5a'}, follow=True)
 
-        err = self.client.session.get('ERRORS')
         url = prefix + '/product/neat-book-soft/'
         self.assertRedirects(response, url, status_code=302, target_status_code=200)
-        self.assertEqual(err, "Invalid quantity.")
+        self.assertContains(response, "Invalid quantity.", count=1)
 
     def test_cart_adding_errors_less_zero(self):
         # You should not be able to add a product with a quantity less than zero.
         response = self.client.post(prefix + '/cart/add/',
-            {'productname': 'neat-book', '3': 'soft', 'quantity': '0'})
+            {'productname': 'neat-book', '3': 'soft', 'quantity': '0'}, follow=True)
 
-        err = self.client.session.get('ERRORS')
         url = prefix + '/product/neat-book-soft/'
         self.assertRedirects(response, url, status_code=302, target_status_code=200)
-        self.assertEqual(err, "Please enter a positive number.")
+        self.assertContains(response, "Please enter a positive number.", count=1)
 
     def test_cart_adding_errors_out_of_stock(self):
         # If no_stock_checkout is False, you should not be able to order a
@@ -184,12 +187,11 @@ class ShopTest(TestCase):
         setting = config_get('PRODUCT','NO_STOCK_CHECKOUT')
         setting.update(False)
         response = self.client.post(prefix + '/cart/add/',
-            {'productname': 'neat-book', '3': 'soft', 'quantity': '1'})
+            {'productname': 'neat-book', '3': 'soft', 'quantity': '1'}, follow=True)
 
-        err = self.client.session.get('ERRORS')
         url = prefix + '/product/neat-book-soft/'
         self.assertRedirects(response, url, status_code=302, target_status_code=200)
-        self.assertEqual(err, "'A really neat book (Soft cover)' is out of stock.")
+        self.assertContains(response, "A really neat book (Soft cover)&#39; is out of stock.", count=1)
 
     def test_product(self):
         # Test for an easily missed reversion. When you lookup a productvariation product then
@@ -835,6 +837,17 @@ class DiscountAmountTest(TestCase):
         self.assertEqual(shipcost, Decimal('6.00'))
         self.assertEqual(shiptotal, Decimal('6.00'))
         self.assertEqual(discount, Decimal('0.60'))
+
+    def testRetrieveAutoDiscounts(self):
+        products = [i.product for i in self.order.orderitem_set.all()]
+        discounts = find_auto_discounts(products)
+
+        self.assertEqual(
+            set([d.code for d in discounts]),
+            set(['test20-auto', 'test20-auto-all']))
+        self.assertEqual(
+            [d.percentage for d in discounts],
+            [Decimal('20.0'), Decimal('20.0')])
 
     def make_order_payment(order, paytype=None, amount=None):
         if not paytype:

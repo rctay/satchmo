@@ -26,10 +26,11 @@ class Migration(SchemaMigration):
 
         if not db.dry_run:
             for attr in orm['product.productattribute'].objects.all():
-                orm['product.attributeoption'].objects.create(
-                    description='', name=attr.name,
-                    validation=default_validation,
-                )
+                if orm['product.attributeoption'].objects.filter(name__exact=attr.name).count() < 1:
+                    orm['product.attributeoption'].objects.create(
+                        description=attr.name, name=attr.name,
+                        validation=default_validation,
+                        )
 
         if db.backend_name=='sqlite3':
             get_logger().debug("dropping and re-creating table for ProductAttribute")

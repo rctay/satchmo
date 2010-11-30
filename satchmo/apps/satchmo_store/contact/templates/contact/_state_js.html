@@ -1,4 +1,4 @@
-{% if shop.options.SHOP.ENFORCE_STATE %}
+{% if shop.options.SHOP.ENFORCE_STATE.value %}
 <script type="text/javascript">
 /**
  * Populates state fields when the user selects a country.
@@ -70,7 +70,7 @@ jQuery(document).ready(function($) {
 			state_callback: prefix+"state_load",
 			other_state: $(":input[name="+other_prefix+"state]"),
 			other_state_callback: other_prefix+"state_load",
-			data_key: prefix+"country",
+			data_key: prefix+"country"
 		};
 
 		/* Provide default loading handlers. */

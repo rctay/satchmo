@@ -61,7 +61,11 @@
 		{% url satchmo_product_recently_added as recenturl %}
 		{% if recenturl %}<a href="{{ recenturl }}">{% trans "Recently Added" %}</a>{% endif %}
 		{% url satchmo_product_best_selling as popularurl %}
-		{% if popularurl %}<br/><a href="{{ popularurl }}">{% trans "Best Sellers" %}</a>{% endif %}
+		{% if popularurl %}<br/><a href="{{ popularurl }}">{% trans "Best Sellers" %}</a><br/>{% endif %}
+        {% url satchmo_category_index as category_index %}
+        {% if category_index %} <a href="{{ category_index }}">{% trans "Category Index" %}</a><br /> {% endif %}
+        {% url satchmo_quick_order as quick_order %}
+        {% if quick_order %}<a href="{{ quick_order }}">{% trans "Quick Order" %}</a> {% endif %}
 		{% plugin_point "sidebar_links" %}
 
 	    <h3>{% trans "Account Information" %}</h3>
@@ -79,10 +83,10 @@
 		{% url satchmo_cart as carturl %}
 	    {% if carturl %}<a href="{{ carturl }}">{% trans "Cart" %}</a>{% endif %}
 
-	    {% if cart_count %}
-        ({{ cart_count|normalize_decimal }}{% if cart.total %} - {{ cart|discount_cart_total:sale|currency }}{% endif %})<br/>
-		{% url satchmo_checkout-step1 as checkouturl %}
-        {% if checkouturl %}<a href="{{ checkouturl }}">{% trans "Check out" %}</a>{% endif %}
+	    {% if not cart.is_empty %}
+            ({{ cart_count|normalize_decimal }} - {% if sale %}{{ cart|discount_cart_total:sale|currency }}{% else %}{{cart.total|currency}}{% endif%}) <br/>
+            {% url satchmo_checkout-step1 as checkouturl %}
+            {% if checkouturl %}<a href="{{ checkouturl }}">{% trans "Check out" %}</a>{% endif %}
 	    {% endif %}
 	
 		{% plugin_point "shop_sidebar_actions" %}

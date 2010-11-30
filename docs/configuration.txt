@@ -50,7 +50,12 @@ number of places you might want to configure.
 
     :default: ``False``
 
-    A boolean used to enable to disable multi store capability.
+    A boolean used to enable or disable an optimization for running multiple sites with independent 
+    carts from the same Satchmo instance. If enabled, Satchmo will patch ``Site.objects.get_current()`` 
+    to dynamically determine the current site by looking up the host in the request headers. 
+    Normally, you would have to create a separate settings file for each site, which in turn would 
+    require loading multiple copies of Satchmo into memory. This optimization can reduce the memory 
+    required to serve multiple sites in a memory constrained environment.
 
   .. _satchmo_settings_custom_newsletter_modules:
 
@@ -131,7 +136,8 @@ currency format and other internationalization options. The example below would 
 
     L10N_SETTINGS = {
       'currency_formats' : {
-         'EURO' : {'symbol': u'€', 'positive' : u"€%(val)0.2f", 'negative': u"€(%(val)0.2f)", 'decimal' : ','},
+         'EURO' : {'symbol': u'€', 'positive' : u"€%(val)0.2f", 'negative': u"€(%(val)0.2f)",
+                   'decimal' : ','},
       },
       'default_currency' : 'EURO',
       'show_admin_translations': False,

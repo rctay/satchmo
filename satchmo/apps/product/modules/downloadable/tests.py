@@ -15,6 +15,7 @@ from satchmo_store.shop.models import Cart, Order
 from satchmo_store.shop.signals import sendfile_url_for_file
 from shipping.modules.flat.shipper import Shipper as flat
 from shipping.modules.per.shipper import Shipper as per
+from satchmo_store.shop import get_satchmo_setting
 
 import datetime
 from decimal import Decimal
@@ -22,6 +23,10 @@ import keyedcache
 import os
 from shutil import rmtree
 from tempfile import mkdtemp, mkstemp
+
+prefix = get_satchmo_setting('SHOP_BASE')
+if prefix == '/':
+    prefix = ''
 
 class DownloadableShippingTest(TestCase):
 
@@ -141,6 +146,14 @@ class DownloadableProductTest(TestCase):
         self.file.close()
         rmtree(self.dir)
         os.remove(os.path.join(self.protected_dir, self.file_name))
+
+    def test_download_urls(self):
+        """
+        Test that download urls remain unchanged after changeset
+        hg:4d23ed40f534/git:d06b4ec
+        """
+        check_url = "%s/download/send/%s/" % (prefix, self.key)
+        self.assertEqual(self.pd_url, check_url)
 
     def test_download_link(self):
         """Test that we are able to download a product."""

@@ -1,0 +1,87 @@
+Satchmo Development Branch
+==========================
+
+These are the notes for the latest development version.
+The full list of closed tickets can be viewed `here <http://www.bitbucket.org/chris1610/satchmo/issues?status=resolved&milestone=0.9.2>`_
+
+
+New Features
+------------
+- Display payment methods in emails
+- Update the default templates to show quick orders and category indexes
+- Ensure notes fields can be saved if they are included in the checkout process
+- Display country names instead of abbreviations in templates
+- Update google analytics code to use latest tracker js
+- Add an unlimited downloads option for downloadable products
+- Added support for Django's new CSRF support
+- UPS Shipping module now allows you to box products together into 1 container
+- Add a new config for the persistent cart to provide more options for how it handles returning users
+- New template tag to show tiered shipping pricing table
+- Control product variations inclusion in searching view the settings
+
+Translations
+------------
+- Added Dutch translation
+- Added Czech translation
+
+Bug Fixes
+---------
+- Fix issue if Unicode characters in options
+- Fix issues with migrations and content types
+- Resolve Paypal unneeded dependency on subscription product
+- Make sure "all valid" discounts are correctly applied
+- Fix Wishlish ajax add view
+- Ensure that product variation properly inherits shipping from its parent
+- Handling of gift certificate plus other payments fixed
+- Bug in tax processor rendering fixed
+- Bug in autosuccess payment module fixed
+- Rebuild pricing was deleting prices if multiple sites were being used
+- Currency template tags handles decimal places parameter correctly
+- Improve robustness of South migrations
+- Fix obscure issue where some users were able to edit the wrong information
+- Remove custom read only widget use and use Django's newer read only field
+- Paypal was not saving contact information correctly in certain cases
+- Newsletter subscription status could be lost when checking out
+- Use smart_attr for tiered weight shipping module
+- Make sure that the product image file name doesn't exceed the length of the file field
+- Multiple doc formatting fixes
+- Authorize.net now uses shipee first and last names if given
+- Typo in wishlist ajax view
+- Make sure jquery correctly shows error messages on product pages
+- Fixed problem where category caching was not handling translations correctly
+- Ensure Ajax calls in checkout use SSL if it is turned on
+
+Performance Improvements
+------------------------
+- Tweaks to price queries to reduce unneeded queries
+- Made a couple of view and template changes to reduce the number of SQL queries per page
+
+
+Migration Notes
+---------------
+
+CSRF
+++++
+As of `rev 1999 <http://bitbucket.org/chris1610/satchmo/changeset/a624c8018f52>`_, Satchmo supports the newest Django 1.2 Cross Site Request Forgery (CSRF)
+protection. You are encouraged to read more about it int the `Django docs <http://docs.djangoproject.com/en/dev/ref/contrib/csrf/>`_
+
+If you have an existing Satchmo store and need to support CSRF, you will need to do a couple of things:
+
+    1. Upgrade to Django 1.2.3 or greater
+    2. Ensure 'django.middleware.csrf.CsrfViewMiddleware' is in your MIDDLEWARE_CLASSES
+    3. Ensure that any forms in your custom templates, have {% csrf_token %} inside the <form> element
+    
+Messages
+++++++++
+As of `rev 1999 <http://bitbucket.org/chris1610/satchmo/changeset/a624c8018f52>`_, Satchmo incorporates some of the components of the new `messages framework <http://docs.djangoproject.com/en/dev/ref/contrib/messages/>`_.
+
+If you have an existing Satchmo store you will need to:
+
+    1. Add 'django.contrib.messages.middleware.MessageMiddleware' to your MIDDLEWARE_CLASSES
+    2. Add 'django.contrib.messages.context_processors.messages' to your TEMPLATE_CONTEXT_PROCESSORS
+    3. Add 'django.contrib.messages' to your INSTALLED_APPS setting
+    
+Protx Payment Module Renamed
+++++++++++++++++++++++++++++
+As of `rev 2051 <http://bitbucket.org/chris1610/satchmo/changeset/04f821df32ec>`_, the Protx module has been renamed to Sage Pay. You will need to manually copy over your former Protx credentials to
+the new Sage Pay module. No further changes should be necessary.

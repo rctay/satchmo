@@ -66,6 +66,7 @@ def wishlist_add(request):
 def wishlist_add_ajax(request, template="shop/json.html"):
     data = {'errors': []}
     product = None
+    contact = None
     formdata = request.POST.copy()
     productslug = formdata['productname']
 
@@ -79,29 +80,30 @@ def wishlist_add_ajax(request, template="shop/json.html"):
 
     if not product:
         data['errors'].append(('product', _('The product you have requested does not exist.')))
-
-        try:
-            contact = Contact.objects.from_request(request)
-        except Contact.DoesNotExist:
-            log.warn("Could not find contact")
-        
-        if not contact:
-            data['errors'].append(('contact', _('The contact associated with this request does not exist.')))
     else:
         data['id'] = product.id
         data['name'] = product.translated_name()
-        
+
+    try:
+        contact = Contact.objects.from_request(request)
+    except Contact.DoesNotExist:
+        log.warn("Could not find contact")
+
+    if not contact:
+        data['errors'].append(('contact', _('The contact associated with this request does not exist.')))
+
     if not data['errors']:
-        wish = ProductWish.objects.create_if_new(product, contact, details)    
+        wish = ProductWish.objects.create_if_new(product, contact, details)
         data['results'] = _('Success')
     else:
-       data['results'] = _('Error')
+        data['results'] = _('Error')
 
     encoded = JSONEncoder().encode(data)
     encoded = mark_safe(encoded)
     log.debug('WISHLIST AJAX: %s', data)
-    
+
     return render_to_response(template, {'json' : encoded})
+
 
 def wishlist_move_to_cart(request):
     wish, msg = _wish_from_post(request)
@@ -111,8 +113,8 @@ def wishlist_move_to_cart(request):
             cart.add_item(wish.product, number_added=1, details=wish.details)
         except CartAddProhibited, cap:
             msg = _("Wishlist product '%(product)s' could't be added to the cart. %(details)s") % {
-                'product' : wish.product.translated_name, 
-                'detail' : cap.message
+                'product' : wish.product.translated_name(), 
+                'details' : cap.message
                 }
             return wishlist_view(request, message=msg)
             

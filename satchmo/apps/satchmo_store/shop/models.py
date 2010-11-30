@@ -13,7 +13,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext, ugettext_lazy as _
 from l10n.models import Country
 from l10n.utils import moneyfmt
-from livesettings import ConfigurationSettings
+from livesettings import ConfigurationSettings, config_value
 from payment.fields import PaymentChoiceCharField
 from product.models import Discount, Product, Price, get_product_quantity_adjustments
 from product.prices import PriceAdjustmentCalc, PriceAdjustment
@@ -321,7 +321,8 @@ class Cart(models.Model):
         carts even if they have no items. This is ok because the most likely
         scenario is moving data from one db to the next. See ticket #1015 for
         discussion.
-        Use cart.is_empty if you want to know if qty >= 1
+
+        Use len(cart) if you want to know if there are items in the cart.
         """
         return True
 
@@ -392,6 +393,7 @@ class Cart(models.Model):
         for item in src_cart.cartitem_set.all():
             self.add_item(item.product, item.quantity, item.details.all())
             item.delete()
+        self.save()
 
     def empty(self):
         for item in self.cartitem_set.all():
@@ -449,7 +451,13 @@ class CartItem(models.Model):
     def _get_line_unitprice(self, include_discount=True):
         # Get the qty discount price as the unit price for the line.
 
-        self.qty_price = self.get_qty_price(self.quantity, include_discount=include_discount)
+        if config_value('SHOP','CART_QTY'):
+            qty = self.cart.numItems
+        else:
+            qty = self.quantity
+
+        self.qty_price = self.get_qty_price(qty, include_discount=include_discount)
+
         self.detail_price = self.get_detail_price()
         #send signal to possibly adjust the unitprice
         if include_discount:
@@ -688,6 +696,13 @@ class Order(models.Model):
 
     authorized_remaining = property(fget=_authorized_remaining)
 
+    def _get_count(self):
+        itemCount = 0
+        for item in self.orderitem_set.all():
+            itemCount += item.quantity
+        return (itemCount)
+    numItems = property(_get_count)
+
     def get_variable(self, key, default=None):
         qry = self.variables.filter(key__exact=key)
         ct = qry.count()
@@ -790,6 +805,16 @@ class Order(models.Model):
         return Country.objects.get(iso2_code=self.bill_country).name
     bill_country_name = property(_bill_country_name)
 
+    def _ship_first_name(self):
+        """Given the addressee name, try to return a first name"""
+        return ' '.join(self.ship_addressee.split()[0:-1]) or ''
+    ship_first_name = property(_ship_first_name)
+        
+    def _ship_last_name(self):
+        """Given the addressee name, try to return a last name"""
+        return ' '.join(self.ship_addressee.split()[-1:]) or ''
+    ship_last_name = property(_ship_last_name)
+
     def _discounted_sub_total(self):
         return self.sub_total - self.item_discount
 
@@ -864,6 +889,11 @@ class Order(models.Model):
         discounts = discount.item_discounts
         itemprices = []
         fullprices = []
+
+        qty_override = config_value('SHOP','CART_QTY')
+        if qty_override:
+            itemct = self.numItems
+
         for lineitem in self.orderitem_set.all():
             lid = lineitem.id
             if lid in discounts:
@@ -873,7 +903,13 @@ class Order(models.Model):
             else:
                 lineitem.discount = zero
             # now double check against other discounts, such as tiered discounts
-            adjustment = get_product_quantity_adjustments(lineitem.product, qty=lineitem.quantity)
+            if qty_override:
+                qty = itemct
+            else:
+                qty = lineitem.quantity
+
+            adjustment = get_product_quantity_adjustments(lineitem.product, qty=qty)
+
             if adjustment and adjustment.price:
                 baseprice = adjustment.price.price
                 finalprice = adjustment.final_price()

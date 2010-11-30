@@ -1,5 +1,6 @@
 from decimal import Decimal
 from django.contrib.sites.models import Site
+from django.db.models import Q
 from livesettings import config_value
 from l10n.utils import moneyfmt
 from product.models import Option, ProductPriceLookup, OptionGroup, Discount, Product, split_option_unique_id
@@ -27,7 +28,7 @@ def find_auto_discounts(product):
         product = (product,)
     today = datetime.date.today()
     discs = Discount.objects.filter(automatic=True, active=True, startDate__lte=today, endDate__gt=today)
-    return discs.filter(valid_products__in=product).order_by('-percentage')
+    return discs.filter(Q(valid_products__in=product) | Q(allValid=True)).order_by('-percentage')
 
 def find_best_auto_discount(product):
     discs = find_auto_discounts(product)
@@ -268,19 +269,28 @@ def validation_decimal(value, obj=None):
     except:
         return False, value
 
+def import_validator(validator):
+    try:
+        import_name, function_name = validator.rsplit('.', 1)
+    except ValueError:
+        # no dot; treat it as a global
+        func = globals().get(validator, None)
+        if not func:
+            # we use ImportError to keep error handling for callers simple
+            raise ImportError
+        return validator
+    else:
+        # The below __import__() call is from python docs, and is equivalent to:
+        #
+        #   from import_name import function_name
+        #
+        import_module = __import__(import_name, globals(), locals(), [function_name])
+
+        return getattr(import_module, function_name)
+
 def validate_attribute_value(attribute, value, obj):
     """
     Helper function for forms that wish to validation a value for an
     AttributeOption.
     """
-    function_name = attribute.validation.split('.')[-1]
-    import_name = '.'.join(attribute.validation.split('.')[:-1])
-
-    # The below __import__() call is from python docs, and is equivalent to:
-    #
-    #   from import_name import function_name
-    #
-    import_module = __import__(import_name, globals(), locals(), [function_name])
-
-    validation_function = getattr(import_module, function_name)
-    return validation_function(value, obj)
+    return import_validator(attribute.validation)(value, obj)

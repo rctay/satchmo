@@ -15,15 +15,21 @@ Using South
 
 The very latest version of Satchmo includes migration files for
 `South <http://south.aeracode.org/>`_. So far, we only have migrations for the
-``product`` app, with the initial migration based on the 0.9 code base.
+``product`` app.
 
 The instructions below assume that you have installed South 0.7; you can
 download it from here:
 
   http://south.aeracode.org/docs/installation.html
 
-Upgrading from 0.9
-^^^^^^^^^^^^^^^^^^
+.. Note::
+   The initial product migration is based on the 0.9 code base. If you already
+   have an existing installation, please read `Upgrading from an existing 0.9 installation`_;
+   if you are planning to do a fresh installations of 0.9.1, please see
+   `Installing Satchmo 0.9.1 with South`_.
+
+Upgrading from an existing 0.9 installation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. highlight:: console
 
@@ -107,5 +113,72 @@ Upgrading from 0.9
 
     $ python manage.py migrate product --db-dry-run # db untouched
     $ python manage.py migrate product
+
+
+Installing Satchmo 0.9.1 with South
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. Note::
+   We asume that you've already installed South, but have yet to take the leap
+   with Satchmo; see `<http://south.aeracode.org/docs/installation.html>`_ for
+   details.
+
+- Before installing Satchmo, ensure that your tables and migrations are
+  up-to-date, by running ``syncdb`` and ``migrate``.
+
+- Install Satchmo by adding it to your path and ``INSTALLED_APPS``.
+
+- You have two options:
+
+  - Create the database tables for Satchmo's non-migration models, then create
+    the ``product`` app tables and run the migrations::
+
+      $ python manage.py syncdb
+      $ python manage.py migrate product
+
+  - Alternatively, you can create the tables directly and skip running the
+    migrations::
+
+      $ python manage.py syncdb --all
+      $ python manage.py migrate product --fake
+
+  .. Note::
+     Users familiar with the codebase may wonder why we didn't tell South to
+     apply migrations for the product modules, like ``configurable`` and
+     ``custom``, even though they are there; that's because they have already
+     been implicitly applied. You can verify this with an installation-wide
+     migration listing::
+
+       $ python manage.py migrate --list
+
+        product
+         (*) 0001_initial
+         (*) 0002_add_attributeoption
+         (*) 0003_add_productattribute_option
+         (*) 0004_remove_productattribute_name
+         (*) 0005_fix_attributeoption_error_default_spelling
+         (*) 0006_custom_textfield_add_constraint
+         (*) 0007_add_discount_valid_products_field
+         (*) 0008_remove_discount_validproducts_field
+         (*) 0009_add_categoryattributes
+         (*) 0010_add_discountable_categories
+         (*) 0011_split_products
+         (*) 0012_update_contenttypes
+
+        configurable
+         (*) 0001_split
+         (*) 0002_update_contenttypes
+
+        custom
+         (*) 0001_split
+         (*) 0002_update_contenttypes
+
+        downloadable
+         (*) 0001_split
+         (*) 0002_update_contenttypes
+
+        subscription
+         (*) 0001_split
+         (*) 0002_update_contenttypes
 
 .. highlight:: python

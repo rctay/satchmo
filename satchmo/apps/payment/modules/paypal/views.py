@@ -1,4 +1,5 @@
 from decimal import Decimal
+from django.conf import settings
 from django.core import urlresolvers
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
@@ -6,17 +7,20 @@ from django.template import RequestContext
 from django.utils.http import urlencode
 from django.utils.translation import ugettext as _
 from django.views.decorators.cache import never_cache
-from livesettings import config_get_group, config_value 
+from livesettings import config_get_group, config_value
 from payment.config import gateway_live
 from payment.utils import get_processor_by_key
 from payment.views import payship
 from satchmo_store.shop.models import Cart
 from satchmo_store.shop.models import Order, OrderPayment
+from satchmo_store.contact.models import Contact
 from satchmo_utils.dynamic import lookup_url, lookup_template
 from sys import exc_info
 from traceback import format_exception
 import logging
 import urllib2
+from django.views.decorators.csrf import csrf_exempt
+
 
 log = logging.getLogger()
 
@@ -62,34 +66,52 @@ def confirm_info(request):
             payment_module.RETURN_ADDRESS.value, include_server=True)
     except urlresolvers.NoReverseMatch:
         address = payment_module.RETURN_ADDRESS.value
-    
+
+    try:
+        cart = Cart.objects.from_request(request)
+    except:
+        cart = None
+    try:
+        contact = Contact.objects.from_request(request)
+    except:
+        contact = None
+    if cart and contact:
+        cart.customer = contact
+        log.debug(':::Updating Cart %s for %s' % (cart, contact))
+        cart.save()
+
     processor_module = payment_module.MODULE.load_module('processor')
     processor = processor_module.PaymentProcessor(payment_module)
     processor.create_pending_payment(order=order)
-    default_view_tax = config_value('TAX', 'DEFAULT_VIEW_TAX') 
-  
+    default_view_tax = config_value('TAX', 'DEFAULT_VIEW_TAX')
+
     recurring = None
-    order_items = order.orderitem_set.all()
-    for item in order_items:
-        if item.product.is_subscription:
+
+    # Run only if subscription products are installed
+    if 'product.modules.subscription' in settings.INSTALLED_APPS:
+        order_items = order.orderitem_set.all()
+        for item in order_items:
+            if not item.product.is_subscription:
+                continue
+
             recurring = {'product':item.product, 'price':item.product.price_set.all()[0].price.quantize(Decimal('.01')),}
             trial0 = recurring['product'].subscriptionproduct.get_trial_terms(0)
             if len(order_items) > 1 or trial0 is not None or recurring['price'] < order.balance:
                 recurring['trial1'] = {'price': order.balance,}
                 if trial0 is not None:
                     recurring['trial1']['expire_length'] = trial0.expire_length
-                    recurring['trial1']['expire_unit'] = trial0.expire_unit[0]
+                    recurring['trial1']['expire_unit'] = trial0.subscription.expire_unit[0]
                 # else:
                 #     recurring['trial1']['expire_length'] = recurring['product'].subscriptionproduct.get_trial_terms(0).expire_length
                 trial1 = recurring['product'].subscriptionproduct.get_trial_terms(1)
                 if trial1 is not None:
                     recurring['trial2']['expire_length'] = trial1.expire_length
-                    recurring['trial2']['expire_unit'] = trial1.expire_unit[0]
+                    recurring['trial2']['expire_unit'] = trial1.subscription.expire_unit[0]
                     recurring['trial2']['price'] = trial1.price
- 
+
     ctx = RequestContext(request, {'order': order,
      'post_url': url,
-     'default_view_tax': default_view_tax, 
+     'default_view_tax': default_view_tax,
      'business': account,
      'currency_code': payment_module.CURRENCY_CODE.value,
      'return_address': address,
@@ -101,6 +123,7 @@ def confirm_info(request):
     return render_to_response(template, context_instance=ctx)
 confirm_info = never_cache(confirm_info)
 
+@csrf_exempt
 def ipn(request):
     """PayPal IPN (Instant Payment Notification)
     Cornfirms that payment has been completed and marks invoice as paid.
@@ -138,27 +161,30 @@ def ipn(request):
         if not OrderPayment.objects.filter(transaction_id=txn_id).count():
             # If the payment hasn't already been processed:
             order = Order.objects.get(pk=invoice)
-            
+
             order.add_status(status='New', notes=_("Paid through PayPal."))
             processor = get_processor_by_key('PAYMENT_PAYPAL')
             payment = processor.record_payment(order=order, amount=gross, transaction_id=txn_id)
-            
+
             if 'memo' in data:
                 if order.notes:
                     notes = order.notes + "\n"
                 else:
                     notes = ""
-                
+
                 order.notes = notes + _('---Comment via Paypal IPN---') + u'\n' + data['memo']
                 order.save()
                 log.debug("Saved order notes from Paypal")
-            
-            for item in order.orderitem_set.filter(product__subscriptionproduct__recurring=True, completed=False):
-                item.completed = True
-                item.save()
+
+            # Run only if subscription products are installed
+            if 'product.modules.subscription' in settings.INSTALLED_APPS:
+                for item in order.orderitem_set.filter(product__subscriptionproduct__recurring=True, completed=False):
+                    item.completed = True
+                    item.save()
+
             for cart in Cart.objects.filter(customer=order.contact):
                 cart.empty()
-                
+
     except:
         log.exception(''.join(format_exception(*exc_info())))
 

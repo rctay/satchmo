@@ -1,6 +1,7 @@
 from decimal import Decimal
 from django.contrib import messages
 from django.core import urlresolvers
+from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext, loader
@@ -317,6 +318,7 @@ def set_quantity_ajax(request, template="shop/json.html"):
 
 def product_from_post(productslug, formdata):
     product = Product.objects.get_by_site(slug=productslug)
+    origproduct = product
     log.debug('found product: %s', product)
     p_types = product.get_subtypes()
     details = []
@@ -334,7 +336,11 @@ def product_from_post(productslug, formdata):
             product = optproduct
 
     if 'CustomProduct' in p_types:
-        cp = product.customproduct
+        try:
+            cp = product.customproduct
+        except ObjectDoesNotExist:
+            # maybe we've already looked up the subtype product above, try the original
+            cp = origproduct.customproduct
         for customfield in cp.custom_text_fields.all():
             if customfield.price_change is not None:
                 price_change = customfield.price_change

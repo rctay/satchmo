@@ -16,6 +16,8 @@ New Features
 - Added support for Django's new CSRF support
 - UPS Shipping module now allows you to box products together into 1 container
 - Add a new config for the persistent cart to provide more options for how it handles returning users
+- New template tag to show tiered shipping pricing table
+- Control product variations inclusion in searching view the settings
 
 Translations
 ------------
@@ -42,6 +44,12 @@ Bug Fixes
 - Newsletter subscription status could be lost when checking out
 - Use smart_attr for tiered weight shipping module
 - Make sure that the product image file name doesn't exceed the length of the file field
+- Multiple doc formatting fixes
+- Authorize.net now uses shipee first and last names if given
+- Typo in wishlist ajax view
+- Make sure jquery correctly shows error messages on product pages
+- Fixed problem where category caching was not handling translations correctly
+- Ensure Ajax calls in checkout use SSL if it is turned on
 
 Performance Improvements
 ------------------------

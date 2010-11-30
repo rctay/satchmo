@@ -20,7 +20,10 @@ features in Satchmo.
 - Satchmo's thumbnail capability is very robust and utilizes the following packages:
 
   - `Python Imaging Library`_
-  - `Sorl Thumbnails`_
+  - Sorl Thumbnails
+  
+  .. warning::
+    You must use Sorl Thumbnails version 3.2.5 with Satchmo.
 
 - In order to securely store sensitive information, you will need:
 
@@ -115,7 +118,6 @@ Detailed steps for installing these dependencies is included in the :doc:`new_in
 .. _snapshot: http://www.satchmoproject.com/snapshots/
 .. _`Django Threaded Multihost`: http://bitbucket.org/bkroeze/django-threaded-multihost
 .. _`Django App Plugins`: http://bitbucket.org/bkroeze/django-caching-app-plugins/
-.. _`Sorl Thumbnails`: http://code.google.com/p/sorl-thumbnail/
 .. _`SSL Backport`: http://pypi.python.org/pypi/ssl/
 .. _`Signals Ahoy`: http://bitbucket.org/bkroeze/django-signals-ahoy/
 .. _DocUtils: http://docutils.sourceforge.net/

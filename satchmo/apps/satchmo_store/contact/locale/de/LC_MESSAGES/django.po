@@ -675,7 +675,7 @@ msgstr "Passwort"
 
 #: templates/registration/login.html:32
 msgid "If you do not have an account, please"
-msgstr "Wenn sie noch kein Benutzerkonto besitzen, bitte"
+msgstr "Wenn Sie noch kein Benutzerkonto besitzen, bitte"
 
 #: templates/registration/login.html:32
 msgid "click here"
@@ -683,7 +683,7 @@ msgstr "hier klicken"
 
 #: templates/registration/login.html:33
 msgid "If you do not remember your password, please"
-msgstr "Wenn sie ihr Passwort vergessen haben, bitte"
+msgstr "Wenn Sie ihr Passwort vergessen haben, bitte"
 
 #: templates/registration/login.html:33
 msgid "click here</a> to have it reset."

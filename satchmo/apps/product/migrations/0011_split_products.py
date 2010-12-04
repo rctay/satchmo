@@ -4,13 +4,6 @@ from south.v2 import SchemaMigration
 
 class Migration(SchemaMigration):
 
-    depends_on=(
-        ('configurable', '0001_split'),
-        ('custom', '0001_split'),
-        ('downloadable', '0001_split'),
-        ('subscription', '0001_split')
-    )
-
     def forwards(self, orm):
         pass
 

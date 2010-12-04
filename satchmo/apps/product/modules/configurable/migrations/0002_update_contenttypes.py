@@ -14,6 +14,10 @@ class Migration(UpdateContentTypeMigration):
         ('product', '0011_split_products'),
     )
 
+    needed_by = (
+        ('product', '0012_update_contenttypes'),
+    )
+
     models = {
         'configurable.configurableproduct': {
             'Meta': {'object_name': 'ConfigurableProduct'},

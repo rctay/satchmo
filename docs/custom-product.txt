@@ -15,23 +15,34 @@ behavior of Satchmo before trying to customize it.
 Building your module
 --------------------
 
-In a custom product module, most of the work is done in the ``models.py`` and
-template files. You will also need an ``admin.py`` file and a ``config.py``
-file. This section contains several example files that you can add to a new
-or existing app and extend.
+In a custom product module, most of the work is done in the
+``models.py`` and template files. You will also need an ``admin.py``
+file like for any other model which shall be available in the
+admin. This section contains several example files that you can add to
+a new or existing app and extend.
 
 A basic ``models.py`` file with a custom product model looks like this::
-
 
     from django.db import models
     from django.utils.translation import ugettext_lazy as _
     from product.models import Product
+
+    SATCHMO_PRODUCT=True
+
+    def get_product_types():
+        """
+        Returns a tuple of all product subtypes this app adds
+        """
+        return ('MyNewProduct', )
 
     class MyNewProduct(models.Model):
         product = models.OneToOneField(Product, verbose_name=_('Product'),
             primary_key=True)
 
         def _get_subtype(self):
+            """
+            Has to return the name of the product subtype
+            """
             return 'MyNewProduct'
 
         def __unicode__(self):
@@ -41,45 +52,41 @@ A basic ``models.py`` file with a custom product model looks like this::
             verbose_name = _('My New Product')
             verbose_name_plural = _('My New Products')
 
+The important parts are the attribute :attr:`MyNewProduct.product`
+which links to the related :class:`product.models.Product` and the
+method :meth:`MyNewProduct._get_subtype()` which returns a string
+representation of this model.
+
+The function :func:`get_product_types()` returns a list of all custom
+product models this app adds. This method is used to discover the
+custom product models from all installed apps.
+
 
 This is the corresponding ``admin.py`` file. This file is needed to make your
-models visible in Django's admin app. Make sure that you replace ``my_app``
-with the name of your app::
-
+models visible in Django's admin app::
 
     from django.contrib import admin
-    from models import MyNewProduct # TODO: Replace app name!
+    from models import MyNewProduct
 
     admin.site.register(MyNewProduct)
-
-
-The ``config.py`` file tells Satchmo about your product model. Replace
-``my_app`` here too::
-
-
-    from django.utils.translation import ugettext_lazy as _
-    from livesettings import config_get
-
-    PRODUCT_TYPES = config_get('PRODUCT', 'PRODUCT_TYPES')
-
-    # TODO: Replace app name!
-    PRODUCT_TYPES.add_choice(('my_app::MyNewProduct', _('My New Product')))
 
 
 Configuration
 -------------
 
-Once you've created the above three files in your app, you have all the code
+Once you've created the above files in your app, you have all the code
 necessary to use your new product model in Satchmo. All that's left is the
 configuration.
 
-1. Make sure that the app with your product model is in your project's ``INSTALLED_APPS`` setting.
+1. Make sure that the app with your product model is in your project's
+   ``INSTALLED_APPS`` setting.
 
 2. Run ``python manage.py syncdb`` in your project directory.
 
 You can now use the new product model in the same way that you would use one
 of Satchmo's default product types. You will find an "Add MyNewProduct" link in
 the "Product Subtypes" section of each product's admin page.
+
 
 Extending the model and templates
 ---------------------------------
@@ -113,16 +120,69 @@ For more examples, look at ``product/models.py``,
 ``templates/base_product.html``, and ``templates/product/`` in the Satchmo
 source code.
 
+
+Using model inheritance
+-----------------------
+
+There is another possibility for extending the product model using
+model inheritance. You can find more information in the `first installment <http://thisismedium.com/tech/satchmo-diaries-part-one/>`_
+of the Satchmo Diaries.
+
+.. warning::
+
+   Using inheritance is currently not recommended, because it has some
+   issues when it is used without care. Some methods of
+   :class:`product.models.Product` currently do not expect to find
+   subtypes which inherit attributes and methods from
+   :class:`product.models.Product`.
+
+If you want to use inheritance, make sure *not* to add
+your model to the list returned by :func:`get_product_types()`, else
+you might get some trouble with infinite recursions. An alternative
+would be to extend the current implementation to be able to handle
+models which inherit from :class:`product.models.Product`.
+
+So, your ``models.py`` file should look like this::
+
+    from django.db import models
+    from django.utils.translation import ugettext_lazy as _
+    from product.models import Product
+
+    class MyNewProduct(Product):
+
+        # TODO: your attributes here
+
+        objects = ProductManager()
+
+        def __unicode__(self):
+            return u"MyNewProduct: %s" % self.name
+
+        class Meta:
+            verbose_name = _('My New Product')
+            verbose_name_plural = _('My New Products')
+
+
+To make this model available in the admin interface you should create
+a corresponding ``admin.py``::
+
+    from django.contrib import admin
+    from models import MyNewProduct
+    from product.admin import ProductOptions
+
+    # TODO: do your customizations here
+    class MyNewProductAdmin(ProductOptions):
+        pass
+
+    admin.site.register(MyNewProduct, MyNewProductAdmin)
+
+
+
 Conclusion
 ----------
 
 This document should get you started in customizing Satchmo through the product
 model. If you need help with something discussed here or with more advanced
 topics, feel free to ask the `mailing list`_.
-
-There is another possibility for extending the product model using
-model inheritance. You can find more information in the `first installment <http://thisismedium.com/tech/satchmo-diaries-part-one/>`_
-of the Satchmo Diaries.
 
 Finally, if you create a product model that others may find useful, please
 consider contributing it to the Satchmo community.

@@ -4,13 +4,6 @@ from south.v2 import DataMigration
 
 class Migration(DataMigration):
 
-    depends_on = (
-        ('configurable', '0002_update_contenttypes'),
-        ('custom', '0002_update_contenttypes'),
-        ('downloadable', '0002_update_contenttypes'),
-        ('subscription', '0002_update_contenttypes'),
-    )
-
     def forwards(self, orm):
         "Write your forwards methods here."
 

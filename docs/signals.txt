@@ -296,7 +296,7 @@ Make sure you register the forms_terms_listener by adding the following code to 
 
     form_init.connect(form_terms_listener, sender=SimplePayShipForm)
 
-The final step is to create your actual :file:`/templates/shop-terms.html`,
+The final step is to create your actual :file:`store-name/templates/localsite/shop-terms.html`,
 like this::
 
     {% extends "base.html" %}

@@ -3,7 +3,8 @@ from payment.config import credit_choices, labelled_gateway_choices
 
 class CreditChoiceCharField(models.CharField):
 
-    def __init__(self, choices="__DYNAMIC__", *args, **kwargs):
+    def __init__(self, *args, **kwargs):
+        choices = kwargs.pop("choices", "__DYNAMIC__")
         if choices == "__DYNAMIC__":
             kwargs['choices'] = credit_choices()
 
@@ -11,7 +12,8 @@ class CreditChoiceCharField(models.CharField):
 
 class PaymentChoiceCharField(models.CharField):
     
-    def __init__(self, choices="__DYNAMIC__", *args, **kwargs):
+    def __init__(self, *args, **kwargs):
+        choices = kwargs.pop("choices", "__DYNAMIC__")
         if choices == "__DYNAMIC__":
             kwargs['choices'] = labelled_gateway_choices()
                     

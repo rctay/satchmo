@@ -10,7 +10,8 @@ def shipping_choices():
 
 class ShippingChoiceCharField(models.CharField):
 
-    def __init__(self, choices="__DYNAMIC__", *args, **kwargs):
+    def __init__(self, *args, **kwargs):
+        choices = kwargs.pop("choices", "__DYNAMIC__")
         if choices == "__DYNAMIC__":
             kwargs['choices'] = shipping_choices()
 

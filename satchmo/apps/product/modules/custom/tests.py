@@ -4,12 +4,15 @@ from django.core.urlresolvers import reverse as url
 from django.test import TestCase
 from django.test.client import Client
 from django.utils.encoding import smart_str
+from django.utils.translation import get_language
+from django.contrib.sites.models import Site
 from keyedcache import cache_delete
 from l10n.models import Country
 from l10n.utils import moneyfmt
 from product.utils import rebuild_pricing
 from satchmo_store.shop.satchmo_settings import get_satchmo_setting
 from satchmo_store.shop.tests import get_step1_post_data
+from django.core.cache import cache
 
 domain = 'http://example.com'
 prefix = get_satchmo_setting('SHOP_BASE')
@@ -24,6 +27,9 @@ class ShopTest(TestCase):
         cache_delete()
         self.client = Client()
         self.US = Country.objects.get(iso2_code__iexact = "US")
+        current_site = Site.objects.get_current()
+        cache_key = "cat-%s-%s" % (current_site.id, get_language())
+        cache.delete(cache_key)
         rebuild_pricing()
 
     def tearDown(self):

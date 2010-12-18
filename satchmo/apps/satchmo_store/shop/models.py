@@ -382,7 +382,8 @@ class Cart(models.Model):
         item_to_modify.quantity -= number_removed
         if item_to_modify.quantity <= 0:
             item_to_modify.delete()
-        self.save()
+        else:
+            item_to_modify.save()
 
 
     def merge_carts(self, src_cart):

@@ -60,13 +60,13 @@ def one_rating_per_product(comment=None, request=None, **kwargs):
 
 def check_with_akismet(comment=None, request=None, **kwargs):
     if config_value("PRODUCT", "AKISMET_ENABLE"):
-        key = config_value("PRODUCT", "AKISMET_KEY")
-        if key:             
+        akismet_key = config_value("PRODUCT", "AKISMET_KEY")
+        if akismet_key:             
             site = Site.objects.get_current()
             shop = urlresolvers.reverse('satchmo_shop_home')
             from akismet import Akismet
             akismet = Akismet(
-                key=settings.AKISMET_API_KEY,
+                key=akismet_key,
                 blog_url='http://%s' % url_join(site.domain, shop))
             if akismet.verify_key():
                 akismet_data = { 'comment_type': 'comment',
@@ -80,6 +80,6 @@ def check_with_akismet(comment=None, request=None, **kwargs):
                 else:
                     log.debug("Akismet accepted comment #%i", comment.id)
             else:
-                log.warn("Akismet key '%s' not accepted by akismet service.", key)
+                log.warn("Akismet key '%s' not accepted by akismet service.", akismet_key)
         else:
             log.info("Akismet enabled, but no key found.  Please put in your admin settings.")

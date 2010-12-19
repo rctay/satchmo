@@ -89,6 +89,10 @@ A valid Django cache backend (file, memcached or DB) is required for the config 
 
   - `Sphinx`_
 
+- If you wish to enable Akismet for spam prevention on product ratings, you will need to install:
+
+  - `Akismet`_
+
 - Satchmo uses South for migrating database schema changes. It is not required
   to run the store but is very useful for migrating versions.
 
@@ -123,3 +127,4 @@ Detailed steps for installing these dependencies is included in the :doc:`new_in
 .. _DocUtils: http://docutils.sourceforge.net/
 .. _Django Livesettings: http://bitbucket.org/bkroeze/django-livesettings
 .. _Django Keyedcache: http://bitbucket.org/bkroeze/django-keyedcache
+.. _Akismet: http://www.voidspace.org.uk/python/akismet_python.html

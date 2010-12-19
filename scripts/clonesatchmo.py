@@ -22,7 +22,7 @@ import re
 from optparse import OptionParser
 import string
 
-__VERSION__ = "0.2"
+__VERSION__ = "0.3"
 
 def parse_command_line():
     usage = 'usage: %prog [options]'
@@ -112,13 +112,23 @@ def setup_satchmo(site_name, local_site_name):
     """
     Do the final configs for satchmo
     """
-    os.system('cd %s && python manage.py satchmo_copy_static' % site_name)
-    os.system('cd %s && python manage.py syncdb' % site_name)
-    os.system('cd %s && python manage.py satchmo_load_l10n' % site_name)
-    os.system('cd %s && python manage.py satchmo_load_store' % site_name)
-    os.system('cd %s && python manage.py satchmo_rebuild_pricing' % site_name)
-
-
+    errors = []
+    copy_check = os.system('cd %s && python manage.py satchmo_copy_static' % site_name)
+    if copy_check != 0:
+        errors.append("Can not copy the static files.")
+    sync_check = os.system('cd %s && python manage.py syncdb' % site_name)
+    if sync_check != 0:
+        errors.append("Can not syncdb.")
+    l10n_check = os.system('cd %s && python manage.py satchmo_load_l10n' % site_name)
+    if l10n_check != 0:
+        errors.append("Can not load l10n data.")
+    load_check = os.system('cd %s && python manage.py satchmo_load_store' % site_name)
+    if load_check != 0:
+        errors.append("Can not load sample store data.")
+    pricing_check = os.system('cd %s && python manage.py satchmo_rebuild_pricing' % site_name)
+    if pricing_check != 0:
+        errors.append("Can not rebuild pricing.")
+    return errors
     
 if __name__ == '__main__':
     opts, args = parse_command_line()
@@ -147,6 +157,11 @@ if __name__ == '__main__':
     print "Customizing the files"
     customize_files(opts.site_name, opts.local_site_name)
     print "Performing initial data synching"
-    setup_satchmo(opts.site_name, opts.local_site_name)
+    errors = setup_satchmo(opts.site_name, opts.local_site_name)
+    if errors:
+        print "Store setup had the following setup errors:"
+        for error in errors:
+            print "- %s" % error
+        exit()
     print "Store installation complete."
     print "You may run the server by typying: \n cd %s \n python manage.py runserver" % opts.site_name
